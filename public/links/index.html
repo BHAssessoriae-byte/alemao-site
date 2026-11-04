@@ -172,9 +172,9 @@
       <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
     </a>
 
-    <a class="btn anima" style="--i:5" id="btn-videos" href="#" target="_blank" rel="noopener">
+    <a class="btn anima" style="--i:5" id="btn-videos" href="/videos/">
       <svg class="ico" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4a2.6 2.6 0 0 0-1.8 1.8A27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8ZM10 15V9l5.2 3Z"/></svg>
-      <span class="txt">Vídeos e tutoriais<small>Veja as máquinas funcionando</small></span>
+      <span class="txt">Vídeos e tutoriais<small>Testes, como usar e kit completo</small></span>
       <svg class="seta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
     </a>
 
@@ -230,15 +230,12 @@
 <script>
   // Número do WhatsApp da loja (só dígitos, com 55 + DDD). A CONFIRMAR com o cliente.
   const WHATSAPP = "5517997069595";
-  // Link dos vídeos: canal do YouTube da Alemão (provisório, até ter vídeos no site).
-  const VIDEOS = "https://www.youtube.com/@alemaoafiacao5676";
 
   document.querySelectorAll("[data-wa]").forEach(a => {
     const msg = encodeURIComponent(a.dataset.wa);
     a.href = WHATSAPP ? `https://wa.me/${WHATSAPP}?text=${msg}` : "https://www.instagram.com/afiacaoalemao/";
     a.target = "_blank"; a.rel = "noopener";
   });
-  document.getElementById("btn-videos").href = VIDEOS;
   // ===== interações =====
   const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const logo = document.querySelector(".logo");
