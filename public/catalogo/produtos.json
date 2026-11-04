@@ -1,0 +1,388 @@
+{
+ "atualizado": "2026-11-04",
+ "whatsapp": "5517997069595",
+ "aviso": "Preços conforme catálogo de 01/10/2026. Descrições completas, compatibilidade das peças e unidade das medidas: A CONFIRMAR com o cliente.",
+ "categorias": [
+  {
+   "id": "alicate",
+   "nome": "Afiar alicate de cutícula"
+  },
+  {
+   "id": "compacta",
+   "nome": "Máquina compacta"
+  },
+  {
+   "id": "tesoura",
+   "nome": "Afiar tesouras e facas"
+  },
+  {
+   "id": "basica",
+   "nome": "Máquinas básicas"
+  },
+  {
+   "id": "pecas",
+   "nome": "Peças e acessórios"
+  }
+ ],
+ "produtos": [
+  {
+   "id": "a1",
+   "cat": "alicate",
+   "tipo": "maquina",
+   "nome": "Máquina de Afiar Alicate de Cutícula A1",
+   "modelo": "A1",
+   "preco": 4350,
+   "medidas": {
+    "altura": 30,
+    "largura": 33,
+    "comprimento": 46
+   },
+   "imgs": [
+    "img/p02-1.webp",
+    "img/p02-2.webp"
+   ]
+  },
+  {
+   "id": "a2",
+   "cat": "alicate",
+   "tipo": "maquina",
+   "nome": "Máquina de Afiar Alicate de Cutícula A2",
+   "modelo": "A2",
+   "preco": 5850,
+   "destaque": "Com controlador de velocidade",
+   "medidas": {
+    "altura": 38,
+    "largura": 33,
+    "comprimento": 46
+   },
+   "imgs": [
+    "img/p03-1.webp",
+    "img/p03-2.webp"
+   ]
+  },
+  {
+   "id": "a4",
+   "cat": "alicate",
+   "tipo": "maquina",
+   "nome": "Máquina de Afiar Alicate de Cutícula A4",
+   "modelo": "A4",
+   "preco": 3900,
+   "medidas": {
+    "altura": 37,
+    "largura": 27,
+    "comprimento": 36
+   },
+   "imgs": [
+    "img/p07-1.webp",
+    "img/p07-2.webp"
+   ]
+  },
+  {
+   "id": "a3",
+   "cat": "compacta",
+   "tipo": "maquina",
+   "nome": "Máquina Compacta A3",
+   "modelo": "A3",
+   "preco": 3900,
+   "medidas": {
+    "altura": 41,
+    "largura": 36,
+    "comprimento": 27
+   },
+   "imgs": [
+    "img/p04-1.webp"
+   ]
+  },
+  {
+   "id": "tf1",
+   "cat": "tesoura",
+   "tipo": "maquina",
+   "nome": "Máquina de Afiar Tesoura e Facas TF1 (Completo)",
+   "modelo": "TF1",
+   "preco": 2980,
+   "imgs": [
+    "img/p06-1.webp"
+   ]
+  },
+  {
+   "id": "tf2",
+   "cat": "tesoura",
+   "tipo": "maquina",
+   "nome": "Máquina de Afiar Tesoura e Facas TF2 (Simples)",
+   "modelo": "TF2",
+   "preco": 1980,
+   "imgs": [
+    "img/p05-1.webp"
+   ]
+  },
+  {
+   "id": "a5",
+   "cat": "basica",
+   "tipo": "maquina",
+   "nome": "Máquina A5 Basiquinha",
+   "modelo": "A5",
+   "preco": 2350,
+   "imgs": [
+    "img/p08-1.webp"
+   ]
+  },
+  {
+   "id": "guilhotina",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Guilhotina",
+   "preco": 130,
+   "imgs": [
+    "img/p09-1.webp"
+   ]
+  },
+  {
+   "id": "alinhador",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Alinhador de Bico de Alicate e Tesoura",
+   "preco": 110,
+   "imgs": [
+    "img/p10-1.webp"
+   ]
+  },
+  {
+   "id": "tirador-folga",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Tirador de Folga",
+   "preco": 190,
+   "imgs": [
+    "img/p11-1.webp",
+    "img/p11-2.webp"
+   ]
+  },
+  {
+   "id": "tirador-folga-3x1",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Tirador de Folga 3x1",
+   "preco": 290,
+   "imgs": [
+    "img/p12-1.webp",
+    "img/p12-2.webp"
+   ]
+  },
+  {
+   "id": "rampa-laminacao",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Rampa Laminação Interna",
+   "preco": 260,
+   "destaque": "Com regulagem",
+   "imgs": [
+    "img/p13-1.webp",
+    "img/p13-2.webp"
+   ]
+  },
+  {
+   "id": "rampa-fio",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Rampa de Fio",
+   "preco": 260,
+   "imgs": [
+    "img/p14-1.webp",
+    "img/p14-2.webp"
+   ]
+  },
+  {
+   "id": "balanceador",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Balanceador de Rebolo",
+   "preco": 430,
+   "imgs": [
+    "img/p15-1.webp",
+    "img/p15-2.webp"
+   ]
+  },
+  {
+   "id": "eixo-mancal-a1",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Eixo Mancal sem Rebolo com Balanceador",
+   "preco": 995,
+   "servePara": "Modelo A1",
+   "imgs": [
+    "img/p16-1.webp",
+    "img/p16-2.webp"
+   ]
+  },
+  {
+   "id": "eixo-mancal-a2",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Eixo Mancal Simples",
+   "preco": 895,
+   "servePara": "Modelo A2",
+   "imgs": [
+    "img/p17-1.webp",
+    "img/p17-2.webp"
+   ]
+  },
+  {
+   "id": "kit-rampa-completo",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Kit Rampa Completo",
+   "preco": 760,
+   "servePara": "Modelo A1",
+   "imgs": [
+    "img/p18-1.webp"
+   ]
+  },
+  {
+   "id": "kit-rampa-simples",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Kit Rampa Simples",
+   "preco": 560,
+   "servePara": "Modelo A2",
+   "imgs": [
+    "img/p19-1.webp"
+   ]
+  },
+  {
+   "id": "braco-articulado",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Braço Articulado Afiação de Tesouras",
+   "preco": 760,
+   "imgs": [
+    "img/p20-1.webp",
+    "img/p20-2.webp"
+   ]
+  },
+  {
+   "id": "jig-faca",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Jig de Faca para Afiação de Facas",
+   "preco": 470,
+   "imgs": [
+    "img/p21-1.webp",
+    "img/p21-2.webp"
+   ]
+  },
+  {
+   "id": "martelo-bola",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Martelo Bola",
+   "preco": 140,
+   "imgs": [
+    "img/p22-1.webp"
+   ]
+  },
+  {
+   "id": "dressador-lima",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Dressador com Lima",
+   "preco": 290,
+   "imgs": [
+    "img/p23-1.webp"
+   ]
+  },
+  {
+   "id": "bloquinho-dressador",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Bloquinho do Dressador",
+   "preco": 190,
+   "imgs": [
+    "img/p24-1.webp",
+    "img/p24-2.webp"
+   ]
+  },
+  {
+   "id": "dressador-d91",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Dressador D91",
+   "preco": 370,
+   "destaque": "Parte de cima e de baixo",
+   "imgs": [
+    "img/p25-1.webp",
+    "img/p25-2.webp"
+   ]
+  },
+  {
+   "id": "flange-balanceadora",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Flange Balanceadora",
+   "preco": 125,
+   "imgs": [
+    "img/p26-1.webp"
+   ]
+  },
+  {
+   "id": "flange-centralizadora",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Flange Centralizadora",
+   "preco": 85,
+   "imgs": [
+    "img/p27-1.webp"
+   ]
+  },
+  {
+   "id": "polia-motor",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Polia do Motor",
+   "preco": 55,
+   "imgs": [
+    "img/p28-1.webp"
+   ]
+  },
+  {
+   "id": "polia-motor-controle",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Polia do Motor (Controle)",
+   "preco": 140,
+   "variantes": [
+    {
+     "nome": "Sem correia",
+     "preco": 140
+    },
+    {
+     "nome": "Com correia",
+     "preco": 170
+    }
+   ],
+   "imgs": [
+    "img/p29-1.webp"
+   ]
+  },
+  {
+   "id": "motor",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Motor 110/220V",
+   "preco": 350,
+   "destaque": "Motor de bomba d'água · ½ CV · 3450 RPM",
+   "imgs": [
+    "img/p30-1.webp"
+   ]
+  },
+  {
+   "id": "base-ferro",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Base de Ferro",
+   "preco": 750,
+   "imgs": [
+    "img/p31-1.webp"
+   ]
+  }
+ ]
+}
