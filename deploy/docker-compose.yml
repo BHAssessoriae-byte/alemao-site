@@ -1,0 +1,27 @@
+# Projeto "alemao-site" no Gerenciador Docker da Hostinger (VPS srv2124616)
+services:
+  site:
+    image: nginx:1.27-alpine
+    restart: unless-stopped
+    depends_on:
+      - puller
+    volumes:
+      - site_data:/srv:ro
+    command: ["/bin/sh", "-c", "until [ -f /srv/repo/deploy/site.conf ]; do sleep 2; done; cp /srv/repo/deploy/site.conf /etc/nginx/conf.d/default.conf; exec nginx -g 'daemon off;'"]
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.alemao-site.rule=Host(`alemaoafiacao.com.br`) || Host(`www.alemaoafiacao.com.br`)
+      - traefik.http.routers.alemao-site.entrypoints=websecure
+      - traefik.http.routers.alemao-site.tls.certresolver=letsencrypt
+      - traefik.http.services.alemao-site.loadbalancer.server.port=80
+
+  puller:
+    image: alpine/git:latest
+    restart: unless-stopped
+    entrypoint: ["/bin/sh", "-c"]
+    command: ["[ -d /srv/repo/.git ] || git clone --depth 1 https://github.com/BHAssessoriae-byte/alemao-site.git /srv/repo; while true; do cd /srv/repo && git fetch --depth 1 origin main && git reset --hard origin/main; sleep 120; done"]
+    volumes:
+      - site_data:/srv
+
+volumes:
+  site_data:
