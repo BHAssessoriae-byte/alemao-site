@@ -1,7 +1,7 @@
 {
  "atualizado": "2026-11-04",
  "whatsapp": "5517997069595",
- "aviso": "Preços conforme catálogo de 01/10/2026. Descrições completas, compatibilidade das peças e unidade das medidas: A CONFIRMAR com o cliente.",
+ "aviso": "Preços conforme catálogo de 01/10/2026. Descrições completas, compatibilidade das peças e unidade das medidas: A CONFIRMAR com o cliente. Cores (laranja/verde) conforme fotos do catálogo: A CONFIRMAR disponibilidade.",
  "categorias": [
   {
    "id": "alicate",
@@ -40,6 +40,16 @@
    "imgs": [
     "img/p02-1.webp",
     "img/p02-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p02-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p02-2.webp"
+    }
    ]
   },
   {
@@ -58,6 +68,16 @@
    "imgs": [
     "img/p03-1.webp",
     "img/p03-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p03-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p03-2.webp"
+    }
    ]
   },
   {
@@ -75,6 +95,16 @@
    "imgs": [
     "img/p07-1.webp",
     "img/p07-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p07-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p07-2.webp"
+    }
    ]
   },
   {
@@ -91,6 +121,12 @@
    },
    "imgs": [
     "img/p04-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Verde",
+     "img": "img/p04-1.webp"
+    }
    ]
   },
   {
