@@ -497,3 +497,15 @@ fieldset.campo{border:0;padding:0;margin:0}
 }
 @media (min-width:2000px){:root{--larg:1840px}html{font-size:17px}}
 @media (min-width:2400px){:root{--larg:2040px}html{font-size:18px}}
+/* PC: título à esquerda e filtros à direita, sem sobra */
+@media (min-width:1280px){
+  .topo-secao>div:first-child{max-width:62%}
+  .topo-secao h2{max-width:20ch}
+  #maquinas .topo-secao{align-items:flex-end}
+  #maquinas .chips{justify-content:flex-end;max-width:36%}
+}
+/* telas muito largas: a foto da abertura ocupa mais da esquerda */
+@media (min-width:1700px){
+  .hero__bg .zoom{left:20%;right:-2%}
+  .hero::after{background:linear-gradient(90deg,var(--preto) 0%,rgba(11,11,11,.96) 18%,rgba(11,11,11,.86) 34%,rgba(11,11,11,.35) 50%,rgba(11,11,11,0) 62%,rgba(11,11,11,0) 88%,rgba(11,11,11,.5) 100%),linear-gradient(0deg,var(--preto) 0%,transparent 24%),linear-gradient(180deg,rgba(11,11,11,.6) 0%,transparent 18%)}
+}
