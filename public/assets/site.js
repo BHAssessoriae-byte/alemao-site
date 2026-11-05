@@ -162,11 +162,20 @@
   const pecas = $$(".peca"), maisBtn = $("#mais-pecas"), vazio = $("#grade-pecas .vazio"), busca = $("#busca-peca");
   let todas = false;
   const norm = s => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+  let tipo = "todos";
   const filtraPecas = () => {
     const q = norm(busca.value.trim()); let n = 0;
-    pecas.forEach(p => { const ok = q ? p.dataset.busca.includes(q) : (todas || !p.hasAttribute("data-extra")); p.hidden = !ok; if (ok) { n++; p.classList.add("vis"); } });
-    vazio.hidden = n > 0; maisBtn.hidden = todas || !!q;
+    const livre = todas || !!q || tipo !== "todos";
+    pecas.forEach(p => {
+      const ok = (tipo === "todos" || p.dataset.tipo === tipo) && (q ? p.dataset.busca.includes(q) : (livre || !p.hasAttribute("data-extra")));
+      p.hidden = !ok; if (ok) { n++; p.classList.add("vis"); }
+    });
+    vazio.hidden = n > 0; maisBtn.hidden = livre;
   };
+  $$(".chips--claro .chip").forEach(c => c.addEventListener("click", () => {
+    $$(".chips--claro .chip").forEach(x => x.setAttribute("aria-pressed", x === c));
+    tipo = c.dataset.t; filtraPecas();
+  }));
   busca.addEventListener("input", filtraPecas);
   maisBtn.addEventListener("click", () => { todas = true; filtraPecas(); });
 
@@ -204,7 +213,7 @@
     const uso = (f.querySelector("input[name=uso]:checked") || {}).value;
     const obs = f.obs.value.trim();
     const l = ["Olá! Quero um orçamento pelo site www.alemaoafiacao.com.br", ""];
-    l.push(p ? `*${p.tipo === "maquina" ? "Máquina" : "Peça"}:* ${p.nome} (${p.preco})` : "*Máquina:* ainda não sei, quero ajuda para escolher");
+    l.push(p ? `*${({ maquina: "Máquina", equipamento: "Equipamento" })[p.tipo] || "Peça"}:* ${p.nome} (${p.preco})` : "*Máquina:* ainda não sei, quero ajuda para escolher");
     if (p && p.cores.length > 1 && cor) l.push(`*Cor:* ${cor}`);
     l.push(`*Nome:* ${nome}`, `*Cidade:* ${cidade}`);
     if (uso) l.push(`*Uso:* ${uso}`);

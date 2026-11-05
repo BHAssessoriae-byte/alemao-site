@@ -1,7 +1,7 @@
 {
  "atualizado": "2026-11-04",
  "whatsapp": "5517997069595",
- "aviso": "Preços conforme catálogo de 01/10/2026. Descrições completas, compatibilidade das peças e unidade das medidas: A CONFIRMAR com o cliente. Cores (laranja/verde) conforme fotos do catálogo: A CONFIRMAR disponibilidade.",
+ "aviso": "Preços conforme catálogo de 01/10/2026. Descrições completas, compatibilidade das peças e unidade das medidas: A CONFIRMAR com o cliente. Todas as máquinas em laranja e verde (confirmado pelo Bruno em 05/11/2026); fotos verdes de TF1, TF2, A5 e laranja da A3 são recolorizações ilustrativas.",
  "categorias": [
   {
    "id": "alicate",
@@ -20,8 +20,12 @@
    "nome": "Máquinas básicas"
   },
   {
+   "id": "equipamentos",
+   "nome": "Equipamentos"
+  },
+  {
    "id": "pecas",
-   "nome": "Peças e acessórios"
+   "nome": "Peças"
   }
  ],
  "produtos": [
@@ -124,6 +128,10 @@
    ],
    "cores": [
     {
+     "nome": "Laranja",
+     "img": "img/p04-1-laranja.webp"
+    },
+    {
      "nome": "Verde",
      "img": "img/p04-1.webp"
     }
@@ -138,6 +146,16 @@
    "preco": 2980,
    "imgs": [
     "img/p06-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p06-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p06-1-verde.webp"
+    }
    ]
   },
   {
@@ -149,6 +167,16 @@
    "preco": 1980,
    "imgs": [
     "img/p05-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p05-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p05-1-verde.webp"
+    }
    ]
   },
   {
@@ -160,12 +188,22 @@
    "preco": 2350,
    "imgs": [
     "img/p08-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p08-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p08-1-verde.webp"
+    }
    ]
   },
   {
    "id": "guilhotina",
-   "cat": "pecas",
-   "tipo": "peca",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
    "nome": "Guilhotina",
    "preco": 130,
    "imgs": [
@@ -174,8 +212,8 @@
   },
   {
    "id": "alinhador",
-   "cat": "pecas",
-   "tipo": "peca",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
    "nome": "Alinhador de Bico de Alicate e Tesoura",
    "preco": 110,
    "imgs": [
@@ -184,8 +222,8 @@
   },
   {
    "id": "tirador-folga",
-   "cat": "pecas",
-   "tipo": "peca",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
    "nome": "Tirador de Folga",
    "preco": 190,
    "imgs": [
@@ -195,13 +233,67 @@
   },
   {
    "id": "tirador-folga-3x1",
-   "cat": "pecas",
-   "tipo": "peca",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
    "nome": "Tirador de Folga 3x1",
    "preco": 290,
    "imgs": [
     "img/p12-1.webp",
     "img/p12-2.webp"
+   ]
+  },
+  {
+   "id": "jig-faca",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Jig de Faca para Afiação de Facas",
+   "preco": 470,
+   "imgs": [
+    "img/p21-1.webp",
+    "img/p21-2.webp"
+   ]
+  },
+  {
+   "id": "martelo-bola",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Martelo Bola",
+   "preco": 140,
+   "imgs": [
+    "img/p22-1.webp"
+   ]
+  },
+  {
+   "id": "dressador-lima",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Dressador com Lima",
+   "preco": 290,
+   "imgs": [
+    "img/p23-1.webp"
+   ]
+  },
+  {
+   "id": "dressador-d91",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Dressador D91",
+   "preco": 370,
+   "destaque": "Parte de cima e de baixo",
+   "imgs": [
+    "img/p25-1.webp",
+    "img/p25-2.webp"
+   ]
+  },
+  {
+   "id": "motor",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Motor 110/220V",
+   "preco": 350,
+   "destaque": "Motor de bomba d'água · ½ CV · 3450 RPM",
+   "imgs": [
+    "img/p30-1.webp"
    ]
   },
   {
@@ -296,37 +388,6 @@
    ]
   },
   {
-   "id": "jig-faca",
-   "cat": "pecas",
-   "tipo": "peca",
-   "nome": "Jig de Faca para Afiação de Facas",
-   "preco": 470,
-   "imgs": [
-    "img/p21-1.webp",
-    "img/p21-2.webp"
-   ]
-  },
-  {
-   "id": "martelo-bola",
-   "cat": "pecas",
-   "tipo": "peca",
-   "nome": "Martelo Bola",
-   "preco": 140,
-   "imgs": [
-    "img/p22-1.webp"
-   ]
-  },
-  {
-   "id": "dressador-lima",
-   "cat": "pecas",
-   "tipo": "peca",
-   "nome": "Dressador com Lima",
-   "preco": 290,
-   "imgs": [
-    "img/p23-1.webp"
-   ]
-  },
-  {
    "id": "bloquinho-dressador",
    "cat": "pecas",
    "tipo": "peca",
@@ -335,18 +396,6 @@
    "imgs": [
     "img/p24-1.webp",
     "img/p24-2.webp"
-   ]
-  },
-  {
-   "id": "dressador-d91",
-   "cat": "pecas",
-   "tipo": "peca",
-   "nome": "Dressador D91",
-   "preco": 370,
-   "destaque": "Parte de cima e de baixo",
-   "imgs": [
-    "img/p25-1.webp",
-    "img/p25-2.webp"
    ]
   },
   {
@@ -397,17 +446,6 @@
    ],
    "imgs": [
     "img/p29-1.webp"
-   ]
-  },
-  {
-   "id": "motor",
-   "cat": "pecas",
-   "tipo": "peca",
-   "nome": "Motor 110/220V",
-   "preco": 350,
-   "destaque": "Motor de bomba d'água · ½ CV · 3450 RPM",
-   "imgs": [
-    "img/p30-1.webp"
    ]
   },
   {

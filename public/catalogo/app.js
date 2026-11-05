@@ -10,6 +10,7 @@ function mensagem(p, variante){
   const v = variante ? ` – ${variante.nome}` : "";
   return p.tipo === "maquina"
     ? `Olá! Vi no catálogo online e tenho interesse na *${p.nome}* (${preco}).`
+    : p.tipo === "equipamento" ? `Olá! Vi no catálogo online e quero o equipamento *${p.nome}${v}* (${preco}).`
     : `Olá! Vi no catálogo online e quero a peça *${p.nome}${v}* (${preco}).`;
 }
 
@@ -75,7 +76,7 @@ function montar(){
     const itens = DADOS.produtos.filter(p => p.cat === c.id);
     const sec = document.createElement("section"); sec.className = "cat"; sec.id = c.id; sec.dataset.cat = c.id;
     sec.innerHTML = `<h2><i>///</i>${c.nome} <small>${itens.length} ${itens.length>1?"itens":"item"}</small></h2>`;
-    const g = document.createElement("div"); g.className = "grade" + (c.id === "pecas" ? " pecas" : "");
+    const g = document.createElement("div"); g.className = "grade" + ((c.id === "pecas" || c.id === "equipamentos") ? " pecas" : "");
     itens.forEach(p => g.appendChild(card(p)));
     sec.appendChild(g);
     if (c.id === "alicate") sec.appendChild(comparativo());
@@ -132,4 +133,4 @@ function ondas(){
   });
 }
 
-fetch("produtos.json").then(r => r.json()).then(d => { DADOS = d; montar(); });
+fetch("produtos.json").then(r => r.json()).then(d => { d.produtos.forEach(p => { if (p.cores) p.imgs = p.cores.map(c => c.img); }); DADOS = d; montar(); });

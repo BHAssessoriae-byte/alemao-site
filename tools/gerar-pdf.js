@@ -10,6 +10,7 @@ const brl = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" 
 const wa = t => `https://wa.me/${D.whatsapp}?text=${encodeURIComponent(t)}`;
 const msg = p => p.tipo === "maquina"
   ? `Olá! Vi no catálogo em PDF e tenho interesse na *${p.nome}* (${brl(p.preco)}).`
+  : p.tipo === "equipamento" ? `Olá! Vi no catálogo em PDF e quero o equipamento *${p.nome}* (${brl(p.preco)}).`
   : `Olá! Vi no catálogo em PDF e quero a peça *${p.nome}* (${brl(p.preco)}).`;
 const img = s => "file://" + path.join(dir, s);
 const logo = "file://" + path.join(raiz, "public/links/img/logo-alemao.webp");
@@ -30,7 +31,7 @@ const card = p => `
 
 const secoes = D.categorias.map(c => {
   const itens = D.produtos.filter(p => p.cat === c.id);
-  return `<section class="${c.id === "pecas" ? "pecas" : ""}"><h2><i>///</i> ${c.nome}</h2><div class="grade">${itens.map(card).join("")}</div></section>`;
+  return `<section class="${(c.id === "pecas" || c.id === "equipamentos") ? "pecas" : ""}"><h2><i>///</i> ${c.nome}</h2><div class="grade">${itens.map(card).join("")}</div></section>`;
 }).join("");
 
 const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><style>
@@ -52,9 +53,9 @@ h2 i{color:#F36C10;letter-spacing:-1pt}
 .grade{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
 section.pecas .grade{grid-template-columns:1fr 1fr 1fr;gap:4mm}
 .item{display:flex;flex-direction:column;background:#171717;border-radius:2mm;overflow:hidden;text-decoration:none;color:inherit;break-inside:avoid}
-.foto{position:relative;height:62mm;display:flex;align-items:center;justify-content:center;padding:5mm;background:radial-gradient(circle at 50% 50%,rgba(243,108,16,.16),transparent 60%)}
+.foto{position:relative;height:62mm;display:flex;align-items:center;justify-content:center;padding:5mm}
 section.pecas .foto{height:40mm;padding:3mm}
-.foto img{max-width:100%;max-height:100%;object-fit:contain}
+.foto img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 3mm 3mm rgba(0,0,0,.55))}
 .selo{position:absolute;top:3mm;left:3mm;background:#F36C10;color:#111;font-weight:800;font-size:8pt;padding:1mm 2.5mm}
 .txt{padding:2mm 4mm 4mm;display:flex;flex-direction:column;gap:1.4mm;flex:1}
 h3{font-size:10.5pt;font-weight:700;line-height:1.3}

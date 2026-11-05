@@ -14,6 +14,8 @@ const img = s => "/catalogo/" + s;
 const P = Object.fromEntries(D.produtos.map(p => [p.id, p]));
 const maquinas = D.produtos.filter(p => p.tipo === "maquina");
 const pecas = D.produtos.filter(p => p.tipo === "peca");
+const equips = D.produtos.filter(p => p.tipo === "equipamento");
+const acess = [...equips, ...pecas];
 const med = p => p.medidas ? `${p.medidas.altura} × ${p.medidas.largura} × ${p.medidas.comprimento} (A × L × C)` : "";
 const corHex = { Laranja: "#F36C10", Verde: "#6CC72B" };
 
@@ -55,7 +57,7 @@ const cardMaq = (p, i) => {
 };
 
 // ---- Cards de peças
-const cardPeca = (p, i) => `<article class="peca rv" data-busca="${esc((p.nome + " " + (p.servePara || "") + " " + (p.destaque || "")).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""))}"${i >= 8 ? " data-extra hidden" : ""} style="--i:${i % 4}">
+const cardPeca = (p, i) => `<article class="peca rv" data-tipo="${p.tipo}" data-busca="${esc((p.nome + " " + (p.servePara || "") + " " + (p.destaque || "")).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""))}"${i >= 8 ? " data-extra hidden" : ""} style="--i:${i % 4}">
         <div class="peca__foto"><img src="${img(p.imgs[0])}" alt="${esc(p.nome)}" loading="lazy" decoding="async"></div>
         <div class="peca__corpo">
           <h3>${esc(p.nome)}</h3>
@@ -63,7 +65,8 @@ const cardPeca = (p, i) => `<article class="peca rv" data-busca="${esc((p.nome +
           ${p.servePara ? `<div class="serve">Serve para: <b>${esc(p.servePara)}</b></div>` : ""}
           ${p.variantes ? `<div class="var">${p.variantes.map(v => `${esc(v.nome)}: ${brl(v.preco)}`).join(" · ")}</div>` : ""}
           <div class="preco">${p.variantes ? "<small>a partir de</small>" : ""}${brl(p.preco)}</div>
-          <a href="${wa(`Olá! Vi no site e quero a peça *${p.nome}* (${brl(p.preco)}).`)}" target="_blank" rel="noopener" aria-label="Pedir ${esc(p.nome)} no WhatsApp">Pedir ${ICO.seta}</a>
+          <span class="peca__tipo">${p.tipo === "equipamento" ? "Equipamento" : "Peça"}</span>
+          <a href="${wa(`Olá! Vi no site e quero ${p.tipo === "equipamento" ? "o equipamento" : "a peça"} *${p.nome}* (${brl(p.preco)}).`)}" target="_blank" rel="noopener" aria-label="Pedir ${esc(p.nome)} no WhatsApp">Pedir ${ICO.seta}</a>
         </div>
       </article>`;
 
@@ -83,7 +86,8 @@ const chips = cats.map(c => `<button class="chip" type="button" aria-pressed="fa
 
 // ---- Opções do formulário
 const opcoes = `<optgroup label="Máquinas">${maquinas.map(p => `<option value="${p.id}">${esc(p.nome)} · ${brl(p.preco)}</option>`).join("")}</optgroup>
-          <optgroup label="Peças e acessórios">${pecas.map(p => `<option value="${p.id}">${esc(p.nome)} · ${brl(p.preco)}</option>`).join("")}</optgroup>`;
+          <optgroup label="Equipamentos">${equips.map(p => `<option value="${p.id}">${esc(p.nome)} · ${brl(p.preco)}</option>`).join("")}</optgroup>
+          <optgroup label="Peças">${pecas.map(p => `<option value="${p.id}">${esc(p.nome)} · ${brl(p.preco)}</option>`).join("")}</optgroup>`;
 
 // ---- Dados para o JS
 const dados = {
@@ -121,11 +125,11 @@ const jsonld = {
 
 const [y, m, d] = D.atualizado.split("-");
 const versao = Date.now().toString(36);
-const precoMinPeca = Math.min(...pecas.map(p => p.preco));
+const precoMinPeca = Math.min(...acess.map(p => p.preco));
 
 html = html
   .replace("{{MAQUINAS}}", maquinas.map(cardMaq).join("\n      "))
-  .replace("{{PECAS}}", pecas.map(cardPeca).join("\n      "))
+  .replace("{{PECAS}}", acess.map(cardPeca).join("\n      "))
   .replace("{{VIDEOS}}", vids.map(cardVid).join("\n      "))
   .replace("{{CHIPS}}", chips)
   .replace("{{MAPA}}", fs.readFileSync(path.join(raiz, "src/mapa.html"), "utf8"))
@@ -135,6 +139,8 @@ html = html
   .replace(/{{VERSAO}}/g, versao)
   .replace(/{{N_MAQ}}/g, maquinas.length)
   .replace(/{{N_PECAS}}/g, pecas.length)
+  .replace(/{{N_EQUIP}}/g, equips.length)
+  .replace(/{{N_ACESS}}/g, acess.length)
   .replace(/{{ATUALIZADO}}/g, `${d}/${m}/${y}`)
   .replace(/{{preco_min_peca}}/g, brl(precoMinPeca))
   .replace(/{{preco:([\w-]+)}}/g, (_, id) => brl(P[id].preco))
