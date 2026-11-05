@@ -100,10 +100,10 @@ const jsonld = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Store", "@id": "https://alemaoafiacao.com.br/#loja", name: "Alemão Afiação",
+      "@type": "Store", "@id": "https://www.alemaoafiacao.com.br/#loja", name: "Alemão Afiação",
       legalName: "ANTONIO JOSE CARLOS CRISTIANO LTDA", taxID: "32.191.657/0001-70",
-      url: "https://alemaoafiacao.com.br/", logo: "https://alemaoafiacao.com.br/assets/img/logo-v.webp",
-      image: "https://alemaoafiacao.com.br/assets/img/og.jpg", telephone: "+55-17-99706-9595",
+      url: "https://www.alemaoafiacao.com.br/", logo: "https://www.alemaoafiacao.com.br/assets/img/logo-v.webp",
+      image: "https://www.alemaoafiacao.com.br/assets/img/og.jpg", telephone: "+55-17-99706-9595",
       address: { "@type": "PostalAddress", streetAddress: "R. Antonio Galera Lopes, 2728, Pozzobon", addressLocality: "Votuporanga", addressRegion: "SP", postalCode: "15503-024", addressCountry: "BR" },
       openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "20:00" }],
       sameAs: ["https://www.instagram.com/afiacaoalemao/", "https://www.facebook.com/alemao.afiacao70", "https://www.youtube.com/@alemaoafiacao5676"]
@@ -112,8 +112,8 @@ const jsonld = {
       "@type": "ItemList", name: "Máquinas de afiação Alemão",
       itemListElement: maquinas.map((p, i) => ({
         "@type": "ListItem", position: i + 1,
-        item: { "@type": "Product", name: p.nome, brand: { "@type": "Brand", name: "Alemão" }, image: "https://alemaoafiacao.com.br" + img(p.imgs[0]),
-          offers: { "@type": "Offer", price: p.preco.toFixed(2), priceCurrency: "BRL", url: "https://alemaoafiacao.com.br/#maquinas", seller: { "@id": "https://alemaoafiacao.com.br/#loja" } } }
+        item: { "@type": "Product", name: p.nome, brand: { "@type": "Brand", name: "Alemão" }, image: "https://www.alemaoafiacao.com.br" + img(p.imgs[0]),
+          offers: { "@type": "Offer", price: p.preco.toFixed(2), priceCurrency: "BRL", url: "https://www.alemaoafiacao.com.br/#maquinas", seller: { "@id": "https://www.alemaoafiacao.com.br/#loja" } } }
       }))
     }
   ]

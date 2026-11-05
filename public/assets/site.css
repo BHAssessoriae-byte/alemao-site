@@ -28,7 +28,9 @@ button,input,select,textarea{font:inherit;color:inherit}
 .pular{position:fixed;left:12px;top:-60px;z-index:200;background:var(--laranja);color:#111;padding:10px 14px;font-weight:700;text-decoration:none;transition:top .2s}
 .pular:focus{top:12px}
 .wrap{width:100%;max-width:var(--larg);margin:0 auto;padding:0 var(--gut)}
-.secao{padding:clamp(72px,10vw,128px) 0;position:relative}
+.secao{padding:clamp(72px,10vw,128px) 0;position:relative;overflow-x:hidden;overflow-x:clip}
+html,body{overflow-x:hidden}
+@supports (overflow:clip){html,body{overflow-x:clip}}
 
 /* ---------- Tipografia ---------- */
 h1,h2,h3{margin:0;line-height:1.08;letter-spacing:-.02em}

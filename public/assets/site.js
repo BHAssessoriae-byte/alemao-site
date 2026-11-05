@@ -63,7 +63,7 @@
   /* ---------- Revelação ao rolar ---------- */
   if ("IntersectionObserver" in window && !reduz) {
     const io = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) { const el = e.target; el.classList.add("vis"); io.unobserve(el); setTimeout(() => el.classList.remove("rv", "vis"), 2200); }
+      if (e.isIntersecting) { const el = e.target; el.classList.add("vis"); io.unobserve(el); setTimeout(() => el.classList.remove("rv"), 2200); }
     }), { rootMargin: "0px 0px -6% 0px", threshold: .05 });
     $$(".rv").forEach(el => io.observe(el));
     const ioH = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vis"); ioH.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
@@ -203,7 +203,7 @@
     const cor = (f.querySelector("input[name=cor]:checked") || {}).value;
     const uso = (f.querySelector("input[name=uso]:checked") || {}).value;
     const obs = f.obs.value.trim();
-    const l = ["Olá! Quero um orçamento pelo site alemaoafiacao.com.br", ""];
+    const l = ["Olá! Quero um orçamento pelo site www.alemaoafiacao.com.br", ""];
     l.push(p ? `*${p.tipo === "maquina" ? "Máquina" : "Peça"}:* ${p.nome} (${p.preco})` : "*Máquina:* ainda não sei, quero ajuda para escolher");
     if (p && p.cores.length > 1 && cor) l.push(`*Cor:* ${cor}`);
     l.push(`*Nome:* ${nome}`, `*Cidade:* ${cidade}`);
