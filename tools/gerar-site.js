@@ -6,7 +6,18 @@ const D = JSON.parse(fs.readFileSync(path.join(raiz, "public/catalogo/produtos.j
 const V = JSON.parse(fs.readFileSync(path.join(raiz, "public/videos/videos.json"), "utf8"));
 let html = fs.readFileSync(path.join(raiz, "src/index.html"), "utf8");
 
-const WA = D.whatsapp;
+const C = JSON.parse(fs.readFileSync(path.join(raiz, "src/config.json"), "utf8"));
+// o número e as redes do config.json valem para tudo: sincroniza os JSONs usados pelo catálogo e pelos vídeos
+const salvaJSON = (arq, obj) => fs.writeFileSync(path.join(raiz, arq), JSON.stringify(obj, null, 1) + "\n");
+if (D.whatsapp !== C.whatsapp) { D.whatsapp = C.whatsapp; salvaJSON("public/catalogo/produtos.json", D); }
+if (V.whatsapp !== C.whatsapp || V.youtube !== C.youtube) { V.whatsapp = C.whatsapp; V.youtube = C.youtube; salvaJSON("public/videos/videos.json", V); }
+const pega = k => k.split(".").reduce((o, x) => (o == null ? o : o[x]), C);
+const preencher = t => t.replace(/{{c\.([\w.]+)(:cap)?}}/g, (m, k, cap) => {
+  const v = pega(k); if (v == null) throw new Error("config.json sem o campo " + k);
+  const t2 = String(v); return cap ? t2.charAt(0).toUpperCase() + t2.slice(1) : t2;
+});
+html = preencher(html);
+const WA = C.whatsapp;
 const brl = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const esc = s => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 const wa = t => `https://wa.me/${WA}?text=${encodeURIComponent(t)}`;
@@ -105,12 +116,12 @@ const jsonld = {
   "@graph": [
     {
       "@type": "Store", "@id": "https://www.alemaoafiacao.com.br/#loja", name: "Alemão Afiação",
-      legalName: "ANTONIO JOSE CARLOS CRISTIANO LTDA", taxID: "32.191.657/0001-70",
+      legalName: C.razaoSocial, taxID: C.cnpj,
       url: "https://www.alemaoafiacao.com.br/", logo: "https://www.alemaoafiacao.com.br/assets/img/logo-v.webp",
-      image: "https://www.alemaoafiacao.com.br/assets/img/og.jpg", telephone: "+55-17-99706-9595",
-      address: { "@type": "PostalAddress", streetAddress: "R. Antonio Galera Lopes, 2728, Pozzobon", addressLocality: "Votuporanga", addressRegion: "SP", postalCode: "15503-024", addressCountry: "BR" },
-      openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "08:00", closes: "20:00" }],
-      sameAs: ["https://www.instagram.com/afiacaoalemao/", "https://www.facebook.com/alemao.afiacao70", "https://www.youtube.com/@alemaoafiacao5676"]
+      image: "https://www.alemaoafiacao.com.br/assets/img/og.jpg", telephone: "+" + C.whatsapp,
+      address: { "@type": "PostalAddress", streetAddress: `${C.rua}, ${C.bairro}`, addressLocality: C.cidade.split("/")[0], addressRegion: C.cidade.split("/")[1], postalCode: C.cep, addressCountry: "BR" },
+      openingHoursSpecification: [{ "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: C.horarioAbre, closes: C.horarioFecha }],
+      sameAs: [C.instagram, C.facebook, C.youtube]
     },
     {
       "@type": "ItemList", name: "Máquinas de afiação Alemão",
@@ -155,15 +166,36 @@ fs.writeFileSync(path.join(raiz, "public/index.html"), html);
 console.log(`ok · ${maquinas.length} máquinas · ${pecas.length} peças · ${vids.length} vídeos · ${Math.round(html.length / 1024)} KB`);
 
 // ---- Páginas legais
-const base = fs.readFileSync(path.join(raiz, "src/legal/_base.html"), "utf8");
+const base = preencher(fs.readFileSync(path.join(raiz, "src/legal/_base.html"), "utf8"));
 [
   { slug: "privacidade", titulo: "Política de Privacidade", rotulo: "Privacidade", desc: "Como a Alemão® trata dados pessoais no site e no atendimento pelo WhatsApp (LGPD)." },
   { slug: "termos", titulo: "Termos e condições de venda", rotulo: "Termos de venda", desc: "Como comprar, preços, pagamento, entrega, direito de arrependimento e garantia dos produtos Alemão®." }
 ].forEach(pg => {
-  const corpo = fs.readFileSync(path.join(raiz, `src/legal/${pg.slug}.html`), "utf8");
+  const corpo = preencher(fs.readFileSync(path.join(raiz, `src/legal/${pg.slug}.html`), "utf8"));
   const out = base.replace(/{{TITULO}}/g, pg.titulo).replace("{{DESC}}", pg.desc).replace("{{SLUG}}", pg.slug)
     .replace("{{ROTULO}}", pg.rotulo).replace("{{VERSAO}}", versao).replace("{{DATA}}", "05/11/2026").replace("{{CORPO}}", corpo);
   fs.mkdirSync(path.join(raiz, "public", pg.slug), { recursive: true });
   fs.writeFileSync(path.join(raiz, "public", pg.slug, "index.html"), out);
   console.log("ok ·", pg.slug);
 });
+
+// ---- Link na bio, catálogo, vídeos e 404 (mesmos dados)
+const cardsCat = D.categorias.map((c, i) => {
+  const itens = D.produtos.filter(p => p.cat === c.id); if (!itens.length) return "";
+  const p0 = itens[0], foto = img((p0.cores && p0.cores[0].img) || p0.imgs[0]);
+  const modelos = itens.map(p => p.modelo).filter(Boolean);
+  const sub = modelos.length ? (modelos.length > 1 ? "Modelos " + modelos.slice(0, -1).join(", ") + " e " + modelos.at(-1) : "Modelo " + modelos[0]) : `${itens.length} itens`;
+  const tipoTxt = c.id === "pecas" ? "as peças de reposição" : c.id === "equipamentos" ? "os equipamentos"
+    : itens.length === 1 ? "a " + p0.nome : "as máquinas de " + c.nome.toLowerCase().replace(/^máquinas? (de )?/, "");
+  return `    <a class="cat anima" style="--i:${8 + i}" data-wa="${esc(`Olá! Vim pelo Instagram e quero saber sobre ${tipoTxt}.`)}" href="#">
+      <img src="${foto}" alt="${esc(c.nome)}" loading="lazy">
+      <span>${esc(c.nome)}<em>${esc(sub)}</em></span>
+    </a>`;
+}).join("\n");
+for (const [src, dst, extra] of [["src/links.html", "public/links/index.html", t => t.replace("{{LINKS_CATS}}", cardsCat)],
+                                 ["src/catalogo.html", "public/catalogo/index.html"], ["src/videos.html", "public/videos/index.html"], ["src/404.html", "public/404.html"]]) {
+  let t = preencher(fs.readFileSync(path.join(raiz, src), "utf8")).replace(/{{VERSAO}}/g, versao);
+  if (extra) t = extra(t);
+  const resto = t.match(/{{[^}]+}}/g); if (resto) { console.error(src, "marcadores sem valor:", resto); process.exit(1); }
+  fs.writeFileSync(path.join(raiz, dst), t); console.log("ok ·", dst.replace("public/", ""));
+}

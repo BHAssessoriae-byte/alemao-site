@@ -1,5 +1,5 @@
-// Número do WhatsApp da loja (só dígitos, com 55 + DDD). A CONFIRMAR com o cliente.
-  const WHATSAPP = "5517997069595";
+// Número do WhatsApp vem do src/config.json (gerado no <body data-whatsapp>)
+  const WHATSAPP = document.body.dataset.whatsapp;
 
   document.querySelectorAll("[data-wa]").forEach(a => {
     const msg = encodeURIComponent(a.dataset.wa);

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Alemão® · Máquinas de afiação para alicate de cutícula, tesoura e faca</title>
-<meta name="description" content="Mais de 500 máquinas vendidas, entrega em todo o Brasil e exportação. Máquinas de afiação Alemão® para alicate de cutícula, tesouras e facas, além de equipamentos e peças e acessórios. Veja preço e medidas e peça seu orçamento direto pelo WhatsApp.">
+<meta name="description" content="Mais de {{c.maquinasVendidas}} máquinas vendidas, entrega em todo o Brasil e exportação. Máquinas de afiação Alemão® para alicate de cutícula, tesouras e facas, além de equipamentos e peças e acessórios. Veja preço e medidas e peça seu orçamento direto pelo WhatsApp.">
 <link rel="canonical" href="https://www.alemaoafiacao.com.br/">
 <meta name="theme-color" content="#0B0B0B">
 <meta name="robots" content="index, follow, max-image-preview:large">
@@ -84,9 +84,9 @@
         <a class="btn btn--fantasma" href="#maquinas">Ver máquinas</a>
       </div>
       <div class="hero__fatos anima-in" style="--i:4">
-        <div><b><i class="n" data-conta="500">500</i>+</b><span>máquinas vendidas</span></div>
-        <div><b><i class="n" data-conta="300">300</i>+</b><span>clientes ativos</span></div>
-        <div><b><i class="n" data-conta="3">3</i></b><span>países: Brasil, EUA e Portugal</span></div>
+        <div><b><i class="n" data-conta="{{c.maquinasVendidas}}">{{c.maquinasVendidas}}</i>+</b><span>máquinas vendidas</span></div>
+        <div><b><i class="n" data-conta="{{c.clientesAtivos}}">{{c.clientesAtivos}}</i>+</b><span>clientes ativos</span></div>
+        <div><b><i class="n" data-conta="{{c.paises}}">{{c.paises}}</i></b><span>países: Brasil, EUA e Portugal</span></div>
       </div>
     </div>
   </div>
@@ -95,8 +95,8 @@
 
 <div class="faixa" aria-hidden="true">
   <div class="faixa__trilho">
-    <span>Alicate de cutícula</span><span>Tesouras</span><span>Facas</span><span>Equipamentos</span><span>Peças de reposição</span><span>Entrega em todo o Brasil</span><span>90 dias de garantia</span><span>Exportação</span><span>Pedido pelo WhatsApp</span>
-    <span>Alicate de cutícula</span><span>Tesouras</span><span>Facas</span><span>Equipamentos</span><span>Peças de reposição</span><span>Entrega em todo o Brasil</span><span>90 dias de garantia</span><span>Exportação</span><span>Pedido pelo WhatsApp</span>
+    <span>Alicate de cutícula</span><span>Tesouras</span><span>Facas</span><span>Equipamentos</span><span>Peças de reposição</span><span>Entrega em todo o Brasil</span><span>{{c.garantiaMaquinas}} de garantia</span><span>Exportação</span><span>Pedido pelo WhatsApp</span>
+    <span>Alicate de cutícula</span><span>Tesouras</span><span>Facas</span><span>Equipamentos</span><span>Peças de reposição</span><span>Entrega em todo o Brasil</span><span>{{c.garantiaMaquinas}} de garantia</span><span>Exportação</span><span>Pedido pelo WhatsApp</span>
   </div>
 </div>
 
@@ -179,7 +179,7 @@
         <li>{{ico:check}}<div><b>Máquinas para cada tipo de afiação</b>Alicate de cutícula, tesoura e faca.</div></li>
         <li>{{ico:check}}<div><b>Equipamentos e peças na mesma loja</b>Guilhotina, tirador de folga, dressador, rampas, flanges, polias e kits.</div></li>
         <li>{{ico:check}}<div><b>Vídeos de uso</b>Veja as máquinas funcionando antes de pedir.</div></li>
-        <li>{{ico:check}}<div><b>90 dias de garantia</b>Todas as máquinas têm 90 dias de garantia.</div></li>
+        <li>{{ico:check}}<div><b>{{c.garantiaMaquinas}} de garantia</b>Todas as máquinas têm {{c.garantiaMaquinas}} de garantia.</div></li>
         <li>{{ico:check}}<div><b>Atendimento pelo WhatsApp</b>Tire dúvidas e peça o orçamento direto com a equipe.</div></li>
       </ul>
       <a class="btn" href="{{wa:Olá! Vi o site e quero ajuda para escolher a máquina certa.}}" target="_blank" rel="noopener">{{ico:wa}} Quero ajuda para escolher</a>
@@ -228,7 +228,7 @@
     </div>
     <div class="vid-acoes">
       <a class="btn btn--fantasma" href="/videos/">Ver todos os vídeos</a>
-      <a class="btn btn--fantasma" href="https://www.youtube.com/@alemaoafiacao5676" target="_blank" rel="noopener">{{ico:yt}} Canal no YouTube</a>
+      <a class="btn btn--fantasma" href="{{c.youtube}}" target="_blank" rel="noopener">{{ico:yt}} Canal no YouTube</a>
     </div>
   </div>
 </section>
@@ -238,15 +238,15 @@
   <div class="wrap split split--inv">
     <div class="split__img rv">
       <img src="/assets/img/afiacao.webp" alt="Profissional afiando um alicate de cutícula na máquina" loading="lazy" width="836" height="941">
-      <span class="tag">Votuporanga/SP</span>
+      <span class="tag">{{c.cidade}}</span>
     </div>
     <div class="rv rv-esq">
       <div class="rotulo"><i>///</i> Nossa história</div>
       <h2 id="t-sobre">Máquinas e equipamentos <em>para afiação</em></h2>
-      <p class="lead">A Alemão® nasceu em Votuporanga, no interior de São Paulo, com um foco: máquinas, equipamentos e peças para afiar alicates de cutícula, tesouras e facas. Hoje são mais de 500 máquinas vendidas, mais de 300 clientes ativos, entregas em todo o Brasil e máquinas já exportadas para os Estados Unidos e Portugal.</p>
+      <p class="lead">A Alemão® nasceu em Votuporanga, no interior de São Paulo, com um foco: máquinas, equipamentos e peças para afiar alicates de cutícula, tesouras e facas. Hoje são mais de {{c.maquinasVendidas}} máquinas vendidas, mais de {{c.clientesAtivos}} clientes ativos, entregas em todo o Brasil e máquinas já exportadas para os Estados Unidos e Portugal.</p>
       <div class="pilares">
-        <div><b><i class="n" data-conta="500">500</i>+</b><span>máquinas vendidas</span></div>
-        <div><b><i class="n" data-conta="300">300</i>+</b><span>clientes ativos</span></div>
+        <div><b><i class="n" data-conta="{{c.maquinasVendidas}}">{{c.maquinasVendidas}}</i>+</b><span>máquinas vendidas</span></div>
+        <div><b><i class="n" data-conta="{{c.clientesAtivos}}">{{c.clientesAtivos}}</i>+</b><span>clientes ativos</span></div>
         <div><b>{{N_MAQ}}</b><span>modelos de máquinas</span></div>
         <div><b>{{N_ACESS}}</b><span>equipamentos e peças</span></div>
       </div>
@@ -254,11 +254,11 @@
   </div>
   <div class="wrap">
     <ol class="linha-tempo">
-      <li class="rv" style="--i:0"><span class="ano">2018</span><b>Empresa registrada</b><p>A Alemão é registrada em Votuporanga/SP.</p></li>
+      <li class="rv" style="--i:0"><span class="ano">2018</span><b>Empresa registrada</b><p>A Alemão é registrada em {{c.cidade}}.</p></li>
       <li class="rv" style="--i:1"><span class="ano">Linha</span><b>Máquinas para cada afiação</b><p>Modelos para alicate de cutícula, tesouras e facas, nas cores laranja e verde.</p></li>
       <li class="rv" style="--i:2"><span class="ano">Brasil</span><b>Entrega em todo o país</b><p>Máquinas, equipamentos e peças enviados para todo o território brasileiro.</p></li>
       <li class="rv" style="--i:3"><span class="ano">Mundo</span><b>Exportação</b><p>Máquinas Alemão já vendidas para os Estados Unidos e Portugal.</p></li>
-      <li class="rv" style="--i:4"><span class="ano">Hoje</span><b>500+ máquinas vendidas</b><p>Mais de 300 clientes ativos, {{N_EQUIP}} equipamentos e {{N_PECAS}} peças de reposição.</p></li>
+      <li class="rv" style="--i:4"><span class="ano">Hoje</span><b>{{c.maquinasVendidas}}+ máquinas vendidas</b><p>Mais de {{c.clientesAtivos}} clientes ativos, {{N_EQUIP}} equipamentos e {{N_PECAS}} peças de reposição.</p></li>
     </ol>
   </div>
 </section>
@@ -279,7 +279,7 @@
     <div class="mapa__fatos">
       <div class="rv" style="--i:0"><b>Todo o Brasil</b><span>entrega em todo o território nacional</span></div>
       <div class="rv" style="--i:1"><b>EUA e Portugal</b><span>máquinas já exportadas</span></div>
-      <div class="rv" style="--i:2"><b><i class="n" data-conta="500">500</i>+</b><span>máquinas vendidas</span></div>
+      <div class="rv" style="--i:2"><b><i class="n" data-conta="{{c.maquinasVendidas}}">{{c.maquinasVendidas}}</i>+</b><span>máquinas vendidas</span></div>
     </div>
   </div>
 </section>
@@ -292,15 +292,15 @@
       <h2 id="t-orc">Peça seu orçamento pelo <em>WhatsApp</em></h2>
       <p class="lead">Preencha em 30 segundos. Ao enviar, o WhatsApp abre com a mensagem pronta para a equipe da Alemão.</p>
       <ul class="contato-lista">
-        <li><span class="ic">{{ico:wa}}</span><div><small>WhatsApp</small><a href="{{wa:Olá! Vim pelo site e gostaria de mais informações.}}" target="_blank" rel="noopener">(17) 99706-9595</a></div></li>
-        <li><span class="ic">{{ico:relogio}}</span><div><small>Atendimento</small><span>Segunda a sexta, das 8h às 20h</span></div></li>
-        <li><span class="ic">{{ico:pin}}</span><div><small>Endereço</small><a href="https://www.google.com/maps/search/?api=1&amp;query=R.+Antonio+Galera+Lopes,+2728,+Votuporanga+SP" target="_blank" rel="noopener">R. Antonio Galera Lopes, 2728 · Pozzobon<br>Votuporanga/SP · CEP 15503-024</a></div></li>
+        <li><span class="ic">{{ico:wa}}</span><div><small>WhatsApp</small><a href="{{wa:Olá! Vim pelo site e gostaria de mais informações.}}" target="_blank" rel="noopener">{{c.whatsappTexto}}</a></div></li>
+        <li><span class="ic">{{ico:relogio}}</span><div><small>Atendimento</small><span>{{c.horario:cap}}</span></div></li>
+        <li><span class="ic">{{ico:pin}}</span><div><small>Endereço</small><a href="{{c.mapa}}" target="_blank" rel="noopener">{{c.rua}} · {{c.bairro}}<br>{{c.cidade}} · CEP {{c.cep}}</a></div></li>
       </ul>
     </div>
     <form class="form rv" id="form-orc" novalidate>
       <div class="dupla">
         <div class="campo"><label for="o-nome">Seu nome *</label><input id="o-nome" name="nome" autocomplete="name" required maxlength="80"></div>
-        <div class="campo"><label for="o-cidade">Cidade / UF *</label><input id="o-cidade" name="cidade" autocomplete="address-level2" required maxlength="80" placeholder="Ex.: Votuporanga/SP"></div>
+        <div class="campo"><label for="o-cidade">Cidade / UF *</label><input id="o-cidade" name="cidade" autocomplete="address-level2" required maxlength="80" placeholder="Ex.: {{c.cidade}}"></div>
       </div>
       <div class="campo"><label for="o-maq">Máquina ou peça</label>
         <select id="o-maq" name="produto">
@@ -342,12 +342,12 @@
     </div>
     <div class="faq rv">
       <details open><summary>Como faço o pedido?<i></i></summary><div class="resp"><p>Escolha a máquina ou a peça e toque em “Pedir orçamento” ou “Pedir”. O WhatsApp abre com a mensagem pronta. A equipe confirma disponibilidade, frete e forma de pagamento.</p></div></details>
-      <details><summary>Qual o horário de atendimento?<i></i></summary><div class="resp"><p>De segunda a sexta, das 8h às 20h, pelo WhatsApp <a href="{{wa:Olá! Vim pelo site e gostaria de mais informações.}}" target="_blank" rel="noopener">(17) 99706-9595</a>. Mensagens fora do horário são respondidas no próximo dia útil.</p></div></details>
+      <details><summary>Qual o horário de atendimento?<i></i></summary><div class="resp"><p>De {{c.horario}}, pelo WhatsApp <a href="{{wa:Olá! Vim pelo site e gostaria de mais informações.}}" target="_blank" rel="noopener">{{c.whatsappTexto}}</a>. Mensagens fora do horário são respondidas no próximo dia útil.</p></div></details>
       <details><summary>Vocês entregam na minha cidade?<i></i></summary><div class="resp"><p>Sim. Entregamos em todo o território brasileiro e já exportamos máquinas para os Estados Unidos e Portugal. O valor do frete e o prazo são informados no atendimento, de acordo com a sua cidade.</p></div></details>
       <details><summary>Qual a diferença entre a A1 e a A2?<i></i></summary><div class="resp"><p>A A2 tem <b>controlador de velocidade</b>. A A1 custa {{preco:a1}} e mede {{med:a1}}. A A2 custa {{preco:a2}} e mede {{med:a2}}.</p></div></details>
       <details><summary>As máquinas têm opção de cor?<i></i></summary><div class="resp"><p>Sim: todas as máquinas Alemão estão disponíveis em <b>laranja</b> e <b>verde</b>. Escolha a cor no orçamento (ou no botão de cor no topo do site).</p></div></details>
       <details><summary>Vocês vendem equipamentos e peças de reposição?<i></i></summary><div class="resp"><p>Sim: {{N_EQUIP}} equipamentos (guilhotina, alinhador de bico, tirador de folga, jig de faca, martelo, dressadores e motor) e {{N_PECAS}} peças de reposição (rampas, flanges, polias, eixos, kits e mais). <a href="#pecas">Ver equipamentos e peças</a>.</p></div></details>
-      <details><summary>Tem garantia?<i></i></summary><div class="resp"><p>Sim. <b>Todas as máquinas têm 90 dias de garantia</b>, contados a partir do recebimento. Equipamentos e peças também têm a garantia legal de 90 dias do Código de Defesa do Consumidor. Veja os <a href="/termos/">Termos e condições de venda</a>.</p></div></details>
+      <details><summary>Tem garantia?<i></i></summary><div class="resp"><p>Sim. <b>Todas as máquinas têm {{c.garantiaMaquinas}} de garantia</b>, contados a partir do recebimento. Equipamentos e peças também têm a garantia legal de 90 dias do Código de Defesa do Consumidor. Veja os <a href="/termos/">Termos e condições de venda</a>.</p></div></details>
       <details><summary>Posso desistir da compra?<i></i></summary><div class="resp"><p>Sim. Em compras feitas a distância (site ou WhatsApp), você pode desistir em até 7 dias após receber o produto, com devolução do valor pago. Saiba como nos <a href="/termos/">Termos e condições de venda</a>.</p></div></details>
       <details><summary>Tem vídeo mostrando a máquina funcionando?<i></i></summary><div class="resp"><p>Sim, veja a seção <a href="#videos">Vídeos</a> ou a <a href="/videos/">página com todos os vídeos</a>.</p></div></details>
     </div>
@@ -363,9 +363,9 @@
       <div>
         <img class="lg" src="/assets/img/logo-v.webp" alt="Alemão®" width="560" height="507" loading="lazy">
         <div class="sociais">
-          <a href="https://www.instagram.com/afiacaoalemao/" target="_blank" rel="noopener" aria-label="Instagram">{{ico:insta}}</a>
-          <a href="https://www.facebook.com/alemao.afiacao70" target="_blank" rel="noopener" aria-label="Facebook">{{ico:fb}}</a>
-          <a href="https://www.youtube.com/@alemaoafiacao5676" target="_blank" rel="noopener" aria-label="YouTube">{{ico:yt}}</a>
+          <a href="{{c.instagram}}" target="_blank" rel="noopener" aria-label="Instagram">{{ico:insta}}</a>
+          <a href="{{c.facebook}}" target="_blank" rel="noopener" aria-label="Facebook">{{ico:fb}}</a>
+          <a href="{{c.youtube}}" target="_blank" rel="noopener" aria-label="YouTube">{{ico:yt}}</a>
         </div>
       </div>
       <div>
@@ -378,13 +378,13 @@
       </div>
       <div>
         <h4>Atendimento</h4>
-        <ul><li><a href="{{wa:Olá! Vim pelo site e gostaria de mais informações.}}" target="_blank" rel="noopener">WhatsApp (17) 99706-9595</a></li><li>Segunda a sexta, 8h às 20h</li><li>R. Antonio Galera Lopes, 2728<br>Pozzobon · Votuporanga/SP<br>CEP 15503-024</li></ul>
+        <ul><li><a href="{{wa:Olá! Vim pelo site e gostaria de mais informações.}}" target="_blank" rel="noopener">WhatsApp {{c.whatsappTexto}}</a></li><li>Segunda a sexta, 8h às 20h</li><li>{{c.rua}}<br>{{c.bairro}} · {{c.cidade}}<br>CEP {{c.cep}}</li></ul>
       </div>
     </div>
     <div class="legal">
-      <div>Alemão® · ANTONIO JOSE CARLOS CRISTIANO LTDA · CNPJ 32.191.657/0001-70 · R. Antonio Galera Lopes, 2728, Pozzobon, Votuporanga/SP, CEP 15503-024.</div>
+      <div>Alemão® · {{c.razaoSocial}} · CNPJ {{c.cnpj}} · {{c.rua}}, {{c.bairro}}, {{c.cidade}}, CEP {{c.cep}}.</div>
       <div>Preços sujeitos a alteração sem aviso prévio · atualizados em {{ATUALIZADO}}. Imagens ilustrativas.</div>
-      <div class="linha"><span><a href="/privacidade/">Política de Privacidade</a> · <a href="/termos/">Termos e condições de venda</a></span><span>© <span data-ano>2026</span> Alemão® · Site por <a href="https://bh-link-in-bio.vercel.app" target="_blank" rel="noopener">BH Comunicação</a></span></div>
+      <div class="linha"><span><a href="/privacidade/">Política de Privacidade</a> · <a href="/termos/">Termos e condições de venda</a></span><span>© <span data-ano>2026</span> Alemão® · Site por <a href="{{c.criador.url}}" target="_blank" rel="noopener">BH Comunicação</a></span></div>
     </div>
   </div>
 </footer>
@@ -401,7 +401,7 @@
       <input type="hidden" name="produto">
       <div class="dupla">
         <div class="campo"><label for="m-nome">Seu nome *</label><input id="m-nome" name="nome" autocomplete="name" required maxlength="80"></div>
-        <div class="campo"><label for="m-cidade">Cidade / UF *</label><input id="m-cidade" name="cidade" autocomplete="address-level2" required maxlength="80" placeholder="Ex.: Votuporanga/SP"></div>
+        <div class="campo"><label for="m-cidade">Cidade / UF *</label><input id="m-cidade" name="cidade" autocomplete="address-level2" required maxlength="80" placeholder="Ex.: {{c.cidade}}"></div>
       </div>
       <fieldset class="campo" id="m-cores" hidden><legend>Cor</legend>
         <div class="opcoes">

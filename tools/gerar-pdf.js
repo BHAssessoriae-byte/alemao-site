@@ -6,6 +6,8 @@ const fs = require("fs"), path = require("path");
 const raiz = path.resolve(__dirname, "..");
 const dir = path.join(raiz, "public/catalogo");
 const D = JSON.parse(fs.readFileSync(path.join(dir, "produtos.json"), "utf8"));
+const C = JSON.parse(fs.readFileSync(path.join(raiz, "src/config.json"), "utf8"));
+D.whatsapp = C.whatsapp;
 const brl = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const wa = t => `https://wa.me/${D.whatsapp}?text=${encodeURIComponent(t)}`;
 const msg = p => p.tipo === "maquina"
@@ -73,14 +75,15 @@ section.pecas .preco{font-size:12pt}
   <img src="${logo}">
   <h1>CATÁLOGO <span>${new Date(D.atualizado + "T12:00:00").getFullYear()}</span></h1>
   <p>Máquinas para afiar alicate de cutícula, tesouras e facas<br>Peças e acessórios</p>
-  <a class="wa" href="${wa("Olá! Vi o catálogo em PDF e gostaria de mais informações.")}">Pedidos pelo WhatsApp (17) 99706-9595</a>
-  <div class="rod">Toque em qualquer produto para pedir pelo WhatsApp · alemaoafiacao.com.br/catalogo</div>
+  <a class="wa" href="${wa("Olá! Vi o catálogo em PDF e gostaria de mais informações.")}">Pedidos pelo WhatsApp ${C.whatsappTexto}</a>
+  <div class="rod">Toque em qualquer produto para pedir pelo WhatsApp · ${C.dominio}/catalogo</div>
 </div>
 <div class="conteudo">
 ${secoes}
-<div class="final"><b>Pedidos e dúvidas:</b> WhatsApp (17) 99706-9595 · segunda a sexta, das 8h às 20h · alemaoafiacao.com.br/catalogo<br>
+<div class="final"><b>Pedidos e dúvidas:</b> WhatsApp ${C.whatsappTexto} · ${C.horario} · ${C.dominio}<br>
+Todas as máquinas em laranja e verde · ${C.garantiaMaquinas} de garantia nas máquinas.<br>
 Preços sujeitos a alteração. Consulte disponibilidade, frete e formas de pagamento pelo WhatsApp.<br>
-ALEMÃO® · Antonio Jose Carlos Cristiano LTDA · CNPJ 32.191.657/0001-70 · Votuporanga/SP</div>
+ALEMÃO® · ${C.razaoSocial} · CNPJ ${C.cnpj} · ${C.rua}, ${C.bairro}, ${C.cidade}</div>
 </div>
 </body></html>`;
 
