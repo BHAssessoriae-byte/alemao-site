@@ -390,7 +390,7 @@ fieldset.campo{border:0;padding:0;margin:0}
 .pag-legal h1{font-size:clamp(2rem,5vw,3rem);font-weight:800;margin:6px 0 10px}
 .pag-legal h2{font-size:1.3rem;margin:40px 0 12px}
 .pag-legal p,.pag-legal li{color:var(--texto-2)}
-.pag-legal a{color:var(--laranja)}
+.pag-legal a:not(.btn){color:var(--laranja)}
 .pag-legal .atual{font-size:13px;color:var(--texto-3)}
 .pendente{background:color-mix(in srgb,var(--laranja) 16%,transparent);border-left:3px solid var(--laranja);padding:2px 8px;color:var(--texto)!important}
 
