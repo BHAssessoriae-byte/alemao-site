@@ -128,6 +128,7 @@ html = html
   .replace("{{PECAS}}", pecas.map(cardPeca).join("\n      "))
   .replace("{{VIDEOS}}", vids.map(cardVid).join("\n      "))
   .replace("{{CHIPS}}", chips)
+  .replace("{{MAPA}}", fs.readFileSync(path.join(raiz, "src/mapa.html"), "utf8"))
   .replace("{{OPCOES}}", opcoes)
   .replace("{{JSONLD}}", JSON.stringify(jsonld).replace(/</g, "\\u003c"))
   .replace("{{DADOS}}", JSON.stringify(dados).replace(/</g, "\\u003c"))

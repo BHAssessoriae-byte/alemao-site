@@ -40,23 +40,55 @@
   hamb.addEventListener("click", () => menu(!document.body.classList.contains("menu-aberto")));
   $$("#menu-mob a").forEach(a => a.addEventListener("click", () => menu(false)));
 
+  /* ---------- Títulos palavra por palavra ---------- */
+  if (!reduz) $$("main h2").forEach(h => {
+    let n = 0;
+    const quebra = el => [...el.childNodes].forEach(no => {
+      if (no.nodeType === 3) {
+        const frag = document.createDocumentFragment();
+        no.textContent.split(/(\s+)/).forEach(p => {
+          if (!p) return;
+          if (/^\s+$/.test(p)) { frag.appendChild(document.createTextNode(" ")); return; }
+          const w = document.createElement("span"); w.className = "w"; w.setAttribute("aria-hidden", "true");
+          const i = document.createElement("span"); i.textContent = p; i.style.setProperty("--w", n++);
+          w.appendChild(i); frag.appendChild(w);
+        });
+        no.replaceWith(frag);
+      } else if (no.nodeType === 1) quebra(no);
+    });
+    h.setAttribute("aria-label", h.textContent.replace(/\s+/g, " ").trim());
+    quebra(h); h.classList.add("palavras");
+  });
+
   /* ---------- Revelação ao rolar ---------- */
   if ("IntersectionObserver" in window && !reduz) {
     const io = new IntersectionObserver(es => es.forEach(e => {
-      if (e.isIntersecting) { const el = e.target; el.classList.add("vis"); io.unobserve(el); setTimeout(() => el.classList.remove("rv", "vis"), 1400); }
+      if (e.isIntersecting) { const el = e.target; el.classList.add("vis"); io.unobserve(el); setTimeout(() => el.classList.remove("rv", "vis"), 2200); }
     }), { rootMargin: "0px 0px -6% 0px", threshold: .05 });
     $$(".rv").forEach(el => io.observe(el));
-  } else $$(".rv").forEach(el => el.classList.add("vis"));
+    const ioH = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("vis"); ioH.unobserve(e.target); } }), { rootMargin: "0px 0px -8% 0px" });
+    $$("h2.palavras").forEach(h => ioH.observe(h));
+  } else $$(".rv, h2").forEach(el => el.classList.add("vis"));
 
-  /* ---------- Contadores (partem de 70% do valor, nunca de zero) ---------- */
+  /* ---------- Contadores: sobem de 0 até o número, com "estalo" no fim ---------- */
+  const contar = el => {
+    const fim = +el.dataset.conta; if (reduz || !fim) return;
+    const dur = fim > 50 ? 2400 : 1200, t0 = performance.now();
+    el.textContent = "0"; el.classList.add("contando");
+    const passo = t => {
+      const k = Math.min(1, (t - t0) / dur), ease = k === 1 ? 1 : 1 - Math.pow(2, -10 * k);
+      el.textContent = Math.round(fim * ease).toLocaleString("pt-BR");
+      if (k < 1) requestAnimationFrame(passo);
+      else { el.classList.remove("contando"); el.classList.add("fim"); setTimeout(() => el.classList.remove("fim"), 600); }
+    };
+    requestAnimationFrame(passo);
+  };
   const ioConta = new IntersectionObserver(es => es.forEach(e => {
     if (!e.isIntersecting) return;
     ioConta.unobserve(e.target);
-    const el = e.target, fim = +el.dataset.conta, ini = Math.round(fim * .7), t0 = performance.now(), dur = 1100;
-    if (reduz || !fim) return;
-    const passo = t => { const k = Math.min(1, (t - t0) / dur), ease = 1 - Math.pow(1 - k, 3);
-      el.textContent = Math.round(ini + (fim - ini) * ease); if (k < 1) requestAnimationFrame(passo); };
-    requestAnimationFrame(passo);
+    const atraso = e.target.closest(".hero") ? 900 : 250;
+    if (!reduz) e.target.textContent = "0";
+    setTimeout(() => contar(e.target), atraso);
   }), { threshold: .6 });
   $$("[data-conta]").forEach(el => ioConta.observe(el));
 
@@ -78,6 +110,15 @@
     });
     // mesma cor nos cards de máquinas
     $$(`.maq__cores button[data-cor="${b.dataset.cor}"]`).forEach(x => x.click());
+    // a página inteira troca o laranja pelo verde
+    const verde = b.dataset.cor === "Verde";
+    document.documentElement.dataset.tema = verde ? "verde" : "";
+    if (!verde) delete document.documentElement.dataset.tema;
+    const meta = $('meta[name="theme-color"]'); if (meta) meta.content = "#0B0B0B";
+    $$(".mapa__pontos").forEach(im => { if (!im.dataset.laranja) im.dataset.laranja = im.getAttribute("src"); im.src = verde ? im.dataset.verde : im.dataset.laranja; });
+    // a cor escolhida já vem marcada nos formulários
+    $$('input[name=cor][value="' + b.dataset.cor + '"]').forEach(r => { if (!r.closest("[hidden]")) r.checked = true; });
+    $$("#o-cores input[name=cor]").forEach(r => r.checked = r.value === b.dataset.cor);
   }));
   // pré-carrega a versão verde quando o navegador estiver livre
   setTimeout(() => { const v = fotosHero.find(i => i.dataset.src); if (v) { const p = new Image(); p.srcset = v.dataset.srcset; p.sizes = "100vw"; p.src = v.dataset.src; } }, 2500);
@@ -182,6 +223,24 @@
     $(".rod a", mVid).href = waUrl(`Olá! Vi o vídeo *${b.dataset.titulo}* no site e quero saber mais.`);
     abrir(mVid); video.play().catch(() => {});
   }));
+
+  /* ---------- Mapa de entregas: rotas e pacotes ---------- */
+  const mapa = $(".mapa");
+  if (mapa) {
+    const pacotes = $$(".pacote", mapa);
+    const enviar = () => pacotes.forEach((pc, i) => setTimeout(() => {
+      const an = $("animateMotion", pc); if (!an || !an.beginElement) return;
+      pc.style.opacity = 1; an.beginElement();
+      setTimeout(() => { pc.style.opacity = 0; }, 2500);
+    }, i * 700));
+    const ioM = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      ioM.disconnect(); mapa.classList.add("vis");
+      if (reduz) return;
+      setTimeout(() => { enviar(); setInterval(enviar, 6500); }, 400);
+    }), { threshold: .25 });
+    ioM.observe(mapa);
+  }
 
   /* ---------- Ano no rodapé ---------- */
   $$("[data-ano]").forEach(el => el.textContent = new Date().getFullYear());
