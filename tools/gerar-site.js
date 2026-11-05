@@ -57,7 +57,7 @@ const cardMaq = (p, i) => {
 };
 
 // ---- Cards de peças
-const cardPeca = (p, i) => `<article class="peca rv" data-tipo="${p.tipo}" data-busca="${esc((p.nome + " " + (p.servePara || "") + " " + (p.destaque || "")).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""))}"${i >= 8 ? " data-extra hidden" : ""} style="--i:${i % 4}">
+const cardPeca = (p, i) => `<article class="peca rv" data-tipo="${p.tipo}" data-busca="${esc((p.nome + " " + (p.servePara || "") + " " + (p.destaque || "")).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""))}"${i >= 10 ? " data-extra hidden" : ""} style="--i:${i % 4}">
         <div class="peca__foto"><img src="${img(p.imgs[0])}" alt="${esc(p.nome)}" loading="lazy" decoding="async"></div>
         <div class="peca__corpo">
           <h3>${esc(p.nome)}</h3>
