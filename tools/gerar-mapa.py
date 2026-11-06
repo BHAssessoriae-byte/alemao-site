@@ -21,7 +21,7 @@ for f in G["features"]:
         ring = poly[0]
         xs = [p[0] for p in ring]; ys = [p[1] for p in ring]
         polys.append((iso, (min(xs), min(ys), max(xs), max(ys)), Path(ring)))
-DESTAQUE = {"BRA": "b", "USA": "u", "PRT": "u"}
+DESTAQUE = {"BRA": "b", "USA": "u", "PRT": "u", "ITA": "u"}
 passo = 1.9
 pts = []
 lat = LAT1
@@ -46,7 +46,7 @@ open(R + "/public/assets/img/mapa-pontos-verde.svg", "w").write(svgp.replace("#F
 
 ORIGEM = (-49.97, -20.42)  # Votuporanga/SP
 DEST = [  # (nome, lon, lat, rótulo?)
-    ("Estados Unidos", -96.0, 38.5, True), ("Portugal", -8.1, 39.6, True),
+    ("Estados Unidos", -96.0, 38.5, True), ("Portugal", -8.1, 39.6, True), ("Itália", 12.6, 42.5, True),
     ("Manaus", -60.0, -3.1, False), ("Belém", -48.5, -1.46, False), ("Macapá", -51.07, 0.03, False),
     ("Boa Vista", -60.67, 2.82, False), ("São Luís", -44.3, -2.53, False), ("Fortaleza", -38.5, -3.73, False),
     ("Natal", -35.2, -5.8, False), ("Recife", -34.9, -8.05, False), ("Salvador", -38.5, -12.97, False),
@@ -69,7 +69,8 @@ for i, (n, lo, la, rot) in enumerate(DEST):
     alvos.append(f'<g class="alvo {longa}" style="--i:{i}"><circle class="pulso" cx="{x:.1f}" cy="{y:.1f}" r="{6 if rot else 3.5}"/><circle cx="{x:.1f}" cy="{y:.1f}" r="{4 if rot else 2.6}"/><title>{n}</title></g>')
     if rot:
         alvos.append(f'<circle class="pacote" r="4"><animateMotion dur="2.4s" begin="indefinite" fill="freeze" calcMode="spline" keyTimes="0;1" keySplines=".4 0 .2 1"><mpath href="#r{i}"/></animateMotion></circle>')
-        if n == "Portugal": tx, ty, anchor = x + 14, y - 10, "start"
+        if n == "Portugal": tx, ty, anchor = x - 12, y - 12, "end"
+        elif n == "Itália": tx, ty, anchor = x + 12, y - 12, "start"
         else: tx, ty, anchor = x + 6, y - 18, "middle"
         rotulos.append(f'<g class="rot" style="--i:{i}"><text x="{tx:.1f}" y="{ty:.1f}" text-anchor="{anchor}">{n}</text></g>')
 rotulos.append(f'<g class="rot origem"><text x="{ox+12:.1f}" y="{oy+26:.1f}">Votuporanga/SP</text></g>')

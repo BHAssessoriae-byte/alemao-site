@@ -20,7 +20,12 @@
   "dominio": "www.alemaoafiacao.com.br",
   "maquinasVendidas": 500,
   "clientesAtivos": 300,
-  "paises": 3,
+  "paises": 4,
   "garantiaMaquinas": "90 dias",
-  "criador": { "nome": "BH Comunicação", "url": "https://bh-link-in-bio.vercel.app" }
+  "criador": {
+    "nome": "BH Comunicação",
+    "url": "https://bh-link-in-bio.vercel.app"
+  },
+  "exportacao": "Estados Unidos, Portugal e Itália",
+  "exportacaoCurto": "EUA, Portugal e Itália"
 }
