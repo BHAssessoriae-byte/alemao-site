@@ -133,29 +133,29 @@
     <h2 class="rv" id="t-esc" style="max-width:16ch">O que você <em>precisa</em> afiar?</h2>
     <div class="escolher__grade" style="margin-top:clamp(28px,4vw,48px)">
       <ol class="lista-esc rv">
-        <li class="ativo" data-img="{{img:a2}}" data-nome="A1, A2 e A4" data-preco="a partir de {{preco:a4}}">
+        <li class="ativo" data-img="{{img:a2}}" data-img-verde="{{imgv:a2}}" data-nome="A1, A2 e A4" data-preco="a partir de {{preco:a4}}">
           <button type="button" aria-expanded="true"><span class="n">[1]</span><span class="t">Alicate de cutícula</span><span class="seta">{{ico:seta}}</span>
           <span class="s">Modelos <b>A1</b> ({{preco:a1}}), <b>A2 com controlador de velocidade</b> ({{preco:a2}}) e <b>A4</b> ({{preco:a4}}). Todas nas cores laranja e verde.</span></button>
         </li>
-        <li data-img="{{img:a3}}" data-nome="A3 Compacta" data-preco="{{preco:a3}}">
+        <li data-img="{{img:a3}}" data-img-verde="{{imgv:a3}}" data-nome="A3 Compacta" data-preco="{{preco:a3}}">
           <button type="button" aria-expanded="false"><span class="n">[2]</span><span class="t">Quero um modelo compacto</span><span class="seta">{{ico:seta}}</span>
           <span class="s"><b>Máquina Compacta A3</b> por {{preco:a3}}. Medidas: {{med:a3}}.</span></button>
         </li>
-        <li data-img="{{img:tf1}}" data-nome="TF1 e TF2" data-preco="a partir de {{preco:tf2}}">
+        <li data-img="{{img:tf1}}" data-img-verde="{{imgv:tf1}}" data-nome="TF1 e TF2" data-preco="a partir de {{preco:tf2}}">
           <button type="button" aria-expanded="false"><span class="n">[3]</span><span class="t">Tesouras e facas</span><span class="seta">{{ico:seta}}</span>
           <span class="s"><b>TF1 Completo</b> ({{preco:tf1}}) ou <b>TF2 Simples</b> ({{preco:tf2}}), feitas para afiar tesouras e facas.</span></button>
         </li>
-        <li data-img="{{img:a5}}" data-nome="A5 Basiquinha" data-preco="{{preco:a5}}">
+        <li data-img="{{img:a5}}" data-img-verde="{{imgv:a5}}" data-nome="A5 Basiquinha" data-preco="{{preco:a5}}">
           <button type="button" aria-expanded="false"><span class="n">[4]</span><span class="t">Começar com o modelo mais em conta</span><span class="seta">{{ico:seta}}</span>
           <span class="s"><b>Máquina A5 Basiquinha</b> por {{preco:a5}}, o modelo de entrada da linha.</span></button>
         </li>
-        <li data-img="{{img:balanceador}}" data-nome="Equipamentos e peças" data-preco="a partir de {{preco_min_peca}}">
+        <li data-img="{{img:balanceador}}" data-img-verde="{{imgv:balanceador}}" data-nome="Equipamentos e peças" data-preco="a partir de {{preco_min_peca}}">
           <button type="button" aria-expanded="false"><span class="n">[5]</span><span class="t">Equipamentos e peças de reposição</span><span class="seta">{{ico:seta}}</span>
           <span class="s"><b>{{N_EQUIP}} equipamentos</b> (guilhotina, tirador de folga, dressador, jig de faca, motor…) e <b>{{N_PECAS}} peças</b> (rampas, flanges, polias, eixos…). <a href="#pecas" style="color:var(--laranja);font-weight:700">Ver todos</a></span></button>
         </li>
       </ol>
       <div class="vitrine rv" aria-hidden="true">
-        <img class="vitrine__simb" src="/assets/img/simbolo-laranja.webp" alt="" loading="lazy" width="600" height="344">
+        <span class="vitrine__simb"></span>
         <img class="prod ativa" src="{{img:a2}}" alt="" loading="lazy">
         <img class="prod" alt="" loading="lazy">
         <div class="vitrine__info"><b>A1, A2 e A4</b><span>a partir de {{preco:a4}}</span></div>

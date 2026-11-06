@@ -157,11 +157,19 @@
   /* ---------- Qual escolher ---------- */
   const itens = $$(".lista-esc li"), vit = $(".vitrine"), fotosV = $$(".vitrine img.prod"), info = $(".vitrine__info");
   let vAtual = 0;
+  const fotoV = li => (document.documentElement.dataset.tema === "verde" && li.dataset.imgVerde) || li.dataset.img;
+  // ao trocar laranja/verde, a máquina da vitrine troca junto
+  $$(".cor-btn").forEach(b => b.addEventListener("click", () => {
+    const li = itens.find(x => x.classList.contains("ativo")); if (!li) return;
+    const atual = fotosV[vAtual], prox = fotosV[1 - vAtual], src = fotoV(li);
+    if (atual.src.endsWith(src)) return;
+    prox.src = src; prox.onload = () => { atual.classList.remove("ativa"); prox.classList.add("ativa"); vAtual = 1 - vAtual; };
+  }));
   itens.forEach(li => {
     const ativar = () => {
       if (li.classList.contains("ativo")) return;
       itens.forEach(x => { x.classList.toggle("ativo", x === li); $("button", x).setAttribute("aria-expanded", x === li); });
-      const prox = fotosV[1 - vAtual]; prox.src = li.dataset.img;
+      const prox = fotosV[1 - vAtual]; prox.src = fotoV(li);
       prox.onload = () => { fotosV[vAtual].classList.remove("ativa"); prox.classList.add("ativa"); vAtual = 1 - vAtual; };
       info.innerHTML = `<b></b><span></span>`; $("b", info).textContent = li.dataset.nome; $("span", info).textContent = li.dataset.preco;
     };

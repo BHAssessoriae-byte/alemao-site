@@ -224,7 +224,7 @@ h2 em,h1 em{font-style:normal;color:var(--laranja)}
 .lista-esc li.ativo .seta{background:var(--laranja);color:#111;transform:rotate(-45deg);box-shadow:none}
 .vitrine{position:relative;aspect-ratio:1/1;max-width:520px;width:100%;margin:0 auto}
 .vitrine::before{content:none}
-.vitrine__simb{position:absolute;inset:auto 0 4% 0;margin:auto;width:86%;opacity:.07}
+.vitrine__simb{position:absolute;inset:auto 0 4% 0;margin:auto;width:86%;aspect-ratio:600/344;opacity:.07;background:var(--laranja);-webkit-mask:url(/assets/img/simbolo-laranja.webp) center/contain no-repeat;mask:url(/assets/img/simbolo-laranja.webp) center/contain no-repeat}
 .vitrine img.prod{position:absolute;inset:10%;width:80%;height:80%;object-fit:contain;opacity:0;transform:translateY(18px) scale(.96);transition:opacity .5s,transform .7s var(--ease);filter:drop-shadow(0 26px 30px rgba(0,0,0,.6))}
 .vitrine img.prod.ativa{opacity:1;transform:none}
 .vitrine__info{position:absolute;left:0;bottom:0;background:rgba(11,11,11,.82);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:12px 16px;border-left:3px solid var(--laranja);font-size:13px;color:var(--texto-2)}

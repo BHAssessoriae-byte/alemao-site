@@ -160,6 +160,7 @@ html = html
   .replace(/{{preco_min_peca}}/g, brl(precoMinPeca))
   .replace(/{{preco:([\w-]+)}}/g, (_, id) => brl(P[id].preco))
   .replace(/{{img:([\w-]+)}}/g, (_, id) => img((P[id].cores && P[id].cores[0].img) || P[id].imgs[0]))
+  .replace(/{{imgv:([\w-]+)}}/g, (_, id) => img(((P[id].cores || []).find(c => c.nome === "Verde") || {}).img || (P[id].cores && P[id].cores[0].img) || P[id].imgs[0]))
   .replace(/{{med:([\w-]+)}}/g, (_, id) => med(P[id]))
   .replace(/{{wa:([^}]+)}}/g, (_, t) => esc(wa(t)))
   .replace(/{{ico:(\w+)}}/g, (_, k) => ICO[k]);
