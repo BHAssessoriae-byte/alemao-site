@@ -16,7 +16,7 @@ function mensagem(p, variante){
 
 function card(p){
   const el = document.createElement("article");
-  el.className = "card"; el.dataset.busca = sem([p.nome, p.modelo || "", p.servePara || "", p.destaque || "", ...(p.variantes || []).map(v => v.nome)].join(" "));
+  el.className = "card " + p.tipo; el.dataset.busca = sem([p.nome, p.modelo || "", p.servePara || "", p.destaque || "", ...(p.variantes || []).map(v => v.nome)].join(" "));
   const med = p.medidas ? `<div class="medidas">
       <span>Altura <b>${p.medidas.altura}</b></span><span>Largura <b>${p.medidas.largura}</b></span><span>Comprimento <b>${p.medidas.comprimento}</b></span></div>` : "";
   const cores = p.imgs.length > 1 ? `<div class="cores">${p.imgs.map((s,i)=>`<button type="button" aria-label="Ver foto ${i+1}" class="${i?"":"ativo"}" style="background-image:url('${s}')" data-i="${i}"></button>`).join("")}</div>` : "";
@@ -133,4 +133,4 @@ function ondas(){
   });
 }
 
-fetch("produtos.json").then(r => r.json()).then(d => { d.produtos.forEach(p => { if (p.cores) p.imgs = p.cores.map(c => c.img); p.imgs = p.imgs.map(s => s.replace("img/", "img/borda/")); /* catálogo: fotos com contorno branco */ }); DADOS = d; montar(); });
+fetch("produtos.json").then(r => r.json()).then(d => { d.produtos.forEach(p => { if (p.cores) p.imgs = p.cores.map(c => c.img); if (p.tipo === "maquina") p.imgs = p.imgs.map(s => s.replace("img/", "img/borda/")); /* máquinas: contorno branco; equipamentos e peças: quadrado branco */ }); DADOS = d; montar(); });

@@ -14,12 +14,12 @@ const msg = p => p.tipo === "maquina"
   ? `Olá! Vi no catálogo em PDF e tenho interesse na *${p.nome}* (${brl(p.preco)}).`
   : p.tipo === "equipamento" ? `Olá! Vi no catálogo em PDF e quero o equipamento *${p.nome}* (${brl(p.preco)}).`
   : `Olá! Vi no catálogo em PDF e quero a peça *${p.nome}* (${brl(p.preco)}).`;
-const img = s => "file://" + path.join(dir, s); // PDF fundo branco: fotos sem contorno
-const logo = "file://" + path.join(raiz, "public/links/img/logo-alemao-escuro.webp");
+const img = (s, borda) => "file://" + path.join(dir, borda ? s.replace("img/", "img/borda/") : s); // máquinas: contorno branco (fundo escuro); equipamentos/peças: quadrado branco
+const logo = "file://" + path.join(raiz, "public/links/img/logo-alemao.webp");
 
 const card = p => `
   <a class="item ${p.tipo}" href="${wa(msg(p))}">
-    <div class="foto">${p.modelo ? `<span class="selo">${p.modelo}</span>` : ""}<img src="${img(p.imgs[0])}"></div>
+    <div class="foto">${p.modelo ? `<span class="selo">${p.modelo}</span>` : ""}<img src="${img(p.imgs[0], p.tipo === "maquina")}"></div>
     <div class="txt">
       <h3>${p.nome}</h3>
       ${p.destaque ? `<div class="extra">${p.destaque}</div>` : ""}
@@ -40,36 +40,38 @@ const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><sty
 @page{size:A4;margin:0}
 .conteudo{padding:14mm 12mm;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:"Montserrat",sans-serif;color:#151515;background:#FFFFFF;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-html{background:#FFFFFF}
+body{font-family:"Montserrat",sans-serif;color:#F5F5F5;background:#0B0B0B;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html{background:#0B0B0B}
 .capa{height:297mm;padding:14mm 12mm;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;page-break-after:always;position:relative}
 .capa img{width:120mm}
 .capa h1{margin-top:14mm;font-size:34pt;font-weight:800;letter-spacing:1pt}
 .capa h1 span{color:#F36C10}
-.capa p{margin-top:5mm;font-size:11pt;color:#555;line-height:1.6}
+.capa p{margin-top:5mm;font-size:11pt;color:#b5b5b5;line-height:1.6}
 .capa .wa{display:inline-block;margin-top:10mm;background:#F36C10;color:#111;font-weight:800;font-size:12pt;padding:4mm 8mm;text-decoration:none;clip-path:polygon(3mm 0,100% 0,calc(100% - 3mm) 100%,0 100%)}
-.capa .rod{position:absolute;bottom:14mm;font-size:8pt;color:#888}
+.capa .rod{position:absolute;bottom:14mm;font-size:8pt;color:#777}
 section{margin-bottom:8mm}
 h2{font-size:13pt;font-weight:800;letter-spacing:.8pt;text-transform:uppercase;margin:0 0 5mm;break-after:avoid}
 h2 i{color:#F36C10;letter-spacing:-1pt}
 .grade{display:grid;grid-template-columns:1fr 1fr;gap:5mm}
 section.pecas .grade{grid-template-columns:1fr 1fr 1fr;gap:4mm}
-.item{display:flex;flex-direction:column;background:#F5F5F5;border:.3mm solid #E4E4E4;border-radius:2mm;overflow:hidden;text-decoration:none;color:inherit;break-inside:avoid}
+.item{display:flex;flex-direction:column;background:#171717;border-radius:2mm;overflow:hidden;text-decoration:none;color:inherit;break-inside:avoid}
 .foto{position:relative;height:62mm;display:flex;align-items:center;justify-content:center;padding:5mm}
 section.pecas .foto{height:40mm;padding:3mm}
-.foto img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 2mm 2.5mm rgba(0,0,0,.22))}
+.foto img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 3mm 3mm rgba(0,0,0,.55))}
+.item.equipamento .foto,.item.peca .foto{background:#fff}
+.item.equipamento .foto img,.item.peca .foto img{filter:drop-shadow(0 1.5mm 2mm rgba(0,0,0,.25))}
 .selo{position:absolute;top:3mm;left:3mm;background:#F36C10;color:#111;font-weight:800;font-size:8pt;padding:1mm 2.5mm}
 .txt{padding:2mm 4mm 4mm;display:flex;flex-direction:column;gap:1.4mm;flex:1}
 h3{font-size:10.5pt;font-weight:700;line-height:1.3}
 section.pecas h3{font-size:9pt}
-.extra{font-size:8pt;color:#D85A05;font-weight:600}
-.serve,.med{font-size:7.5pt;color:#5a5a5a}
-.serve b{color:#111}
+.extra{font-size:8pt;color:#F36C10;font-weight:600}
+.serve,.med{font-size:7.5pt;color:#b5b5b5}
+.serve b{color:#fff}
 .preco{margin-top:auto;font-size:15pt;font-weight:800}
 section.pecas .preco{font-size:12pt}
-.pedir{font-size:8pt;font-weight:700;color:#D85A05}
-.final{margin-top:6mm;padding:5mm;background:#F5F5F5;border:.3mm solid #E4E4E4;border-radius:2mm;font-size:9pt;color:#555;line-height:1.6;break-inside:avoid}
-.final b{color:#111}
+.pedir{font-size:8pt;font-weight:700;color:#F36C10}
+.final{margin-top:6mm;padding:5mm;background:#171717;border-radius:2mm;font-size:9pt;color:#b5b5b5;line-height:1.6;break-inside:avoid}
+.final b{color:#fff}
 </style></head><body>
 <div class="capa">
   <img src="${logo}">
