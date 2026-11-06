@@ -5,11 +5,11 @@ const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let DADOS, filtro = "todos";
 
 function waLink(texto){ return `https://wa.me/${DADOS.whatsapp}?text=${encodeURIComponent(texto)}`; }
-function mensagem(p, variante){
+function mensagem(p, variante, cor){
   const preco = brl(variante ? variante.preco : p.preco);
-  const v = variante ? ` – ${variante.nome}` : "";
+  const v = (variante ? ` – ${variante.nome}` : "") + (cor ? `* na cor *${cor}` : "");
   return p.tipo === "maquina"
-    ? `Olá! Vi no catálogo online e tenho interesse na *${p.nome}* (${preco}).`
+    ? `Olá! Vi no catálogo online e tenho interesse na *${p.nome}*${cor ? ` na cor *${cor}*` : ""} (${preco}).`
     : p.tipo === "equipamento" ? `Olá! Vi no catálogo online e quero o equipamento *${p.nome}${v}* (${preco}).`
     : `Olá! Vi no catálogo online e quero a peça *${p.nome}${v}* (${preco}).`;
 }
@@ -19,7 +19,7 @@ function card(p){
   el.className = "card " + p.tipo; el.dataset.busca = sem([p.nome, p.modelo || "", p.servePara || "", p.destaque || "", ...(p.variantes || []).map(v => v.nome)].join(" "));
   const med = p.medidas ? `<div class="medidas">
       <span>Altura <b>${p.medidas.altura}</b></span><span>Largura <b>${p.medidas.largura}</b></span><span>Comprimento <b>${p.medidas.comprimento}</b></span></div>` : "";
-  const cores = p.imgs.length > 1 ? `<div class="cores">${p.imgs.map((s,i)=>`<button type="button" aria-label="Ver foto ${i+1}" class="${i?"":"ativo"}" style="background-image:url('${s}')" data-i="${i}"></button>`).join("")}</div>` : "";
+  const cores = p.imgs.length > 1 ? `<div class="cores">${p.imgs.map((s,i)=>`<button type="button" aria-label="${p.cores ? "Cor " + p.cores[i].nome : "Ver foto " + (i+1)}"${p.cores ? ` title="${p.cores[i].nome}"` : ""} class="${i?"":"ativo"}" style="background-image:url('${s}')" data-i="${i}"></button>`).join("")}</div>` : "";
   const variantes = p.variantes ? `<div class="variantes">${p.variantes.map((v,i)=>`<button type="button" class="${i?"":"ativo"}" data-i="${i}">${v.nome}</button>`).join("")}</div>` : "";
   el.innerHTML = `
     <div class="foto">
@@ -31,14 +31,17 @@ function card(p){
       <h3>${p.nome}</h3>
       ${p.destaque ? `<div class="extra">${p.destaque}</div>` : ""}
       ${p.servePara ? `<div class="serve">Serve para: <b>${p.servePara}</b></div>` : ""}
+      ${p.cores ? `<div class="serve">Cor: <b class="cor-nome">${p.cores[0].nome}</b> · disponível em laranja e verde</div>` : ""}
       ${med}${variantes}
       <div class="preco"><small>R$</small>${brl(p.preco).replace("R$","").trim()}</div>
-      <a class="pedir" target="_blank" rel="noopener" href="${waLink(mensagem(p))}">${WA_ICON}Pedir no WhatsApp</a>
+      <a class="pedir" target="_blank" rel="noopener" href="${waLink(mensagem(p, null, p.cores && p.cores[0].nome))}">${WA_ICON}Pedir no WhatsApp</a>
     </div>`;
   // trocar foto / cor
   const img = el.querySelector(".foto img");
+  let corSel = p.cores ? p.cores[0].nome : null, varSel = null;
   el.querySelectorAll(".cores button").forEach(b => b.addEventListener("click", () => {
     el.querySelectorAll(".cores button").forEach(x => x.classList.toggle("ativo", x === b));
+    if (p.cores) { corSel = p.cores[+b.dataset.i].nome; el.querySelector(".cor-nome").textContent = corSel; el.querySelector(".pedir").href = waLink(mensagem(p, varSel, corSel)); }
     img.classList.add("troca");
     setTimeout(() => { img.src = p.imgs[+b.dataset.i]; img.onload = () => img.classList.remove("troca"); }, 160);
   }));
@@ -46,9 +49,9 @@ function card(p){
   const pedir = el.querySelector(".pedir"), preco = el.querySelector(".preco");
   el.querySelectorAll(".variantes button").forEach(b => b.addEventListener("click", () => {
     el.querySelectorAll(".variantes button").forEach(x => x.classList.toggle("ativo", x === b));
-    const v = p.variantes[+b.dataset.i];
+    const v = varSel = p.variantes[+b.dataset.i];
     preco.innerHTML = `<small>R$</small>${brl(v.preco).replace("R$","").trim()}`;
-    pedir.href = waLink(mensagem(p, v));
+    pedir.href = waLink(mensagem(p, v, corSel));
   }));
   return el;
 }

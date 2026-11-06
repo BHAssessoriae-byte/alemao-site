@@ -207,7 +207,18 @@
    "nome": "Guilhotina",
    "preco": 130,
    "imgs": [
-    "img/p09-1.webp"
+    "img/p09-1.webp",
+    "img/p09-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p09-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p09-1-verde.webp"
+    }
    ]
   },
   {
@@ -217,7 +228,18 @@
    "nome": "Alinhador de Bico de Alicate e Tesoura",
    "preco": 110,
    "imgs": [
-    "img/p10-1.webp"
+    "img/p10-1.webp",
+    "img/p10-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p10-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p10-1-verde.webp"
+    }
    ]
   },
   {
@@ -229,6 +251,16 @@
    "imgs": [
     "img/p11-1.webp",
     "img/p11-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p11-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p11-2.webp"
+    }
    ]
   },
   {
@@ -240,6 +272,16 @@
    "imgs": [
     "img/p12-1.webp",
     "img/p12-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p12-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p12-2.webp"
+    }
    ]
   },
   {
@@ -251,6 +293,16 @@
    "imgs": [
     "img/p21-1-v.webp",
     "img/p21-2-v.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p21-1-v.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p21-2-v.webp"
+    }
    ]
   },
   {
@@ -304,8 +356,18 @@
    "preco": 260,
    "destaque": "Com regulagem",
    "imgs": [
-    "img/p13-1.webp",
-    "img/p13-2.webp"
+    "img/p13-2.webp",
+    "img/p13-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p13-2.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p13-1.webp"
+    }
    ]
   },
   {
@@ -315,8 +377,18 @@
    "nome": "Rampa de Fio",
    "preco": 260,
    "imgs": [
-    "img/p14-1.webp",
-    "img/p14-2.webp"
+    "img/p14-2.webp",
+    "img/p14-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p14-2.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p14-1.webp"
+    }
    ]
   },
   {
@@ -362,7 +434,18 @@
    "preco": 760,
    "servePara": "Modelo A1",
    "imgs": [
-    "img/p18-1.webp"
+    "img/p18-1.webp",
+    "img/p18-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p18-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p18-1-verde.webp"
+    }
    ]
   },
   {
@@ -373,7 +456,18 @@
    "preco": 560,
    "servePara": "Modelo A2",
    "imgs": [
-    "img/p19-1.webp"
+    "img/p19-1.webp",
+    "img/p19-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p19-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p19-1-verde.webp"
+    }
    ]
   },
   {
@@ -385,6 +479,16 @@
    "imgs": [
     "img/p20-1.webp",
     "img/p20-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p20-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p20-2.webp"
+    }
    ]
   },
   {
@@ -455,7 +559,18 @@
    "nome": "Base de Ferro",
    "preco": 750,
    "imgs": [
-    "img/p31-1.webp"
+    "img/p31-1.webp",
+    "img/p31-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Laranja",
+     "img": "img/p31-1.webp"
+    },
+    {
+     "nome": "Verde",
+     "img": "img/p31-1-verde.webp"
+    }
    ]
   }
  ]

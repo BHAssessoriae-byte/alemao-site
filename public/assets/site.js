@@ -109,7 +109,7 @@
       im.classList.toggle("ativa", im.dataset.cor === b.dataset.cor);
     });
     // mesma cor nos cards de máquinas
-    $$(`.maq__cores button[data-cor="${b.dataset.cor}"]`).forEach(x => x.click());
+    $$(`.maq__cores button[data-cor="${b.dataset.cor}"], .peca__cores button[data-cor="${b.dataset.cor}"]`).forEach(x => x.click());
     // a página inteira troca o laranja pelo verde
     const verde = b.dataset.cor === "Verde";
     document.documentElement.dataset.tema = verde ? "verde" : "";
@@ -140,6 +140,17 @@
     $(".maq__cor-nome", card).textContent = b.dataset.cor;
     card.dataset.cor = b.dataset.cor;
     const im = $(".maq__foto img", card); im.classList.add("troca");
+    setTimeout(() => { im.src = b.dataset.img; im.onload = () => im.classList.remove("troca"); }, reduz ? 0 : 200);
+  })));
+
+  /* ---------- Peças e equipamentos: cores ---------- */
+  $$(".peca").forEach(card => $$(".peca__cores button", card).forEach(b => b.addEventListener("click", () => {
+    if (b.getAttribute("aria-pressed") === "true") return;
+    $$(".peca__cores button", card).forEach(x => x.setAttribute("aria-pressed", x === b));
+    $(".peca__cor-nome", card).textContent = b.dataset.cor;
+    card.dataset.cor = b.dataset.cor;
+    const a = $(".peca__pedir", card); if (a) a.href = b.dataset.wa;
+    const im = $(".peca__foto img", card); im.classList.add("troca");
     setTimeout(() => { im.src = b.dataset.img; im.onload = () => im.classList.remove("troca"); }, reduz ? 0 : 200);
   })));
 

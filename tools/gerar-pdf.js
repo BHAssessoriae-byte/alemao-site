@@ -23,6 +23,7 @@ const card = p => `
     <div class="txt">
       <h3>${p.nome}</h3>
       ${p.destaque ? `<div class="extra">${p.destaque}</div>` : ""}
+      ${p.cores ? `<div class="med">Disponível em <b style="color:#F36C10">laranja</b> e <b style="color:#6CC72B">verde</b></div>` : ""}
       ${p.servePara ? `<div class="serve">Serve para: <b>${p.servePara}</b></div>` : ""}
       ${p.medidas ? `<div class="med">Altura ${p.medidas.altura} · Largura ${p.medidas.largura} · Comprimento ${p.medidas.comprimento}</div>` : ""}
       ${p.variantes ? `<div class="med">${p.variantes.map(v => `${v.nome}: ${brl(v.preco)}`).join(" · ")}</div>` : ""}
@@ -83,7 +84,7 @@ section.pecas .preco{font-size:12pt}
 <div class="conteudo">
 ${secoes}
 <div class="final"><b>Pedidos e dúvidas:</b> WhatsApp ${C.whatsappTexto} · ${C.horario} · ${C.dominio}<br>
-Todas as máquinas em laranja e verde · ${C.garantiaMaquinas} de garantia nas máquinas.<br>
+Todas as máquinas e as peças pintadas em laranja e verde · ${C.garantiaMaquinas} de garantia nas máquinas.<br>
 Preços sujeitos a alteração. Consulte disponibilidade, frete e formas de pagamento pelo WhatsApp.<br>
 ALEMÃO® · ${C.razaoSocial} · CNPJ ${C.cnpj} · ${C.rua}, ${C.bairro}, ${C.cidade}</div>
 </div>

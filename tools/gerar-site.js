@@ -68,16 +68,20 @@ const cardMaq = (p, i) => {
 };
 
 // ---- Cards de peças
-const cardPeca = (p, i) => `<article class="peca rv" data-tipo="${p.tipo}" data-busca="${esc((p.nome + " " + (p.servePara || "") + " " + (p.destaque || "")).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""))}"${i >= 10 ? " data-extra hidden" : ""} style="--i:${i % 4}">
-        <div class="peca__foto"><img src="${img(p.imgs[0])}" alt="${esc(p.nome)}" loading="lazy" decoding="async"></div>
+const msgPeca = (p, cor) => `Olá! Vi no site e quero ${p.tipo === "equipamento" ? "o equipamento" : "a peça"} *${p.nome}*${cor ? ` na cor *${cor}*` : ""} (${brl(p.preco)}).`;
+const coresPeca = p => p.cores ? `<div class="peca__cores"><span>Cor:</span>${p.cores.map((c, j) =>
+    `<button type="button" aria-pressed="${j === 0}" aria-label="${c.nome}" title="${c.nome}" data-cor="${c.nome}" data-img="${img(c.img)}" data-wa="${esc(wa(msgPeca(p, c.nome)))}" style="--c:${corHex[c.nome]}"></button>`).join("")}<b class="peca__cor-nome">${p.cores[0].nome}</b></div>` : "";
+const cardPeca = (p, i) => `<article class="peca rv" data-tipo="${p.tipo}"${p.cores ? ` data-cor="${p.cores[0].nome}"` : ""} data-busca="${esc((p.nome + " " + (p.servePara || "") + " " + (p.destaque || "")).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""))}"${i >= 10 ? " data-extra hidden" : ""} style="--i:${i % 4}">
+        <div class="peca__foto"><img src="${img(p.cores ? p.cores[0].img : p.imgs[0])}" alt="${esc(p.nome)}" loading="lazy" decoding="async"></div>
         <div class="peca__corpo">
           <h3>${esc(p.nome)}</h3>
           ${p.destaque ? `<div class="serve">${esc(p.destaque)}</div>` : ""}
           ${p.servePara ? `<div class="serve">Serve para: <b>${esc(p.servePara)}</b></div>` : ""}
           ${p.variantes ? `<div class="var">${p.variantes.map(v => `${esc(v.nome)}: ${brl(v.preco)}`).join(" · ")}</div>` : ""}
+          ${coresPeca(p)}
           <div class="preco">${p.variantes ? "<small>a partir de</small>" : ""}${brl(p.preco)}</div>
           <span class="peca__tipo">${p.tipo === "equipamento" ? "Equipamento" : "Peça"}</span>
-          <a href="${wa(`Olá! Vi no site e quero ${p.tipo === "equipamento" ? "o equipamento" : "a peça"} *${p.nome}* (${brl(p.preco)}).`)}" target="_blank" rel="noopener" aria-label="Pedir ${esc(p.nome)} no WhatsApp">Pedir ${ICO.seta}</a>
+          <a class="peca__pedir" href="${wa(msgPeca(p, p.cores && p.cores[0].nome))}" target="_blank" rel="noopener" aria-label="Pedir ${esc(p.nome)} no WhatsApp">Pedir ${ICO.seta}</a>
         </div>
       </article>`;
 
