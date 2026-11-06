@@ -8,6 +8,7 @@ const { execFileSync } = require("child_process");
 const path = require("path"), fs = require("fs");
 const raiz = path.resolve(__dirname, "..");
 const rodar = (...a) => execFileSync(process.execPath, a, { cwd: raiz, stdio: "inherit" });
+execFileSync("python3", ["tools/gerar-bordas.py"], { cwd: raiz, stdio: "inherit" }); // fotos com contorno branco (só catálogo)
 rodar("tools/gerar-site.js");
 rodar("tools/gerar-pdf.js");
 // conferência: nenhum número/dado antigo esquecido fora da base

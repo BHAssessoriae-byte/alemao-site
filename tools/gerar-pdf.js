@@ -14,7 +14,7 @@ const msg = p => p.tipo === "maquina"
   ? `Olá! Vi no catálogo em PDF e tenho interesse na *${p.nome}* (${brl(p.preco)}).`
   : p.tipo === "equipamento" ? `Olá! Vi no catálogo em PDF e quero o equipamento *${p.nome}* (${brl(p.preco)}).`
   : `Olá! Vi no catálogo em PDF e quero a peça *${p.nome}* (${brl(p.preco)}).`;
-const img = s => "file://" + path.join(dir, s);
+const img = s => "file://" + path.join(dir, s.replace("img/", "img/borda/")); // catálogo: fotos com contorno branco
 const logo = "file://" + path.join(raiz, "public/links/img/logo-alemao.webp");
 
 const card = p => `

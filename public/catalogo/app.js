@@ -133,4 +133,4 @@ function ondas(){
   });
 }
 
-fetch("produtos.json").then(r => r.json()).then(d => { d.produtos.forEach(p => { if (p.cores) p.imgs = p.cores.map(c => c.img); }); DADOS = d; montar(); });
+fetch("produtos.json").then(r => r.json()).then(d => { d.produtos.forEach(p => { if (p.cores) p.imgs = p.cores.map(c => c.img); p.imgs = p.imgs.map(s => s.replace("img/", "img/borda/")); /* catálogo: fotos com contorno branco */ }); DADOS = d; montar(); });
