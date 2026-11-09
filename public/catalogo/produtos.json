@@ -205,7 +205,7 @@
    "cat": "equipamentos",
    "tipo": "equipamento",
    "nome": "Guilhotina",
-   "preco": 130,
+   "preco": 145,
    "imgs": [
     "img/p09-1.webp",
     "img/p09-1-verde.webp"
