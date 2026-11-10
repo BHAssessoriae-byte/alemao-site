@@ -14,8 +14,17 @@ const msg = p => p.tipo === "maquina"
   ? `Olá! Vi no catálogo em PDF e tenho interesse na *${p.nome}* (${brl(p.preco)}).`
   : p.tipo === "equipamento" ? `Olá! Vi no catálogo em PDF e quero o equipamento *${p.nome}* (${brl(p.preco)}).`
   : `Olá! Vi no catálogo em PDF e quero a peça *${p.nome}* (${brl(p.preco)}).`;
-const img = (s, borda) => "file://" + path.join(dir, borda ? s.replace("img/", "img/borda/") : s); // máquinas: contorno branco (fundo escuro); equipamentos/peças: quadrado branco
-const logo = "file://" + path.join(raiz, "public/links/img/logo-alemao.webp");
+// Fotos do PDF SEM transparência: vários leitores (prévia do WhatsApp, celulares Android)
+// ignoram a transparência e mostram fundo preto. Cada foto é achatada sobre a cor do cartão,
+// com a sombra já desenhada (tools/gerar-fotos-pdf.py).
+const pastaPdf = path.join(raiz, "tools/.pdf-img"); fs.mkdirSync(pastaPdf, { recursive: true });
+const listaPdf = [];
+const achatar = (orig, nome, cor, sombra) => { const d = path.join(pastaPdf, nome); listaPdf.push([orig, d, cor, sombra].join("\t")); return "file://" + d; };
+// máquinas: contorno branco sobre o cartão escuro; equipamentos/peças: quadrado branco
+const img = (s, borda) => borda
+  ? achatar(path.join(dir, s.replace("img/", "img/borda/")), "m-" + path.basename(s).replace(/\.\w+$/, ".jpg"), "#171717", "0.55")
+  : achatar(path.join(dir, s), "p-" + path.basename(s).replace(/\.\w+$/, ".jpg"), "#FFFFFF", "0.25");
+const logo = achatar(path.join(raiz, "public/links/img/logo-alemao.webp"), "logo.jpg", "#0B0B0B", "0");
 
 const card = p => `
   <a class="item ${p.tipo}" href="${wa(msg(p))}">
@@ -58,9 +67,8 @@ section.pecas .grade{grid-template-columns:1fr 1fr 1fr;gap:4mm}
 .item{display:flex;flex-direction:column;background:#171717;border-radius:2mm;overflow:hidden;text-decoration:none;color:inherit;break-inside:avoid}
 .foto{position:relative;height:62mm;display:flex;align-items:center;justify-content:center;padding:5mm}
 section.pecas .foto{height:40mm;padding:3mm}
-.foto img{max-width:100%;max-height:100%;object-fit:contain;filter:drop-shadow(0 3mm 3mm rgba(0,0,0,.55))}
+.foto img{max-width:100%;max-height:100%;object-fit:contain}
 .item.equipamento .foto,.item.peca .foto{background:#fff}
-.item.equipamento .foto img,.item.peca .foto img{filter:drop-shadow(0 1.5mm 2mm rgba(0,0,0,.25))}
 .selo{position:absolute;top:3mm;left:3mm;background:#F36C10;color:#111;font-weight:800;font-size:8pt;padding:1mm 2.5mm}
 .txt{padding:2mm 4mm 4mm;display:flex;flex-direction:column;gap:1.4mm;flex:1}
 h3{font-size:10.5pt;font-weight:700;line-height:1.3}
@@ -91,6 +99,8 @@ ALEMÃO® · ${C.razaoSocial} · CNPJ ${C.cnpj} · ${C.rua}, ${C.bairro}, ${C.ci
 </body></html>`;
 
 (async () => {
+  fs.writeFileSync(path.join(pastaPdf, "lista.txt"), listaPdf.join("\n"));
+  require("child_process").execFileSync("python3", [path.join(raiz, "tools/gerar-fotos-pdf.py")], { stdio: "inherit" });
   const tmp = path.join(dir, "_pdf.html");
   fs.writeFileSync(tmp, html);
   const b = await chromium.launch();
