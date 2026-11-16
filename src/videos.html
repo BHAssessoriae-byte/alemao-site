@@ -97,6 +97,7 @@
   <div class="topo entra">
     <a class="voltar" href="/links/" aria-label="Voltar para os links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
     <img src="/links/img/logo-alemao.webp" alt="Alemão® · máquinas e equipamentos para afiação">
+    {{IDIOMAS}}
   </div>
   <div class="hero entra" style="animation-delay:.08s">
     <h1><i>//</i>Vídeos</h1>
@@ -105,7 +106,8 @@
 </div>
 
 <div class="filtros"><div class="wrap"><div class="chips" id="chips"></div></div></div>
-<main class="wrap" id="lista"></main>
+<main class="wrap" id="lista" data-src="{{DADOS_SRC}}"></main>
+<script type="application/json" id="ui">{{UI}}</script>
 
 <div class="wrap">
   <a class="yt" id="yt" target="_blank" rel="noopener" href="#">

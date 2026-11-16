@@ -156,6 +156,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
     </a>
     <img src="/links/img/logo-alemao.webp" alt="Alemão® · máquinas e equipamentos para afiação">
+    {{IDIOMAS}}
   </div>
 
   <div class="hero">
@@ -163,7 +164,7 @@
       <h1><i>//</i>Catálogo</h1>
       <p>Máquinas para afiar alicate de cutícula, tesouras e facas, equipamentos e peças. Toque em <b>Pedir no WhatsApp</b> e a mensagem já vai pronta com o item escolhido.</p>
     </div>
-    <a class="pdf entra" style="animation-delay:.16s" href="catalogo-alemao-afiacao.pdf" download>
+    <a class="pdf entra" style="animation-delay:.16s" href="/catalogo/catalogo-alemao-afiacao.pdf" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
       Baixar catálogo em PDF
     </a>
@@ -180,7 +181,8 @@
   </div>
 </div>
 
-<main class="wrap" id="lista"></main>
+<main class="wrap" id="lista" data-src="{{DADOS_SRC}}"></main>
+<script type="application/json" id="ui">{{UI}}</script>
 <div class="wrap"><p class="vazio" id="vazio" hidden>Nada encontrado. Tente outro nome ou fale com a gente no WhatsApp.</p></div>
 
 <div class="wrap">

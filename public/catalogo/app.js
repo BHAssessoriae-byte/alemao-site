@@ -1,5 +1,7 @@
 const WA_ICON = '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .2-1.2c-.1-.1-.3-.2-.6-.3Z"/></svg>';
-const brl = v => v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const UI = JSON.parse(document.getElementById("ui").textContent);
+const brl = v => UI.idioma === "en" ? "R$ " + v.toLocaleString("en-US", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : v.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+const fmt = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? "");
 const sem = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase();
 const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
 let DADOS, filtro = "todos";
@@ -7,19 +9,17 @@ let DADOS, filtro = "todos";
 function waLink(texto){ return `https://wa.me/${DADOS.whatsapp}?text=${encodeURIComponent(texto)}`; }
 function mensagem(p, variante, cor){
   const preco = brl(variante ? variante.preco : p.preco);
-  const v = (variante ? ` – ${variante.nome}` : "") + (cor ? `* na cor *${cor}` : "");
-  return p.tipo === "maquina"
-    ? `Olá! Vi no catálogo online e tenho interesse na *${p.nome}*${cor ? ` na cor *${cor}*` : ""} (${preco}).`
-    : p.tipo === "equipamento" ? `Olá! Vi no catálogo online e quero o equipamento *${p.nome}${v}* (${preco}).`
-    : `Olá! Vi no catálogo online e quero a peça *${p.nome}${v}* (${preco}).`;
+  const nome = p.nome + (variante ? ` – ${variante.nome}` : "");
+  const modelo = p.tipo === "maquina" ? UI.msgMaquina : p.tipo === "equipamento" ? UI.msgEquip : UI.msgPeca;
+  return fmt(modelo, { nome, preco, cor: cor ? fmt(UI.naCor, { cor }) : "" });
 }
 
 function card(p){
   const el = document.createElement("article");
   el.className = "card " + p.tipo; el.dataset.busca = sem([p.nome, p.modelo || "", p.servePara || "", p.destaque || "", ...(p.variantes || []).map(v => v.nome)].join(" "));
   const med = p.medidas ? `<div class="medidas">
-      <span>Altura <b>${p.medidas.altura}</b></span><span>Largura <b>${p.medidas.largura}</b></span><span>Comprimento <b>${p.medidas.comprimento}</b></span></div>` : "";
-  const cores = p.imgs.length > 1 ? `<div class="cores">${p.imgs.map((s,i)=>`<button type="button" aria-label="${p.cores ? "Cor " + p.cores[i].nome : "Ver foto " + (i+1)}"${p.cores ? ` title="${p.cores[i].nome}"` : ""} class="${i?"":"ativo"}" style="background-image:url('${s}')" data-i="${i}"></button>`).join("")}</div>` : "";
+      <span>${UI.altura} <b>${p.medidas.altura}</b></span><span>${UI.largura} <b>${p.medidas.largura}</b></span><span>${UI.comprimento} <b>${p.medidas.comprimento}</b></span></div>` : "";
+  const cores = p.imgs.length > 1 ? `<div class="cores">${p.imgs.map((s,i)=>`<button type="button" aria-label="${p.cores ? fmt(UI.corDe, { cor: p.cores[i].nome }) : fmt(UI.verFoto, { n: i + 1 })}"${p.cores ? ` title="${p.cores[i].nome}"` : ""} class="${i?"":"ativo"}" style="background-image:url('${s}')" data-i="${i}"></button>`).join("")}</div>` : "";
   const variantes = p.variantes ? `<div class="variantes">${p.variantes.map((v,i)=>`<button type="button" class="${i?"":"ativo"}" data-i="${i}">${v.nome}</button>`).join("")}</div>` : "";
   el.innerHTML = `
     <div class="foto">
@@ -30,11 +30,11 @@ function card(p){
     <div class="info">
       <h3>${p.nome}</h3>
       ${p.destaque ? `<div class="extra">${p.destaque}</div>` : ""}
-      ${p.servePara ? `<div class="serve">Serve para: <b>${p.servePara}</b></div>` : ""}
-      ${p.cores ? `<div class="serve">Cor: <b class="cor-nome">${p.cores[0].nome}</b> · disponível em laranja e verde</div>` : ""}
+      ${p.servePara ? `<div class="serve">${UI.servePara} <b>${p.servePara}</b></div>` : ""}
+      ${p.cores ? `<div class="serve">${UI.cor} <b class="cor-nome">${p.cores[0].nome}</b> · ${UI.disponivel}</div>` : ""}
       ${med}${variantes}
       <div class="preco"><small>R$</small>${brl(p.preco).replace("R$","").trim()}</div>
-      <a class="pedir" target="_blank" rel="noopener" href="${waLink(mensagem(p, null, p.cores && p.cores[0].nome))}">${WA_ICON}Pedir no WhatsApp</a>
+      <a class="pedir" target="_blank" rel="noopener" href="${waLink(mensagem(p, null, p.cores && p.cores[0].nome))}">${WA_ICON}${UI.pedir}</a>
     </div>`;
   // trocar foto / cor
   const img = el.querySelector(".foto img");
@@ -59,26 +59,26 @@ function card(p){
 function comparativo(){
   const a1 = DADOS.produtos.find(p=>p.id==="a1"), a2 = DADOS.produtos.find(p=>p.id==="a2");
   const d = document.createElement("div"); d.className = "compara card";
-  d.innerHTML = `<h4><i>//</i> Diferença entre A1 e A2</h4>
+  d.innerHTML = `<h4><i>//</i> ${UI.compTitulo}</h4>
     <table><thead><tr><th></th><th>A1</th><th>A2</th></tr></thead><tbody>
-      <tr><td>Preço</td><td>${brl(a1.preco)}</td><td>${brl(a2.preco)}</td></tr>
-      <tr><td>Controlador de velocidade</td><td>Não</td><td>Sim</td></tr>
-      <tr><td>Altura</td><td>${a1.medidas.altura}</td><td>${a2.medidas.altura}</td></tr>
-      <tr><td>Largura × comprimento</td><td>${a1.medidas.largura} × ${a1.medidas.comprimento}</td><td>${a2.medidas.largura} × ${a2.medidas.comprimento}</td></tr>
-      <tr><td>Eixo mancal</td><td>Sem rebolo com balanceador</td><td>Simples</td></tr>
-      <tr><td>Kit rampa</td><td>Completo</td><td>Simples</td></tr>
+      <tr><td>${UI.compPreco}</td><td>${brl(a1.preco)}</td><td>${brl(a2.preco)}</td></tr>
+      <tr><td>${UI.compControle}</td><td>${UI.nao}</td><td>${UI.sim}</td></tr>
+      <tr><td>${UI.altura}</td><td>${a1.medidas.altura}</td><td>${a2.medidas.altura}</td></tr>
+      <tr><td>${UI.compLC}</td><td>${a1.medidas.largura} × ${a1.medidas.comprimento}</td><td>${a2.medidas.largura} × ${a2.medidas.comprimento}</td></tr>
+      <tr><td>${UI.compEixo}</td><td>${UI.compEixoA1}</td><td>${UI.simples}</td></tr>
+      <tr><td>${UI.compKit}</td><td>${UI.completo}</td><td>${UI.simples}</td></tr>
     </tbody></table>`;
   return d;
 }
 
 function montar(){
   const lista = document.getElementById("lista"), chips = document.getElementById("chips");
-  chips.innerHTML = `<button class="chip ativo" data-cat="todos">Tudo <b>${DADOS.produtos.length}</b></button>` +
+  chips.innerHTML = `<button class="chip ativo" data-cat="todos">${UI.tudo} <b>${DADOS.produtos.length}</b></button>` +
     DADOS.categorias.map(c => `<button class="chip" data-cat="${c.id}">${c.nome} <b>${DADOS.produtos.filter(p=>p.cat===c.id).length}</b></button>`).join("");
   DADOS.categorias.forEach(c => {
     const itens = DADOS.produtos.filter(p => p.cat === c.id);
     const sec = document.createElement("section"); sec.className = "cat"; sec.id = c.id; sec.dataset.cat = c.id;
-    sec.innerHTML = `<h2><i>///</i>${c.nome} <small>${itens.length} ${itens.length>1?"itens":"item"}</small></h2>`;
+    sec.innerHTML = `<h2><i>///</i>${c.nome} <small>${itens.length} ${itens.length>1?UI.itens:UI.item}</small></h2>`;
     const g = document.createElement("div"); g.className = "grade" + ((c.id === "pecas" || c.id === "equipamentos") ? " pecas" : "");
     itens.forEach(p => g.appendChild(card(p)));
     sec.appendChild(g);
@@ -93,7 +93,7 @@ function montar(){
     aplicar(); window.scrollTo({ top: document.getElementById("lista").offsetTop - 130, behavior: reduz ? "auto" : "smooth" });
   });
   document.getElementById("busca").addEventListener("input", aplicar);
-  document.getElementById("flutua").href = waLink("Olá! Vi o catálogo online e gostaria de mais informações.");
+  document.getElementById("flutua").href = waLink(UI.msgGeral);
   observar(); ondas();
 }
 
@@ -136,4 +136,4 @@ function ondas(){
   });
 }
 
-fetch("produtos.json").then(r => r.json()).then(d => { d.produtos.forEach(p => { if (p.cores) p.imgs = p.cores.map(c => c.img); if (p.tipo === "maquina") p.imgs = p.imgs.map(s => s.replace("img/", "img/borda/")); /* máquinas: contorno branco; equipamentos e peças: quadrado branco */ }); DADOS = d; montar(); });
+fetch(document.getElementById("lista").dataset.src || "/catalogo/produtos.json").then(r => r.json()).then(d => { d.produtos.forEach(p => { if (p.cores) p.imgs = p.cores.map(c => c.img); if (p.tipo === "maquina") p.imgs = p.imgs.map(s => s.replace("img/", "img/borda/")); p.imgs = p.imgs.map(s => "/catalogo/" + s); /* máquinas: contorno branco; equipamentos e peças: quadrado branco */ }); DADOS = d; montar(); });

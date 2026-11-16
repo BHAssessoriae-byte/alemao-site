@@ -1,0 +1,577 @@
+{
+ "atualizado": "2026-11-04",
+ "whatsapp": "5517997069595",
+ "aviso": "Preços conforme catálogo de 01/10/2026. Descrições completas, compatibilidade das peças e unidade das medidas: A CONFIRMAR com o cliente. Todas as máquinas em laranja e verde (confirmado pelo Bruno em 05/11/2026); fotos verdes de TF1, TF2, A5 e laranja da A3 são recolorizações ilustrativas.",
+ "categorias": [
+  {
+   "id": "alicate",
+   "nome": "Cuticle nipper sharpening"
+  },
+  {
+   "id": "compacta",
+   "nome": "Compact machine"
+  },
+  {
+   "id": "tesoura",
+   "nome": "Scissor and knife sharpening"
+  },
+  {
+   "id": "basica",
+   "nome": "Basic machines"
+  },
+  {
+   "id": "equipamentos",
+   "nome": "Tools"
+  },
+  {
+   "id": "pecas",
+   "nome": "Parts"
+  }
+ ],
+ "produtos": [
+  {
+   "id": "a1",
+   "cat": "alicate",
+   "tipo": "maquina",
+   "nome": "A1 Cuticle Nipper Sharpening Machine",
+   "modelo": "A1",
+   "preco": 4350,
+   "medidas": {
+    "altura": 30,
+    "largura": 33,
+    "comprimento": 46
+   },
+   "imgs": [
+    "img/p02-1.webp",
+    "img/p02-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p02-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p02-2.webp"
+    }
+   ]
+  },
+  {
+   "id": "a2",
+   "cat": "alicate",
+   "tipo": "maquina",
+   "nome": "A2 Cuticle Nipper Sharpening Machine",
+   "modelo": "A2",
+   "preco": 5850,
+   "destaque": "With speed controller",
+   "medidas": {
+    "altura": 38,
+    "largura": 33,
+    "comprimento": 46
+   },
+   "imgs": [
+    "img/p03-1.webp",
+    "img/p03-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p03-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p03-2.webp"
+    }
+   ]
+  },
+  {
+   "id": "a4",
+   "cat": "alicate",
+   "tipo": "maquina",
+   "nome": "A4 Cuticle Nipper Sharpening Machine",
+   "modelo": "A4",
+   "preco": 3900,
+   "medidas": {
+    "altura": 37,
+    "largura": 27,
+    "comprimento": 36
+   },
+   "imgs": [
+    "img/p07-1.webp",
+    "img/p07-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p07-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p07-2.webp"
+    }
+   ]
+  },
+  {
+   "id": "a3",
+   "cat": "compacta",
+   "tipo": "maquina",
+   "nome": "A3 Compact Machine",
+   "modelo": "A3",
+   "preco": 3900,
+   "medidas": {
+    "altura": 41,
+    "largura": 36,
+    "comprimento": 27
+   },
+   "imgs": [
+    "img/p04-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p04-1-laranja.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p04-1.webp"
+    }
+   ]
+  },
+  {
+   "id": "tf1",
+   "cat": "tesoura",
+   "tipo": "maquina",
+   "nome": "TF1 Scissor and Knife Sharpening Machine (Complete)",
+   "modelo": "TF1",
+   "preco": 2980,
+   "imgs": [
+    "img/p06-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p06-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p06-1-verde.webp"
+    }
+   ]
+  },
+  {
+   "id": "tf2",
+   "cat": "tesoura",
+   "tipo": "maquina",
+   "nome": "TF2 Scissor and Knife Sharpening Machine (Basic)",
+   "modelo": "TF2",
+   "preco": 1980,
+   "imgs": [
+    "img/p05-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p05-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p05-1-verde.webp"
+    }
+   ]
+  },
+  {
+   "id": "a5",
+   "cat": "basica",
+   "tipo": "maquina",
+   "nome": "A5 Basic Machine",
+   "modelo": "A5",
+   "preco": 2350,
+   "imgs": [
+    "img/p08-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p08-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p08-1-verde.webp"
+    }
+   ]
+  },
+  {
+   "id": "guilhotina",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Guillotine",
+   "preco": 145,
+   "imgs": [
+    "img/p09-1.webp",
+    "img/p09-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p09-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p09-1-verde.webp"
+    }
+   ]
+  },
+  {
+   "id": "alinhador",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Nipper and Scissor Tip Aligner",
+   "preco": 110,
+   "imgs": [
+    "img/p10-1.webp",
+    "img/p10-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p10-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p10-1-verde.webp"
+    }
+   ]
+  },
+  {
+   "id": "tirador-folga",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Joint Play Remover",
+   "preco": 190,
+   "imgs": [
+    "img/p11-1.webp",
+    "img/p11-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p11-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p11-2.webp"
+    }
+   ]
+  },
+  {
+   "id": "tirador-folga-3x1",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Joint Play Remover 3-in-1",
+   "preco": 290,
+   "imgs": [
+    "img/p12-1.webp",
+    "img/p12-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p12-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p12-2.webp"
+    }
+   ]
+  },
+  {
+   "id": "jig-faca",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Knife Sharpening Jig",
+   "preco": 470,
+   "imgs": [
+    "img/p21-1-v.webp",
+    "img/p21-2-v.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p21-1-v.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p21-2-v.webp"
+    }
+   ]
+  },
+  {
+   "id": "martelo-bola",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Ball-Peen Hammer",
+   "preco": 140,
+   "imgs": [
+    "img/p22-1.webp"
+   ]
+  },
+  {
+   "id": "dressador-lima",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Wheel Dresser with File",
+   "preco": 290,
+   "imgs": [
+    "img/p23-1.webp"
+   ]
+  },
+  {
+   "id": "dressador-d91",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "D91 Wheel Dresser",
+   "preco": 370,
+   "destaque": "Top and bottom",
+   "imgs": [
+    "img/p25-1.webp",
+    "img/p25-2.webp"
+   ]
+  },
+  {
+   "id": "motor",
+   "cat": "equipamentos",
+   "tipo": "equipamento",
+   "nome": "Motor 110/220V",
+   "preco": 350,
+   "destaque": "Water-pump motor · ½ HP · 3450 RPM",
+   "imgs": [
+    "img/p30-1.webp"
+   ]
+  },
+  {
+   "id": "rampa-laminacao",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Inner Bevel Ramp",
+   "preco": 260,
+   "destaque": "Adjustable",
+   "imgs": [
+    "img/p13-2.webp",
+    "img/p13-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p13-2.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p13-1.webp"
+    }
+   ]
+  },
+  {
+   "id": "rampa-fio",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Edge Ramp",
+   "preco": 260,
+   "imgs": [
+    "img/p14-2.webp",
+    "img/p14-1.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p14-2.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p14-1.webp"
+    }
+   ]
+  },
+  {
+   "id": "balanceador",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Grinding Wheel Balancer",
+   "preco": 430,
+   "imgs": [
+    "img/p15-1.webp",
+    "img/p15-2.webp"
+   ]
+  },
+  {
+   "id": "eixo-mancal-a1",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Spindle Shaft without Wheel, with Balancer",
+   "preco": 995,
+   "servePara": "Model A1",
+   "imgs": [
+    "img/p16-1.webp",
+    "img/p16-2.webp"
+   ]
+  },
+  {
+   "id": "eixo-mancal-a2",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Basic Spindle Shaft",
+   "preco": 895,
+   "servePara": "Model A2",
+   "imgs": [
+    "img/p17-1.webp",
+    "img/p17-2.webp"
+   ]
+  },
+  {
+   "id": "kit-rampa-completo",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Complete Ramp Kit",
+   "preco": 760,
+   "servePara": "Model A1",
+   "imgs": [
+    "img/p18-1.webp",
+    "img/p18-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p18-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p18-1-verde.webp"
+    }
+   ]
+  },
+  {
+   "id": "kit-rampa-simples",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Basic Ramp Kit",
+   "preco": 560,
+   "servePara": "Model A2",
+   "imgs": [
+    "img/p19-1.webp",
+    "img/p19-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p19-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p19-1-verde.webp"
+    }
+   ]
+  },
+  {
+   "id": "braco-articulado",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Articulated Arm for Scissor Sharpening",
+   "preco": 760,
+   "imgs": [
+    "img/p20-1.webp",
+    "img/p20-2.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p20-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p20-2.webp"
+    }
+   ]
+  },
+  {
+   "id": "bloquinho-dressador",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Dresser Block",
+   "preco": 190,
+   "imgs": [
+    "img/p24-1.webp",
+    "img/p24-2.webp"
+   ]
+  },
+  {
+   "id": "flange-balanceadora",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Balancing Flange",
+   "preco": 125,
+   "imgs": [
+    "img/p26-1.webp"
+   ]
+  },
+  {
+   "id": "flange-centralizadora",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Centering Flange",
+   "preco": 85,
+   "imgs": [
+    "img/p27-1.webp"
+   ]
+  },
+  {
+   "id": "polia-motor",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Motor Pulley",
+   "preco": 55,
+   "imgs": [
+    "img/p28-1.webp"
+   ]
+  },
+  {
+   "id": "polia-motor-controle",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Motor Pulley (Speed Control)",
+   "preco": 140,
+   "variantes": [
+    {
+     "nome": "Without belt",
+     "preco": 140
+    },
+    {
+     "nome": "With belt",
+     "preco": 170
+    }
+   ],
+   "imgs": [
+    "img/p29-1.webp"
+   ]
+  },
+  {
+   "id": "base-ferro",
+   "cat": "pecas",
+   "tipo": "peca",
+   "nome": "Iron Base",
+   "preco": 750,
+   "imgs": [
+    "img/p31-1.webp",
+    "img/p31-1-verde.webp"
+   ],
+   "cores": [
+    {
+     "nome": "Orange",
+     "img": "img/p31-1.webp"
+    },
+    {
+     "nome": "Green",
+     "img": "img/p31-1-verde.webp"
+    }
+   ]
+  }
+ ]
+}

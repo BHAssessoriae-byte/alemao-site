@@ -4,6 +4,7 @@
   const $ = (s, el = document) => el.querySelector(s);
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const D = JSON.parse($("#dados").textContent);
+  const T = D.t || {}, corNome = c => (T.cores && T.cores[c]) || c, fmt = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? "");
   const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.documentElement.classList.add("js");
   const waUrl = t => `https://wa.me/${D.whatsapp}?text=${encodeURIComponent(t)}`;
@@ -35,7 +36,7 @@
   const menu = aberto => {
     document.body.classList.toggle("menu-aberto", aberto);
     hamb.setAttribute("aria-expanded", aberto);
-    hamb.setAttribute("aria-label", aberto ? "Fechar menu" : "Abrir menu");
+    hamb.setAttribute("aria-label", aberto ? T.fecharMenu : T.abrirMenu);
   };
   hamb.addEventListener("click", () => menu(!document.body.classList.contains("menu-aberto")));
   $$("#menu-mob a").forEach(a => a.addEventListener("click", () => menu(false)));
@@ -77,7 +78,7 @@
     el.textContent = "0"; el.classList.add("contando");
     const passo = t => {
       const k = Math.min(1, (t - t0) / dur), ease = k === 1 ? 1 : 1 - Math.pow(2, -10 * k);
-      el.textContent = Math.round(fim * ease).toLocaleString("pt-BR");
+      el.textContent = Math.round(fim * ease).toLocaleString(document.documentElement.lang || "pt-BR");
       if (k < 1) requestAnimationFrame(passo);
       else { el.classList.remove("contando"); el.classList.add("fim"); setTimeout(() => el.classList.remove("fim"), 600); }
     };
@@ -137,7 +138,7 @@
   cards.forEach(card => $$(".maq__cores button", card).forEach(b => b.addEventListener("click", () => {
     if (b.getAttribute("aria-pressed") === "true") return;
     $$(".maq__cores button", card).forEach(x => x.setAttribute("aria-pressed", x === b));
-    $(".maq__cor-nome", card).textContent = b.dataset.cor;
+    $(".maq__cor-nome", card).textContent = corNome(b.dataset.cor);
     card.dataset.cor = b.dataset.cor;
     const im = $(".maq__foto img", card); im.classList.add("troca");
     setTimeout(() => { im.src = b.dataset.img; im.onload = () => im.classList.remove("troca"); }, reduz ? 0 : 200);
@@ -147,7 +148,7 @@
   $$(".peca").forEach(card => $$(".peca__cores button", card).forEach(b => b.addEventListener("click", () => {
     if (b.getAttribute("aria-pressed") === "true") return;
     $$(".peca__cores button", card).forEach(x => x.setAttribute("aria-pressed", x === b));
-    $(".peca__cor-nome", card).textContent = b.dataset.cor;
+    $(".peca__cor-nome", card).textContent = corNome(b.dataset.cor);
     card.dataset.cor = b.dataset.cor;
     const a = $(".peca__pedir", card); if (a) a.href = b.dataset.wa;
     const im = $(".peca__foto img", card); im.classList.add("troca");
@@ -231,12 +232,12 @@
     const cor = (f.querySelector("input[name=cor]:checked") || {}).value;
     const uso = (f.querySelector("input[name=uso]:checked") || {}).value;
     const obs = f.obs.value.trim();
-    const l = ["Olá! Quero um orçamento pelo site www.alemaoafiacao.com.br", ""];
-    l.push(p ? `*${({ maquina: "Máquina", equipamento: "Equipamento" })[p.tipo] || "Peça"}:* ${p.nome} (${p.preco})` : "*Máquina:* ainda não sei, quero ajuda para escolher");
-    if (p && p.cores.length > 1 && cor) l.push(`*Cor:* ${cor}`);
-    l.push(`*Nome:* ${nome}`, `*Cidade:* ${cidade}`);
-    if (uso) l.push(`*Uso:* ${uso}`);
-    if (obs) l.push(`*Observação:* ${obs}`);
+    const l = [T.orc, ""];
+    l.push(p ? `*${T[p.tipo] || T.peca}:* ${p.nome} (${p.preco})` : `*${T.maquina}:* ${T.naoSei}`);
+    if (p && p.cores.length > 1 && cor) l.push(`*${T.cor}:* ${corNome(cor)}`);
+    l.push(`*${T.nome}:* ${nome}`, `*${T.cidade}:* ${cidade}`);
+    if (uso) l.push(`*${T.uso}:* ${uso}`);
+    if (obs) l.push(`*${T.obs}:* ${obs}`);
     return l.join("\n");
   };
   [fModal, fPag].forEach(f => {
@@ -248,7 +249,7 @@
   const mVid = $("#modal-vid"), video = $("video", mVid);
   $$(".vid").forEach(b => b.addEventListener("click", () => {
     video.src = b.dataset.src; $(".rod b", mVid).textContent = b.dataset.titulo;
-    $(".rod a", mVid).href = waUrl(`Olá! Vi o vídeo *${b.dataset.titulo}* no site e quero saber mais.`);
+    $(".rod a", mVid).href = waUrl(fmt(T.msgVideo, { titulo: b.dataset.titulo }));
     abrir(mVid); video.play().catch(() => {});
   }));
 

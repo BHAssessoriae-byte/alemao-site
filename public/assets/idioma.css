@@ -1,0 +1,28 @@
+/* Seletor de idioma (PT · EN · ES) e aviso para visitantes de fora · usado no site, link na bio, catálogo e vídeos */
+.idiomas{display:inline-flex;align-items:center;gap:2px;padding:3px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);flex:none}
+.idiomas svg{width:16px;height:16px;margin:0 3px 0 5px;color:#B5B5B5;flex:none}
+.idiomas a{min-width:32px;height:30px;display:grid;place-items:center;padding:0 7px;border-radius:999px;font:700 12px/1 "Montserrat",system-ui,sans-serif;letter-spacing:.04em;color:#C9C9C9;text-decoration:none;transition:background .2s,color .2s;-webkit-tap-highlight-color:transparent}
+.idiomas a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.idiomas a[aria-current]{background:var(--laranja,#F36C10);color:#111}
+
+/* site: no topo, ao lado do WhatsApp e do menu */
+.header .idiomas{margin-left:auto}
+.header .idiomas ~ .acoes-mob{margin-left:0}
+@media (max-width:999px){.header .wrap{gap:10px}}
+@media (max-width:400px){.header .idiomas svg{display:none}.header .idiomas a{min-width:28px;padding:0 5px}}
+@media (min-width:1000px){.header .idiomas{margin-left:0}}
+
+/* link na bio */
+.topo-idioma{display:flex;justify-content:flex-end;margin-bottom:4px;position:relative;z-index:2}
+
+/* catálogo e vídeos */
+.topo .idiomas{margin-left:auto}
+@media (max-width:400px){.topo .idiomas svg{display:none}}
+
+/* aviso "este site também está em inglês/espanhol" */
+.idioma-aviso{position:fixed;left:12px;right:12px;bottom:12px;z-index:300;max-width:440px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 10px 10px 16px;background:#171717;color:#F5F5F5;border:1px solid #2a2a2a;border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.55);font:600 13.5px/1.35 "Montserrat",system-ui,sans-serif;transform:translateY(160%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.idioma-aviso.vis{transform:none}
+.idioma-aviso span{flex:1}
+.idioma-aviso a{flex:none;background:var(--laranja,#F36C10);color:#111;padding:10px 14px;border-radius:999px;text-decoration:none;font-weight:800;white-space:nowrap}
+.idioma-aviso button{flex:none;width:36px;height:36px;border:0;border-radius:50%;background:rgba(255,255,255,.08);color:#ccc;cursor:pointer;font:400 20px/1 system-ui,sans-serif}
+@media (prefers-reduced-motion:reduce){.idioma-aviso{transition:none}}

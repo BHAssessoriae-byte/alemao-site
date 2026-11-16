@@ -91,12 +91,18 @@
   .entra{animation:sobe .6s cubic-bezier(.2,.8,.2,1) both}
   @media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.video{opacity:1;transform:none}}
 </style>
+<link rel="alternate" hreflang="pt-BR" href="https://www.alemaoafiacao.com.br/videos/">
+<link rel="alternate" hreflang="en" href="https://www.alemaoafiacao.com.br/en/videos/">
+<link rel="alternate" hreflang="es" href="https://www.alemaoafiacao.com.br/es/videos/">
+<link rel="alternate" hreflang="x-default" href="https://www.alemaoafiacao.com.br/videos/">
+<link rel="stylesheet" href="/assets/idioma.css?v=mwjn1lik">
 </head>
 <body>
 <div class="wrap">
   <div class="topo entra">
     <a class="voltar" href="/links/" aria-label="Voltar para os links"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg></a>
     <img src="/links/img/logo-alemao.webp" alt="Alemão® · máquinas e equipamentos para afiação">
+    <nav class="idiomas" aria-label="Idioma · Language · Idioma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg><a href="/videos/" hreflang="pt-BR" lang="pt-BR" data-idioma="pt" title="Português" aria-current="page">PT</a><a href="/en/videos/" hreflang="en" lang="en" data-idioma="en" title="English">EN</a><a href="/es/videos/" hreflang="es" lang="es" data-idioma="es" title="Español">ES</a></nav>
   </div>
   <div class="hero entra" style="animation-delay:.08s">
     <h1><i>//</i>Vídeos</h1>
@@ -105,7 +111,8 @@
 </div>
 
 <div class="filtros"><div class="wrap"><div class="chips" id="chips"></div></div></div>
-<main class="wrap" id="lista"></main>
+<main class="wrap" id="lista" data-src="/videos/videos.json"></main>
+<script type="application/json" id="ui">{"todos":"Todos","videos":"vídeos","video":"vídeo","msg":"Olá! Vi o vídeo *{titulo}* no site e quero saber mais."}</script>
 
 <div class="wrap">
   <a class="yt" id="yt" target="_blank" rel="noopener" href="#">
@@ -132,6 +139,7 @@
   </div>
 </div>
 
-<script src="/videos/app.js?v=mwb3889f"></script>
+<script src="/videos/app.js?v=mwjn1lik"></script>
+<script src="/assets/idioma.js?v=mwjn1lik" defer></script>
 </body>
 </html>

@@ -1,0 +1,137 @@
+{
+ "aviso": "Vídeos provisórios (04/11/2026). Serão trocados por vídeos produzidos.",
+ "whatsapp": "5517997069595",
+ "youtube": "https://www.youtube.com/@alemaoafiacao5676",
+ "categorias": [
+  {
+   "id": "modelos",
+   "nome": "Modelos de las máquinas"
+  },
+  {
+   "id": "testes",
+   "nome": "Pruebas de afilado"
+  },
+  {
+   "id": "como-usar",
+   "nome": "Cómo usar y consejos"
+  },
+  {
+   "id": "kit",
+   "nome": "Kit completo"
+  }
+ ],
+ "videos": [
+  {
+   "id": "maquina-a2-com-kit",
+   "titulo": "Máquina A2 con kit",
+   "cat": "modelos",
+   "duracao": 365,
+   "arquivo": "media/maquina-a2-com-kit.mp4",
+   "capa": "media/maquina-a2-com-kit.jpg"
+  },
+  {
+   "id": "modelo-a3-compacta",
+   "titulo": "Modelo A3 compacta",
+   "cat": "modelos",
+   "duracao": 168,
+   "arquivo": "media/modelo-a3-compacta.mp4",
+   "capa": "media/modelo-a3-compacta.jpg"
+  },
+  {
+   "id": "modelo-novo-compacto",
+   "titulo": "Nuevo modelo compacto",
+   "cat": "modelos",
+   "duracao": 127,
+   "arquivo": "media/modelo-novo-compacto.mp4",
+   "capa": "media/modelo-novo-compacto.jpg"
+  },
+  {
+   "id": "maquina-modelo-simples-basico",
+   "titulo": "Máquina modelo simple (básico)",
+   "cat": "modelos",
+   "duracao": 53,
+   "arquivo": "media/maquina-modelo-simples-basico.mp4",
+   "capa": "media/maquina-modelo-simples-basico.jpg"
+  },
+  {
+   "id": "maquina-afiar-tesoura-faca",
+   "titulo": "Máquina para afilar tijeras y cuchillos",
+   "cat": "modelos",
+   "duracao": 176,
+   "arquivo": "media/maquina-afiar-tesoura-faca.mp4",
+   "capa": "media/maquina-afiar-tesoura-faca.jpg"
+  },
+  {
+   "id": "equipamento-3-em-1",
+   "titulo": "Herramienta 3 en 1",
+   "cat": "modelos",
+   "duracao": 262,
+   "arquivo": "media/equipamento-3-em-1.mp4",
+   "capa": "media/equipamento-3-em-1.jpg"
+  },
+  {
+   "id": "modelo-maquina",
+   "titulo": "Modelo de la máquina",
+   "cat": "modelos",
+   "duracao": 25,
+   "arquivo": "media/modelo-maquina.mp4",
+   "capa": "media/modelo-maquina.jpg"
+  },
+  {
+   "id": "teste-afiacao-controle-velocidade",
+   "titulo": "Prueba de afilado: máquina con control de velocidad",
+   "cat": "testes",
+   "duracao": 126,
+   "arquivo": "media/teste-afiacao-controle-velocidade.mp4",
+   "capa": "media/teste-afiacao-controle-velocidade.jpg"
+  },
+  {
+   "id": "teste-maquina-vendida",
+   "titulo": "Prueba de una máquina vendida",
+   "cat": "testes",
+   "duracao": 99,
+   "arquivo": "media/teste-maquina-vendida.mp4",
+   "capa": "media/teste-maquina-vendida.jpg"
+  },
+  {
+   "id": "teste-maquinas-como-usar-1",
+   "titulo": "Prueba de las máquinas y cómo usarlas (parte 1)",
+   "cat": "testes",
+   "duracao": 544,
+   "arquivo": "media/teste-maquinas-como-usar-1.mp4",
+   "capa": "media/teste-maquinas-como-usar-1.jpg"
+  },
+  {
+   "id": "teste-maquinas-como-usar-2",
+   "titulo": "Prueba de las máquinas y cómo usarlas (parte 2)",
+   "cat": "testes",
+   "duracao": 643,
+   "arquivo": "media/teste-maquinas-como-usar-2.mp4",
+   "capa": "media/teste-maquinas-como-usar-2.jpg"
+  },
+  {
+   "id": "tirador-como-usar",
+   "titulo": "Eliminador de holgura: cómo usar",
+   "cat": "como-usar",
+   "duracao": 232,
+   "arquivo": "media/tirador-como-usar.mp4",
+   "capa": "media/tirador-como-usar.jpg"
+  },
+  {
+   "id": "dica-como-usar-maquina",
+   "titulo": "Consejos para usar la máquina",
+   "cat": "como-usar",
+   "duracao": 368,
+   "arquivo": "media/dica-como-usar-maquina.mp4",
+   "capa": "media/dica-como-usar-maquina.jpg"
+  },
+  {
+   "id": "itens-completos-para-maquinas",
+   "titulo": "Artículos completos para las máquinas",
+   "cat": "kit",
+   "duracao": 99,
+   "arquivo": "media/itens-completos-para-maquinas.mp4",
+   "capa": "media/itens-completos-para-maquinas.jpg"
+  }
+ ]
+}

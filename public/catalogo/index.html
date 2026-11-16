@@ -148,6 +148,11 @@
     .card{opacity:1;transform:none}
   }
 </style>
+<link rel="alternate" hreflang="pt-BR" href="https://www.alemaoafiacao.com.br/catalogo/">
+<link rel="alternate" hreflang="en" href="https://www.alemaoafiacao.com.br/en/catalogo/">
+<link rel="alternate" hreflang="es" href="https://www.alemaoafiacao.com.br/es/catalogo/">
+<link rel="alternate" hreflang="x-default" href="https://www.alemaoafiacao.com.br/catalogo/">
+<link rel="stylesheet" href="/assets/idioma.css?v=mwjn1lik">
 </head>
 <body>
 <div class="wrap">
@@ -156,6 +161,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M15 6l-6 6 6 6"/></svg>
     </a>
     <img src="/links/img/logo-alemao.webp" alt="Alemão® · máquinas e equipamentos para afiação">
+    <nav class="idiomas" aria-label="Idioma · Language · Idioma"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3Z"/></svg><a href="/catalogo/" hreflang="pt-BR" lang="pt-BR" data-idioma="pt" title="Português" aria-current="page">PT</a><a href="/en/catalogo/" hreflang="en" lang="en" data-idioma="en" title="English">EN</a><a href="/es/catalogo/" hreflang="es" lang="es" data-idioma="es" title="Español">ES</a></nav>
   </div>
 
   <div class="hero">
@@ -163,7 +169,7 @@
       <h1><i>//</i>Catálogo</h1>
       <p>Máquinas para afiar alicate de cutícula, tesouras e facas, equipamentos e peças. Toque em <b>Pedir no WhatsApp</b> e a mensagem já vai pronta com o item escolhido.</p>
     </div>
-    <a class="pdf entra" style="animation-delay:.16s" href="catalogo-alemao-afiacao.pdf" download>
+    <a class="pdf entra" style="animation-delay:.16s" href="/catalogo/catalogo-alemao-afiacao.pdf" download>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3v12m0 0l-5-5m5 5l5-5M4 19h16"/></svg>
       Baixar catálogo em PDF
     </a>
@@ -180,7 +186,8 @@
   </div>
 </div>
 
-<main class="wrap" id="lista"></main>
+<main class="wrap" id="lista" data-src="/catalogo/produtos.json"></main>
+<script type="application/json" id="ui">{"altura":"Altura","largura":"Largura","comprimento":"Comprimento","corDe":"Cor {cor}","verFoto":"Ver foto {n}","servePara":"Serve para:","cor":"Cor:","disponivel":"disponível em laranja e verde","pedir":"Pedir no WhatsApp","tudo":"Tudo","itens":"itens","item":"item","msgMaquina":"Olá! Vi no catálogo online e tenho interesse na *{nome}*{cor} ({preco}).","msgEquip":"Olá! Vi no catálogo online e quero o equipamento *{nome}*{cor} ({preco}).","msgPeca":"Olá! Vi no catálogo online e quero a peça *{nome}*{cor} ({preco}).","naCor":" na cor *{cor}*","msgGeral":"Olá! Vi o catálogo online e gostaria de mais informações.","compTitulo":"Diferença entre A1 e A2","compPreco":"Preço","compControle":"Controlador de velocidade","nao":"Não","sim":"Sim","compLC":"Largura × comprimento","compEixo":"Eixo mancal","compEixoA1":"Sem rebolo com balanceador","simples":"Simples","compKit":"Kit rampa","completo":"Completo","idioma":"pt"}</script>
 <div class="wrap"><p class="vazio" id="vazio" hidden>Nada encontrado. Tente outro nome ou fale com a gente no WhatsApp.</p></div>
 
 <div class="wrap">
@@ -202,6 +209,7 @@
   Falar no WhatsApp
 </a>
 
-<script src="/catalogo/app.js?v=mwb3889f"></script>
+<script src="/catalogo/app.js?v=mwjn1lik"></script>
+<script src="/assets/idioma.js?v=mwjn1lik" defer></script>
 </body>
 </html>

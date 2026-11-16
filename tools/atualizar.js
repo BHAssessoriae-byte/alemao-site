@@ -1,8 +1,9 @@
-// ATUALIZA TUDO de uma vez: site, link na bio, catálogo online, PDF, vídeos, privacidade, termos e 404.
+// ATUALIZA TUDO de uma vez, nos 3 idiomas (português, inglês e espanhol): site, link na bio, catálogo online, PDF, vídeos, privacidade, termos e 404.
 // Fonte única dos dados:
 //   src/config.json            → WhatsApp, horário, redes, endereço, CNPJ, números (500+, 300+), garantia
 //   public/catalogo/produtos.json → máquinas, equipamentos, peças, preços, medidas, cores
 //   public/videos/videos.json  → vídeos
+//   src/i18n/textos.json       → traduções (inglês e espanhol). Texto novo sem tradução = o comando para e mostra a lista.
 // Uso: node tools/atualizar.js   (depois: git add -A && git commit && git push → no ar em ~3 min)
 const { execFileSync } = require("child_process");
 const path = require("path"), fs = require("fs");
@@ -13,7 +14,8 @@ rodar("tools/gerar-site.js");
 rodar("tools/gerar-pdf.js");
 // conferência: nenhum número/dado antigo esquecido fora da base
 const C = JSON.parse(fs.readFileSync(path.join(raiz, "src/config.json"), "utf8"));
-const arquivos = ["public/index.html", "public/links/index.html", "public/catalogo/index.html", "public/videos/index.html", "public/privacidade/index.html", "public/termos/index.html", "public/404.html"];
+const paginas = ["index.html", "links/index.html", "catalogo/index.html", "videos/index.html"];
+const arquivos = [...["", "en/", "es/"].flatMap(p => paginas.map(f => "public/" + p + f)), "public/privacidade/index.html", "public/termos/index.html", "public/404.html"];
 const ruim = [];
 for (const f of arquivos) {
   const t = fs.readFileSync(path.join(raiz, f), "utf8");

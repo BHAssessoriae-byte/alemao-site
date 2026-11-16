@@ -1,15 +1,17 @@
 const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const mmss = s => `${Math.floor(s/60)}:${String(s%60).padStart(2,"0")}`;
 let D, ordem = [], atual = -1;
+const UI = JSON.parse(document.getElementById("ui").textContent);
+const fmt = (s, o) => s.replace(/\{(\w+)\}/g, (_, k) => o[k] ?? "");
 
 function montar(){
   const lista = document.getElementById("lista"), chips = document.getElementById("chips");
-  chips.innerHTML = `<button class="chip ativo" data-cat="todos">Todos <b>${D.videos.length}</b></button>` +
+  chips.innerHTML = `<button class="chip ativo" data-cat="todos">${UI.todos} <b>${D.videos.length}</b></button>` +
     D.categorias.map(c => `<button class="chip" data-cat="${c.id}">${c.nome} <b>${D.videos.filter(v=>v.cat===c.id).length}</b></button>`).join("");
   D.categorias.forEach(c => {
     const itens = D.videos.filter(v => v.cat === c.id); if (!itens.length) return;
     const sec = document.createElement("section"); sec.className = "cat"; sec.dataset.cat = c.id;
-    sec.innerHTML = `<h2><i>///</i>${c.nome} <small>${itens.length} ${itens.length>1?"vídeos":"vídeo"}</small></h2><div class="grade"></div>`;
+    sec.innerHTML = `<h2><i>///</i>${c.nome} <small>${itens.length} ${itens.length>1?UI.videos:UI.video}</small></h2><div class="grade"></div>`;
     const g = sec.querySelector(".grade");
     itens.forEach(v => {
       const i = ordem.push(v) - 1;
@@ -37,7 +39,7 @@ function abrir(i){
   const tela = document.getElementById("tela");
   tela.poster = v.capa; tela.src = v.arquivo; tela.play().catch(() => {});
   document.getElementById("pTitulo").textContent = v.titulo;
-  document.getElementById("pPedir").href = `https://wa.me/${D.whatsapp}?text=${encodeURIComponent(`Olá! Vi o vídeo *${v.titulo}* no site e quero saber mais.`)}`;
+  document.getElementById("pPedir").href = `https://wa.me/${D.whatsapp}?text=${encodeURIComponent(fmt(UI.msg, { titulo: v.titulo }))}`;
   document.getElementById("player").classList.add("aberto"); document.body.style.overflow = "hidden";
   history.replaceState(null, "", "#" + v.id);
 }
@@ -73,7 +75,8 @@ function revelar(){
   els.forEach(c => io.observe(c));
 }
 
-fetch("videos.json").then(r => r.json()).then(d => {
+fetch(document.getElementById("lista").dataset.src || "/videos/videos.json").then(r => r.json()).then(d => {
+  d.videos.forEach(v => { v.capa = "/videos/" + v.capa; v.arquivo = "/videos/" + v.arquivo; });
   D = d; montar();
   const h = location.hash.slice(1); const i = ordem.findIndex(v => v.id === h); if (i >= 0) abrir(i);
 });

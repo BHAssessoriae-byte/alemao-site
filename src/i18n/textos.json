@@ -1,0 +1,1625 @@
+{
+ "_leia": [
+  "Traduções do site, link na bio, catálogo online, vídeos e PDF.",
+  "\"texto em português\": [\"inglês\", \"espanhol\"]  ·  \"=\" = igual nos três idiomas.",
+  "Mudou ou criou um texto em português? O gerador para e lista o que falta traduzir (tools/.faltando-traducao.json).",
+  "\"config\": dados do src/config.json que mudam por idioma (horário, países, telefone com +55, garantia, cidade). Se mudar no config.json, mude aqui também."
+ ],
+ "config": {
+  "en": {
+   "horario": "Monday to Friday, 8 am to 8 pm (Brasília time)",
+   "exportacao": "the United States, Portugal and Italy",
+   "exportacaoCurto": "USA, Portugal and Italy",
+   "whatsappTexto": "+55 (17) 99706-9595",
+   "garantiaMaquinas": "90-day",
+   "cidade": "Votuporanga, SP, Brazil"
+  },
+  "es": {
+   "horario": "lunes a viernes, de 8 a 20 h (hora de Brasília)",
+   "exportacao": "Estados Unidos, Portugal e Italia",
+   "exportacaoCurto": "EE. UU., Portugal e Italia",
+   "whatsappTexto": "+55 (17) 99706-9595",
+   "garantiaMaquinas": "90 días",
+   "cidade": "Votuporanga, SP, Brasil"
+  }
+ },
+ "textos": {
+  "Alicate de cutícula": [
+   "Cuticle nippers",
+   "Alicates de cutícula"
+  ],
+  "Máquina compacta": [
+   "Compact machine",
+   "Máquina compacta"
+  ],
+  "Tesouras e facas": [
+   "Scissors and knives",
+   "Tijeras y cuchillos"
+  ],
+  "Máquinas básicas": [
+   "Basic machines",
+   "Máquinas básicas"
+  ],
+  "Afiar alicate de cutícula": [
+   "Cuticle nipper sharpening",
+   "Afilar alicates de cutícula"
+  ],
+  "Afiar tesouras e facas": [
+   "Scissor and knife sharpening",
+   "Afilar tijeras y cuchillos"
+  ],
+  "Máquinas": [
+   "Machines",
+   "Máquinas"
+  ],
+  "Equipamentos": [
+   "Tools",
+   "Herramientas"
+  ],
+  "Peças": [
+   "Parts",
+   "Repuestos"
+  ],
+  "Máquina": [
+   "Machine",
+   "Máquina"
+  ],
+  "Equipamento": [
+   "Tool",
+   "Herramienta"
+  ],
+  "Peça": [
+   "Part",
+   "Repuesto"
+  ],
+  "Máquina de Afiar Alicate de Cutícula A1": [
+   "A1 Cuticle Nipper Sharpening Machine",
+   "Máquina para Afilar Alicates de Cutícula A1"
+  ],
+  "Máquina de Afiar Alicate de Cutícula A2": [
+   "A2 Cuticle Nipper Sharpening Machine",
+   "Máquina para Afilar Alicates de Cutícula A2"
+  ],
+  "Máquina de Afiar Alicate de Cutícula A4": [
+   "A4 Cuticle Nipper Sharpening Machine",
+   "Máquina para Afilar Alicates de Cutícula A4"
+  ],
+  "Máquina Compacta A3": [
+   "A3 Compact Machine",
+   "Máquina Compacta A3"
+  ],
+  "Máquina de Afiar Tesoura e Facas TF1 (Completo)": [
+   "TF1 Scissor and Knife Sharpening Machine (Complete)",
+   "Máquina para Afilar Tijeras y Cuchillos TF1 (Completa)"
+  ],
+  "Máquina de Afiar Tesoura e Facas TF2 (Simples)": [
+   "TF2 Scissor and Knife Sharpening Machine (Basic)",
+   "Máquina para Afilar Tijeras y Cuchillos TF2 (Simple)"
+  ],
+  "Máquina A5 Basiquinha": [
+   "A5 Basic Machine",
+   "Máquina A5 Básica"
+  ],
+  "Guilhotina": [
+   "Guillotine",
+   "Guillotina"
+  ],
+  "Alinhador de Bico de Alicate e Tesoura": [
+   "Nipper and Scissor Tip Aligner",
+   "Alineador de Puntas de Alicates y Tijeras"
+  ],
+  "Tirador de Folga": [
+   "Joint Play Remover",
+   "Eliminador de Holgura"
+  ],
+  "Tirador de Folga 3x1": [
+   "Joint Play Remover 3-in-1",
+   "Eliminador de Holgura 3 en 1"
+  ],
+  "Jig de Faca para Afiação de Facas": [
+   "Knife Sharpening Jig",
+   "Guía (Jig) para Afilar Cuchillos"
+  ],
+  "Martelo Bola": [
+   "Ball-Peen Hammer",
+   "Martillo de Bola"
+  ],
+  "Dressador com Lima": [
+   "Wheel Dresser with File",
+   "Rectificador de Muela con Lima"
+  ],
+  "Dressador D91": [
+   "D91 Wheel Dresser",
+   "Rectificador de Muela D91"
+  ],
+  "Motor 110/220V": "=",
+  "Rampa Laminação Interna": [
+   "Inner Bevel Ramp",
+   "Rampa de Bisel Interno"
+  ],
+  "Rampa de Fio": [
+   "Edge Ramp",
+   "Rampa de Filo"
+  ],
+  "Balanceador de Rebolo": [
+   "Grinding Wheel Balancer",
+   "Balanceador de Muela"
+  ],
+  "Eixo Mancal sem Rebolo com Balanceador": [
+   "Spindle Shaft without Wheel, with Balancer",
+   "Eje con Soporte sin Muela, con Balanceador"
+  ],
+  "Eixo Mancal Simples": [
+   "Basic Spindle Shaft",
+   "Eje con Soporte Simple"
+  ],
+  "Kit Rampa Completo": [
+   "Complete Ramp Kit",
+   "Kit de Rampas Completo"
+  ],
+  "Kit Rampa Simples": [
+   "Basic Ramp Kit",
+   "Kit de Rampas Simple"
+  ],
+  "Braço Articulado Afiação de Tesouras": [
+   "Articulated Arm for Scissor Sharpening",
+   "Brazo Articulado para Afilar Tijeras"
+  ],
+  "Bloquinho do Dressador": [
+   "Dresser Block",
+   "Bloque del Rectificador"
+  ],
+  "Flange Balanceadora": [
+   "Balancing Flange",
+   "Brida Balanceadora"
+  ],
+  "Flange Centralizadora": [
+   "Centering Flange",
+   "Brida Centradora"
+  ],
+  "Polia do Motor": [
+   "Motor Pulley",
+   "Polea del Motor"
+  ],
+  "Polia do Motor (Controle)": [
+   "Motor Pulley (Speed Control)",
+   "Polea del Motor (Control de Velocidad)"
+  ],
+  "Base de Ferro": [
+   "Iron Base",
+   "Base de Hierro"
+  ],
+  "Com controlador de velocidade": [
+   "With speed controller",
+   "Con controlador de velocidad"
+  ],
+  "Parte de cima e de baixo": [
+   "Top and bottom",
+   "Parte superior e inferior"
+  ],
+  "Motor de bomba d'água · ½ CV · 3450 RPM": [
+   "Water-pump motor · ½ HP · 3450 RPM",
+   "Motor de bomba de agua · ½ CV · 3450 RPM"
+  ],
+  "Com regulagem": [
+   "Adjustable",
+   "Regulable"
+  ],
+  "Modelo A1": [
+   "Model A1",
+   "Modelo A1"
+  ],
+  "Modelo A2": [
+   "Model A2",
+   "Modelo A2"
+  ],
+  "Sem correia": [
+   "Without belt",
+   "Sin correa"
+  ],
+  "Com correia": [
+   "With belt",
+   "Con correa"
+  ],
+  "Laranja": [
+   "Orange",
+   "Naranja"
+  ],
+  "Verde": [
+   "Green",
+   "Verde"
+  ],
+  "Tanto faz": [
+   "Either",
+   "Cualquiera"
+  ],
+  "Máquinas de afiação Alemão": [
+   "Alemão sharpening machines",
+   "Máquinas de afilado Alemão"
+  ],
+  "Abrir menu": [
+   "Open menu",
+   "Abrir menú"
+  ],
+  "Fechar menu": [
+   "Close menu",
+   "Cerrar menú"
+  ],
+  "Olá! Quero um orçamento pelo site www.alemaoafiacao.com.br": [
+   "Hello! I would like a quote through the website www.alemaoafiacao.com.br",
+   "¡Hola! Quiero un presupuesto desde el sitio www.alemaoafiacao.com.br"
+  ],
+  "ainda não sei, quero ajuda para escolher": [
+   "not sure yet, I'd like help choosing",
+   "todavía no sé, quiero ayuda para elegir"
+  ],
+  "Cor": [
+   "Color",
+   "Color"
+  ],
+  "Nome": [
+   "Name",
+   "Nombre"
+  ],
+  "Cidade": [
+   "City / Country",
+   "Ciudad / País"
+  ],
+  "Uso": [
+   "Use",
+   "Uso"
+  ],
+  "Observação": [
+   "Notes",
+   "Observación"
+  ],
+  "Olá! Vi o vídeo *{titulo}* no site e quero saber mais.": [
+   "Hello! I watched the video *{titulo}* on the website and would like to know more.",
+   "¡Hola! Vi el video *{titulo}* en el sitio y quiero saber más."
+  ],
+  "Alemão® · Máquinas de afiação para alicate de cutícula, tesoura e faca": [
+   "Alemão® · Sharpening machines for cuticle nippers, scissors and knives",
+   "Alemão® · Máquinas para afilar alicates de cutícula, tijeras y cuchillos"
+  ],
+  "Mais de {{c.maquinasVendidas}} máquinas vendidas, entrega em todo o Brasil e exportação. Máquinas de afiação Alemão® para alicate de cutícula, tesouras e facas, além de equipamentos e peças e acessórios. Veja preço e medidas e peça seu orçamento direto pelo WhatsApp.": [
+   "More than {{c.maquinasVendidas}} machines sold, made in Brazil and already exported. Alemão® sharpening machines for cuticle nippers, scissors and knives, plus tools, parts and accessories. See prices and dimensions and request your quote on WhatsApp.",
+   "Más de {{c.maquinasVendidas}} máquinas vendidas, fabricadas en Brasil y ya exportadas. Máquinas de afilado Alemão® para alicates de cutícula, tijeras y cuchillos, además de herramientas, repuestos y accesorios. Vea precios y medidas y pida su presupuesto por WhatsApp."
+  ],
+  "Alemão Afiação": "=",
+  "Alemão® · Máquinas de afiação": [
+   "Alemão® · Sharpening machines",
+   "Alemão® · Máquinas de afilado"
+  ],
+  "Máquinas para afiar alicate de cutícula, tesouras e facas. Peça seu orçamento pelo WhatsApp.": [
+   "Machines to sharpen cuticle nippers, scissors and knives. Request your quote on WhatsApp.",
+   "Máquinas para afilar alicates de cutícula, tijeras y cuchillos. Pida su presupuesto por WhatsApp."
+  ],
+  "Pular para o conteúdo": [
+   "Skip to content",
+   "Ir al contenido"
+  ],
+  "Alemão, voltar ao início": [
+   "Alemão, back to top",
+   "Alemão, volver al inicio"
+  ],
+  "Alemão® máquinas e equipamentos para afiação": [
+   "Alemão® sharpening machines and tools",
+   "Alemão® máquinas y herramientas de afilado"
+  ],
+  "Principal": [
+   "Main",
+   "Principal"
+  ],
+  "Qual escolher": [
+   "Which one",
+   "Cuál elegir"
+  ],
+  "Vídeos": [
+   "Videos",
+   "Videos"
+  ],
+  "Sobre": [
+   "About",
+   "Nosotros"
+  ],
+  "Entregas": [
+   "Shipping",
+   "Envíos"
+  ],
+  "Dúvidas": [
+   "FAQ",
+   "Preguntas"
+  ],
+  "Pedir orçamento": [
+   "Request a quote",
+   "Pedir presupuesto"
+  ],
+  "Chamar no WhatsApp": [
+   "Message us on WhatsApp",
+   "Escríbanos por WhatsApp"
+  ],
+  "Menu": "=",
+  "Equipamentos e peças": [
+   "Tools and parts",
+   "Herramientas y repuestos"
+  ],
+  "Sobre a Alemão": [
+   "About Alemão",
+   "Sobre Alemão"
+  ],
+  "Início": [
+   "Home",
+   "Inicio"
+  ],
+  "Cor da máquina": [
+   "Machine color",
+   "Color de la máquina"
+  ],
+  "Máquinas e equipamentos para afiação": [
+   "Sharpening machines and tools",
+   "Máquinas y herramientas de afilado"
+  ],
+  "Afiação de": [
+   "Sharpening for",
+   "Afilado de"
+  ],
+  "alicate de cutícula": [
+   "cuticle nippers",
+   "alicates de cutícula"
+  ],
+  ", tesoura e faca": [
+   ", scissors and knives",
+   ", tijeras y cuchillos"
+  ],
+  "Escolha o modelo, veja preço e medidas e peça o orçamento direto no WhatsApp da Alemão.": [
+   "Choose the model, check price and dimensions and request your quote directly on Alemão's WhatsApp.",
+   "Elija el modelo, vea precio y medidas y pida el presupuesto directo por el WhatsApp de Alemão."
+  ],
+  "Ver máquinas": [
+   "See machines",
+   "Ver máquinas"
+  ],
+  "máquinas vendidas": [
+   "machines sold",
+   "máquinas vendidas"
+  ],
+  "clientes ativos": [
+   "active customers",
+   "clientes activos"
+  ],
+  "países: Brasil, {{c.exportacaoCurto}}": [
+   "countries: Brazil, {{c.exportacaoCurto}}",
+   "países: Brasil, {{c.exportacaoCurto}}"
+  ],
+  "Rolar para as máquinas": [
+   "Scroll to the machines",
+   "Ir a las máquinas"
+  ],
+  "Role": [
+   "Scroll",
+   "Deslice"
+  ],
+  "Tesouras": [
+   "Scissors",
+   "Tijeras"
+  ],
+  "Facas": [
+   "Knives",
+   "Cuchillos"
+  ],
+  "Peças de reposição": [
+   "Spare parts",
+   "Repuestos"
+  ],
+  "Entrega em todo o Brasil": [
+   "Shipping across Brazil",
+   "Envíos a todo Brasil"
+  ],
+  "{{c.garantiaMaquinas}} de garantia": [
+   "{{c.garantiaMaquinas}} warranty",
+   "{{c.garantiaMaquinas}} de garantía"
+  ],
+  "Exportação": [
+   "Export",
+   "Exportación"
+  ],
+  "Pedido pelo WhatsApp": [
+   "Order on WhatsApp",
+   "Pedidos por WhatsApp"
+  ],
+  "Nossas máquinas": [
+   "Our machines",
+   "Nuestras máquinas"
+  ],
+  "Escolha a máquina": [
+   "Choose the",
+   "Elija la máquina"
+  ],
+  "certa": [
+   "right machine",
+   "correcta"
+  ],
+  "para o seu trabalho": [
+   "for your work",
+   "para su trabajo"
+  ],
+  "Filtrar máquinas": [
+   "Filter machines",
+   "Filtrar máquinas"
+  ],
+  "Todas": [
+   "All",
+   "Todas"
+  ],
+  "Ficou em dúvida?": [
+   "Not sure?",
+   "¿Tiene dudas?"
+  ],
+  "Não sabe qual máquina escolher?": [
+   "Not sure which machine to choose?",
+   "¿No sabe qué máquina elegir?"
+  ],
+  "Conte o que você precisa afiar e a equipe da Alemão indica o modelo certo.": [
+   "Tell us what you need to sharpen and the Alemão team will recommend the right model.",
+   "Cuéntenos qué necesita afilar y el equipo de Alemão le indica el modelo correcto."
+  ],
+  "Falar com a equipe": [
+   "Talk to the team",
+   "Hablar con el equipo"
+  ],
+  "Preços sujeitos a alteração · atualizados em {{ATUALIZADO}}. Frete e forma de pagamento são informados no atendimento.": [
+   "Prices in Brazilian reais (R$), subject to change · updated {{ATUALIZADO}}. Shipping and payment methods are provided by our team on WhatsApp.",
+   "Precios en reales brasileños (R$), sujetos a cambios · actualizados el {{ATUALIZADO}}. El envío y la forma de pago se informan en la atención por WhatsApp."
+  ],
+  "Ver catálogo completo": [
+   "See full catalog",
+   "Ver catálogo completo"
+  ],
+  "O que você": [
+   "What do you",
+   "¿Qué"
+  ],
+  "precisa": [
+   "need",
+   "necesita"
+  ],
+  "afiar?": [
+   "to sharpen?",
+   "afilar?"
+  ],
+  "A1, A2 e A4": [
+   "A1, A2 and A4",
+   "A1, A2 y A4"
+  ],
+  "a partir de {{preco:a4}}": [
+   "from {{preco:a4}}",
+   "desde {{preco:a4}}"
+  ],
+  "Modelos": [
+   "Models",
+   "Modelos"
+  ],
+  "A1": "=",
+  "A2 com controlador de velocidade": [
+   "A2 with speed controller",
+   "A2 con controlador de velocidad"
+  ],
+  "({{preco:a2}}) e": [
+   "({{preco:a2}}) and",
+   "({{preco:a2}}) y"
+  ],
+  "A4": "=",
+  "({{preco:a4}}). Todas nas cores laranja e verde.": [
+   "({{preco:a4}}). All available in orange and green.",
+   "({{preco:a4}}). Todas en color naranja y verde."
+  ],
+  "A3 Compacta": [
+   "A3 Compact",
+   "A3 Compacta"
+  ],
+  "Quero um modelo compacto": [
+   "I want a compact model",
+   "Quiero un modelo compacto"
+  ],
+  "por {{preco:a3}}. Medidas: {{med:a3}}.": [
+   "for {{preco:a3}}. Dimensions: {{med:a3}}.",
+   "por {{preco:a3}}. Medidas: {{med:a3}}."
+  ],
+  "TF1 e TF2": [
+   "TF1 and TF2",
+   "TF1 y TF2"
+  ],
+  "a partir de {{preco:tf2}}": [
+   "from {{preco:tf2}}",
+   "desde {{preco:tf2}}"
+  ],
+  "TF1 Completo": [
+   "TF1 Complete",
+   "TF1 Completa"
+  ],
+  "({{preco:tf1}}) ou": [
+   "({{preco:tf1}}) or",
+   "({{preco:tf1}}) o"
+  ],
+  "TF2 Simples": [
+   "TF2 Basic",
+   "TF2 Simple"
+  ],
+  "({{preco:tf2}}), feitas para afiar tesouras e facas.": [
+   "({{preco:tf2}}), made to sharpen scissors and knives.",
+   "({{preco:tf2}}), hechas para afilar tijeras y cuchillos."
+  ],
+  "A5 Basiquinha": [
+   "A5 Basic",
+   "A5 Básica"
+  ],
+  "Começar com o modelo mais em conta": [
+   "Start with the most affordable model",
+   "Empezar con el modelo más económico"
+  ],
+  "por {{preco:a5}}, o modelo de entrada da linha.": [
+   "for {{preco:a5}}, the entry-level model of the line.",
+   "por {{preco:a5}}, el modelo de entrada de la línea."
+  ],
+  "a partir de {{preco_min_peca}}": [
+   "from {{preco_min_peca}}",
+   "desde {{preco_min_peca}}"
+  ],
+  "Equipamentos e peças de reposição": [
+   "Tools and spare parts",
+   "Herramientas y repuestos"
+  ],
+  "{{N_EQUIP}} equipamentos": [
+   "{{N_EQUIP}} tools",
+   "{{N_EQUIP}} herramientas"
+  ],
+  "(guilhotina, tirador de folga, dressador, jig de faca, motor…) e": [
+   "(guillotine, joint play remover, wheel dresser, knife jig, motor…) and",
+   "(guillotina, eliminador de holgura, rectificador, guía para cuchillos, motor…) y"
+  ],
+  "{{N_PECAS}} peças": [
+   "{{N_PECAS}} parts",
+   "{{N_PECAS}} repuestos"
+  ],
+  "(rampas, flanges, polias, eixos…).": [
+   "(ramps, flanges, pulleys, shafts…).",
+   "(rampas, bridas, poleas, ejes…)."
+  ],
+  "Ver todos": [
+   "See all",
+   "Ver todos"
+  ],
+  "Cliente recebendo alicates afiados no balcão": [
+   "Customer receiving sharpened nippers at the counter",
+   "Cliente recibiendo alicates afilados en el mostrador"
+  ],
+  "Alicates, tesouras e facas": [
+   "Nippers, scissors and knives",
+   "Alicates, tijeras y cuchillos"
+  ],
+  "Para quem é": [
+   "Who it's for",
+   "Para quién es"
+  ],
+  "Para quem trabalha com": [
+   "For people who work with",
+   "Para quien trabaja con"
+  ],
+  "ferramenta afiada": [
+   "sharp tools",
+   "herramientas afiladas"
+  ],
+  "todo dia": [
+   "every day",
+   "todos los días"
+  ],
+  "Manicures, salões, barbearias e profissionais de afiação que querem afiar no próprio espaço.": [
+   "Nail technicians, salons, barbershops and sharpening professionals who want to sharpen in their own space.",
+   "Manicuristas, salones, barberías y profesionales del afilado que quieren afilar en su propio espacio."
+  ],
+  "Máquinas para cada tipo de afiação": [
+   "Machines for every kind of sharpening",
+   "Máquinas para cada tipo de afilado"
+  ],
+  "Alicate de cutícula, tesoura e faca.": [
+   "Cuticle nippers, scissors and knives.",
+   "Alicates de cutícula, tijeras y cuchillos."
+  ],
+  "Equipamentos e peças na mesma loja": [
+   "Tools and parts in the same store",
+   "Herramientas y repuestos en la misma tienda"
+  ],
+  "Guilhotina, tirador de folga, dressador, rampas, flanges, polias e kits.": [
+   "Guillotine, joint play remover, wheel dresser, ramps, flanges, pulleys and kits.",
+   "Guillotina, eliminador de holgura, rectificador, rampas, bridas, poleas y kits."
+  ],
+  "Vídeos de uso": [
+   "How-to videos",
+   "Videos de uso"
+  ],
+  "Veja as máquinas funcionando antes de pedir.": [
+   "See the machines working before you order.",
+   "Vea las máquinas funcionando antes de pedir."
+  ],
+  "Todas as máquinas têm {{c.garantiaMaquinas}} de garantia.": [
+   "All machines come with a {{c.garantiaMaquinas}} warranty.",
+   "Todas las máquinas tienen {{c.garantiaMaquinas}} de garantía."
+  ],
+  "Atendimento pelo WhatsApp": [
+   "Support on WhatsApp",
+   "Atención por WhatsApp"
+  ],
+  "Tire dúvidas e peça o orçamento direto com a equipe.": [
+   "Ask questions and request a quote directly from the team.",
+   "Resuelva sus dudas y pida el presupuesto directo con el equipo."
+  ],
+  "Quero ajuda para escolher": [
+   "Help me choose",
+   "Quiero ayuda para elegir"
+  ],
+  "Equipamentos e": [
+   "Tools and",
+   "Herramientas y"
+  ],
+  "peças de reposição": [
+   "spare parts",
+   "repuestos"
+  ],
+  "Toque em “Pedir” para abrir o WhatsApp com o nome do item já escrito.": [
+   "Tap “Order” to open WhatsApp with the item name already written.",
+   "Toque en “Pedir” para abrir WhatsApp con el nombre del artículo ya escrito."
+  ],
+  "Buscar": [
+   "Search",
+   "Buscar"
+  ],
+  "Buscar (ex.: tirador, rampa, polia)": [
+   "Search (e.g. ramp, pulley, dresser)",
+   "Buscar (ej.: rampa, polea, motor)"
+  ],
+  "Filtrar equipamentos e peças": [
+   "Filter tools and parts",
+   "Filtrar herramientas y repuestos"
+  ],
+  "Todos": [
+   "All",
+   "Todos"
+  ],
+  "Nenhum item encontrado.": [
+   "No items found.",
+   "Ningún artículo encontrado."
+  ],
+  "Pergunte no WhatsApp": [
+   "Ask on WhatsApp",
+   "Pregunte por WhatsApp"
+  ],
+  "Ver todos os {{N_ACESS}} itens": [
+   "See all {{N_ACESS}} items",
+   "Ver los {{N_ACESS}} artículos"
+  ],
+  "Baixar catálogo em PDF": [
+   "Download PDF catalog",
+   "Descargar catálogo en PDF"
+  ],
+  "Veja as máquinas": [
+   "See the machines",
+   "Vea las máquinas"
+  ],
+  "funcionando": [
+   "in action",
+   "funcionando"
+  ],
+  "Ver todos os vídeos": [
+   "See all videos",
+   "Ver todos los videos"
+  ],
+  "Canal no YouTube": [
+   "YouTube channel",
+   "Canal de YouTube"
+  ],
+  "Assistir": [
+   "Watch",
+   "Ver"
+  ],
+  "Profissional afiando um alicate de cutícula na máquina": [
+   "Professional sharpening a cuticle nipper on the machine",
+   "Profesional afilando un alicate de cutícula en la máquina"
+  ],
+  "Nossa história": [
+   "Our story",
+   "Nuestra historia"
+  ],
+  "Máquinas e equipamentos": [
+   "Sharpening machines",
+   "Máquinas y herramientas"
+  ],
+  "para afiação": [
+   "and tools",
+   "de afilado"
+  ],
+  "A Alemão® nasceu em Votuporanga, no interior de São Paulo, com um foco: máquinas, equipamentos e peças para afiar alicates de cutícula, tesouras e facas. Hoje são mais de {{c.maquinasVendidas}} máquinas vendidas, mais de {{c.clientesAtivos}} clientes ativos, entregas em todo o Brasil e máquinas já exportadas para {{c.exportacao}}.": [
+   "Alemão® was born in Votuporanga, in the state of São Paulo, Brazil, with one focus: machines, tools and parts to sharpen cuticle nippers, scissors and knives. Today there are more than {{c.maquinasVendidas}} machines sold, more than {{c.clientesAtivos}} active customers, deliveries all over Brazil and machines already exported to {{c.exportacao}}.",
+   "Alemão® nació en Votuporanga, en el interior de São Paulo, Brasil, con un foco: máquinas, herramientas y repuestos para afilar alicates de cutícula, tijeras y cuchillos. Hoy son más de {{c.maquinasVendidas}} máquinas vendidas, más de {{c.clientesAtivos}} clientes activos, envíos a todo Brasil y máquinas ya exportadas a {{c.exportacao}}."
+  ],
+  "modelos de máquinas": [
+   "machine models",
+   "modelos de máquinas"
+  ],
+  "equipamentos e peças": [
+   "tools and parts",
+   "herramientas y repuestos"
+  ],
+  "Empresa registrada": [
+   "Company founded",
+   "Empresa registrada"
+  ],
+  "A Alemão é registrada em {{c.cidade}}.": [
+   "Alemão is registered in {{c.cidade}}.",
+   "Alemão se registra en {{c.cidade}}."
+  ],
+  "Linha": [
+   "Product line",
+   "Línea"
+  ],
+  "Máquinas para cada afiação": [
+   "Machines for every sharpening job",
+   "Máquinas para cada afilado"
+  ],
+  "Modelos para alicate de cutícula, tesouras e facas, nas cores laranja e verde.": [
+   "Models for cuticle nippers, scissors and knives, in orange and green.",
+   "Modelos para alicates de cutícula, tijeras y cuchillos, en naranja y verde."
+  ],
+  "Brasil": [
+   "Brazil",
+   "Brasil"
+  ],
+  "Entrega em todo o país": [
+   "Shipping nationwide",
+   "Envíos a todo el país"
+  ],
+  "Máquinas, equipamentos e peças enviados para todo o território brasileiro.": [
+   "Machines, tools and parts shipped all over Brazil.",
+   "Máquinas, herramientas y repuestos enviados a todo el territorio brasileño."
+  ],
+  "Mundo": [
+   "World",
+   "Mundo"
+  ],
+  "Máquinas Alemão já vendidas para {{c.exportacao}}.": [
+   "Alemão machines already sold to {{c.exportacao}}.",
+   "Máquinas Alemão ya vendidas a {{c.exportacao}}."
+  ],
+  "Hoje": [
+   "Today",
+   "Hoy"
+  ],
+  "{{c.maquinasVendidas}}+ máquinas vendidas": [
+   "{{c.maquinasVendidas}}+ machines sold",
+   "{{c.maquinasVendidas}}+ máquinas vendidas"
+  ],
+  "Mais de {{c.clientesAtivos}} clientes ativos, {{N_EQUIP}} equipamentos e {{N_PECAS}} peças de reposição.": [
+   "More than {{c.clientesAtivos}} active customers, {{N_EQUIP}} tools and {{N_PECAS}} spare parts.",
+   "Más de {{c.clientesAtivos}} clientes activos, {{N_EQUIP}} herramientas y {{N_PECAS}} repuestos."
+  ],
+  "De Votuporanga para o": [
+   "From Votuporanga to",
+   "De Votuporanga para"
+  ],
+  "Brasil e o mundo": [
+   "Brazil and the world",
+   "Brasil y el mundo"
+  ],
+  "Entregamos em todo o território brasileiro e já vendemos máquinas para {{c.exportacao}}.": [
+   "We ship all over Brazil and have already sold machines to {{c.exportacao}}. Ask about shipping to your country on WhatsApp.",
+   "Enviamos a todo Brasil y ya vendimos máquinas a {{c.exportacao}}. Consulte el envío a su país por WhatsApp."
+  ],
+  "Todo o Brasil": [
+   "All of Brazil",
+   "Todo Brasil"
+  ],
+  "entrega em todo o território nacional": [
+   "shipping all over Brazil",
+   "envíos a todo el territorio brasileño"
+  ],
+  "máquinas já exportadas": [
+   "machines already exported",
+   "máquinas ya exportadas"
+  ],
+  "Orçamento": [
+   "Quote",
+   "Presupuesto"
+  ],
+  "Peça seu orçamento pelo": [
+   "Request your quote on",
+   "Pida su presupuesto por"
+  ],
+  "WhatsApp": "=",
+  "Preencha em 30 segundos. Ao enviar, o WhatsApp abre com a mensagem pronta para a equipe da Alemão.": [
+   "Takes 30 seconds. When you send it, WhatsApp opens with the message ready for the Alemão team. You can write in English.",
+   "Complételo en 30 segundos. Al enviar, WhatsApp se abre con el mensaje listo para el equipo de Alemão. Puede escribir en español."
+  ],
+  "Atendimento": [
+   "Business hours",
+   "Atención"
+  ],
+  "Endereço": [
+   "Address",
+   "Dirección"
+  ],
+  "{{c.cidade}} · CEP {{c.cep}}": [
+   "{{c.cidade}} · Postal code {{c.cep}}",
+   "{{c.cidade}} · CP {{c.cep}}"
+  ],
+  "Seu nome *": [
+   "Your name *",
+   "Su nombre *"
+  ],
+  "Cidade / UF *": [
+   "City / Country *",
+   "Ciudad / País *"
+  ],
+  "Ex.: {{c.cidade}}": [
+   "e.g. Miami, USA",
+   "Ej.: Buenos Aires, Argentina"
+  ],
+  "Máquina ou peça": [
+   "Machine or part",
+   "Máquina o repuesto"
+  ],
+  "Ainda não sei / quero ajuda": [
+   "Not sure yet / I need help",
+   "Todavía no sé / quiero ayuda"
+  ],
+  "Como vai usar?": [
+   "How will you use it?",
+   "¿Cómo la va a usar?"
+  ],
+  "No meu salão ou estúdio": [
+   "In my salon or studio",
+   "En mi salón o estudio"
+  ],
+  "Prestar serviço de afiação": [
+   "To offer sharpening services",
+   "Para ofrecer servicio de afilado"
+  ],
+  "Revenda": [
+   "Resale",
+   "Reventa"
+  ],
+  "Outro": [
+   "Other",
+   "Otro"
+  ],
+  "Ex.: quero incluir peças, tirar dúvida sobre voltagem…": [
+   "e.g. add parts, questions about voltage, shipping to my country…",
+   "Ej.: agregar repuestos, dudas sobre voltaje, envío a mi país…"
+  ],
+  "Enviar pelo WhatsApp": [
+   "Send via WhatsApp",
+   "Enviar por WhatsApp"
+  ],
+  "Nada é salvo neste site: os dados vão só na mensagem que você envia pelo WhatsApp. Veja a": [
+   "Nothing is stored on this website: your details only go in the message you send on WhatsApp. See the",
+   "Nada se guarda en este sitio: los datos van solo en el mensaje que usted envía por WhatsApp. Vea la"
+  ],
+  "Política de Privacidade": [
+   "Privacy Policy (in Portuguese)",
+   "Política de Privacidad (en portugués)"
+  ],
+  "Perguntas": [
+   "Frequently asked",
+   "Preguntas"
+  ],
+  "frequentes": [
+   "questions",
+   "frecuentes"
+  ],
+  "Não encontrou sua resposta? Chame no WhatsApp.": [
+   "Didn't find your answer? Message us on WhatsApp.",
+   "¿No encontró su respuesta? Escríbanos por WhatsApp."
+  ],
+  "Tirar dúvida": [
+   "Ask a question",
+   "Hacer una pregunta"
+  ],
+  "Como faço o pedido?": [
+   "How do I order?",
+   "¿Cómo hago el pedido?"
+  ],
+  "Escolha a máquina ou a peça e toque em “Pedir orçamento” ou “Pedir”. O WhatsApp abre com a mensagem pronta. A equipe confirma disponibilidade, frete e forma de pagamento.": [
+   "Choose the machine or part and tap “Request a quote” or “Order”. WhatsApp opens with the message ready. The team confirms availability, shipping and payment method.",
+   "Elija la máquina o el repuesto y toque “Pedir presupuesto” o “Pedir”. WhatsApp se abre con el mensaje listo. El equipo confirma disponibilidad, envío y forma de pago."
+  ],
+  "Qual o horário de atendimento?": [
+   "What are your business hours?",
+   "¿Cuál es el horario de atención?"
+  ],
+  "De {{c.horario}}, pelo WhatsApp": [
+   "{{c.horario}}, on WhatsApp",
+   "De {{c.horario}}, por WhatsApp"
+  ],
+  ". Mensagens fora do horário são respondidas no próximo dia útil.": [
+   ". Messages sent outside business hours are answered on the next business day.",
+   ". Los mensajes fuera del horario se responden el siguiente día hábil."
+  ],
+  "Vocês entregam na minha cidade?": [
+   "Do you ship to my country?",
+   "¿Envían a mi país?"
+  ],
+  "Sim. Entregamos em todo o território brasileiro e já exportamos máquinas para {{c.exportacao}}. O valor do frete e o prazo são informados no atendimento, de acordo com a sua cidade.": [
+   "We ship all over Brazil and have already exported machines to {{c.exportacao}}. Shipping cost and delivery time are quoted on WhatsApp, according to your location.",
+   "Enviamos a todo Brasil y ya exportamos máquinas a {{c.exportacao}}. El costo y el plazo del envío se informan por WhatsApp, según su ubicación."
+  ],
+  "Qual a diferença entre a A1 e a A2?": [
+   "What's the difference between the A1 and the A2?",
+   "¿Cuál es la diferencia entre la A1 y la A2?"
+  ],
+  "A A2 tem": [
+   "The A2 has a",
+   "La A2 tiene"
+  ],
+  "controlador de velocidade": [
+   "speed controller",
+   "controlador de velocidad"
+  ],
+  ". A A1 custa {{preco:a1}} e mede {{med:a1}}. A A2 custa {{preco:a2}} e mede {{med:a2}}.": [
+   ". The A1 costs {{preco:a1}} and measures {{med:a1}}. The A2 costs {{preco:a2}} and measures {{med:a2}}.",
+   ". La A1 cuesta {{preco:a1}} y mide {{med:a1}}. La A2 cuesta {{preco:a2}} y mide {{med:a2}}."
+  ],
+  "As máquinas têm opção de cor?": [
+   "Do the machines come in different colors?",
+   "¿Las máquinas tienen opción de color?"
+  ],
+  "Sim: todas as máquinas Alemão estão disponíveis em": [
+   "Yes: all Alemão machines are available in",
+   "Sí: todas las máquinas Alemão están disponibles en"
+  ],
+  "laranja": [
+   "orange",
+   "naranja"
+  ],
+  "e": [
+   "and",
+   "y"
+  ],
+  "verde": [
+   "green",
+   "verde"
+  ],
+  ". Escolha a cor no orçamento (ou no botão de cor no topo do site).": [
+   ". Choose the color in the quote form (or with the color button at the top of the site).",
+   ". Elija el color en el presupuesto (o con el botón de color arriba en el sitio)."
+  ],
+  "Vocês vendem equipamentos e peças de reposição?": [
+   "Do you sell tools and spare parts?",
+   "¿Venden herramientas y repuestos?"
+  ],
+  "Sim: {{N_EQUIP}} equipamentos (guilhotina, alinhador de bico, tirador de folga, jig de faca, martelo, dressadores e motor) e {{N_PECAS}} peças de reposição (rampas, flanges, polias, eixos, kits e mais).": [
+   "Yes: {{N_EQUIP}} tools (guillotine, tip aligner, joint play remover, knife jig, hammer, wheel dressers and motor) and {{N_PECAS}} spare parts (ramps, flanges, pulleys, shafts, kits and more).",
+   "Sí: {{N_EQUIP}} herramientas (guillotina, alineador de puntas, eliminador de holgura, guía para cuchillos, martillo, rectificadores y motor) y {{N_PECAS}} repuestos (rampas, bridas, poleas, ejes, kits y más)."
+  ],
+  "Ver equipamentos e peças": [
+   "See tools and parts",
+   "Ver herramientas y repuestos"
+  ],
+  "Tem garantia?": [
+   "Is there a warranty?",
+   "¿Tiene garantía?"
+  ],
+  "Sim.": [
+   "Yes.",
+   "Sí."
+  ],
+  "Todas as máquinas têm {{c.garantiaMaquinas}} de garantia": [
+   "All machines come with a {{c.garantiaMaquinas}} warranty",
+   "Todas las máquinas tienen {{c.garantiaMaquinas}} de garantía"
+  ],
+  ", contados a partir do recebimento. Equipamentos e peças também têm a garantia legal de 90 dias do Código de Defesa do Consumidor. Veja os": [
+   ", counted from delivery. Tools and parts also have the 90-day legal warranty under Brazil's Consumer Protection Code. See the",
+   ", contados a partir de la recepción. Herramientas y repuestos también tienen la garantía legal de 90 días del Código de Defensa del Consumidor de Brasil. Vea los"
+  ],
+  "Termos e condições de venda": [
+   "Terms and conditions of sale (in Portuguese)",
+   "Términos y condiciones de venta (en portugués)"
+  ],
+  "Tem vídeo mostrando a máquina funcionando?": [
+   "Is there a video of the machine working?",
+   "¿Hay video de la máquina funcionando?"
+  ],
+  "Sim, veja a seção": [
+   "Yes, see the",
+   "Sí, vea la sección"
+  ],
+  "ou a": [
+   "section or the",
+   "o la"
+  ],
+  "página com todos os vídeos": [
+   "page with all videos",
+   "página con todos los videos"
+  ],
+  "Alemão®": "=",
+  "Instagram": "=",
+  "Facebook": "=",
+  "YouTube": "=",
+  "Navegação": [
+   "Navigation",
+   "Navegación"
+  ],
+  "Atalhos": [
+   "Shortcuts",
+   "Accesos"
+  ],
+  "Catálogo online": [
+   "Online catalog",
+   "Catálogo en línea"
+  ],
+  "Catálogo em PDF": [
+   "PDF catalog",
+   "Catálogo en PDF"
+  ],
+  "Todos os vídeos": [
+   "All videos",
+   "Todos los videos"
+  ],
+  "Links": "=",
+  "WhatsApp {{c.whatsappTexto}}": "=",
+  "Segunda a sexta, 8h às 20h": [
+   "Monday to Friday, 8 am to 8 pm (Brasília time)",
+   "Lunes a viernes, de 8 a 20 h (hora de Brasília)"
+  ],
+  "CEP {{c.cep}}": [
+   "Postal code {{c.cep}}",
+   "CP {{c.cep}}"
+  ],
+  "Alemão® · {{c.razaoSocial}} · CNPJ {{c.cnpj}} · {{c.rua}}, {{c.bairro}}, {{c.cidade}}, CEP {{c.cep}}.": [
+   "Alemão® · {{c.razaoSocial}} · CNPJ {{c.cnpj}} · {{c.rua}}, {{c.bairro}}, {{c.cidade}}, postal code {{c.cep}}.",
+   "Alemão® · {{c.razaoSocial}} · CNPJ {{c.cnpj}} · {{c.rua}}, {{c.bairro}}, {{c.cidade}}, CP {{c.cep}}."
+  ],
+  "Preços sujeitos a alteração sem aviso prévio · atualizados em {{ATUALIZADO}}. Imagens ilustrativas.": [
+   "Prices in Brazilian reais (R$), subject to change without notice · updated {{ATUALIZADO}}. Images for illustration only.",
+   "Precios en reales brasileños (R$), sujetos a cambios sin previo aviso · actualizados el {{ATUALIZADO}}. Imágenes ilustrativas."
+  ],
+  "Alemão® · Site por": [
+   "Alemão® · Website by",
+   "Alemão® · Sitio por"
+  ],
+  "BH Comunicação": "=",
+  "Falar no WhatsApp": [
+   "Chat on WhatsApp",
+   "Hablar por WhatsApp"
+  ],
+  "Fechar": [
+   "Close",
+   "Cerrar"
+  ],
+  "Salão/estúdio": [
+   "Salon/studio",
+   "Salón/estudio"
+  ],
+  "Serviço de afiação": [
+   "Sharpening service",
+   "Servicio de afilado"
+  ],
+  "Opcional": [
+   "Optional",
+   "Opcional"
+  ],
+  "Nada é salvo neste site.": [
+   "Nothing is stored on this website.",
+   "Nada se guarda en este sitio."
+  ],
+  "Vídeo": [
+   "Video",
+   "Video"
+  ],
+  "Quero saber mais": [
+   "Tell me more",
+   "Quiero saber más"
+  ],
+  "Olá! Vim pelo site e gostaria de mais informações.": [
+   "Hello! I came from the website and would like more information.",
+   "¡Hola! Vengo del sitio y me gustaría más información."
+  ],
+  "Olá! Vi o site e quero ajuda para escolher a máquina certa.": [
+   "Hello! I saw the website and would like help choosing the right machine.",
+   "¡Hola! Vi el sitio y quiero ayuda para elegir la máquina correcta."
+  ],
+  "Olá! Não encontrei a peça que procuro no site. Vocês têm?": [
+   "Hello! I couldn't find the part I'm looking for on the website. Do you have it?",
+   "¡Hola! No encontré el repuesto que busco en el sitio. ¿Lo tienen?"
+  ],
+  "Olá! Vim pelo site e tenho uma dúvida.": [
+   "Hello! I came from the website and have a question.",
+   "¡Hola! Vengo del sitio y tengo una pregunta."
+  ],
+  "Olá! Vi no site e quero o equipamento *{nome}*{cor} ({preco}).": [
+   "Hello! I saw it on the website and I want the tool *{nome}*{cor} ({preco}).",
+   "¡Hola! Lo vi en el sitio y quiero la herramienta *{nome}*{cor} ({preco})."
+  ],
+  "Olá! Vi no site e quero a peça *{nome}*{cor} ({preco}).": [
+   "Hello! I saw it on the website and I want the part *{nome}*{cor} ({preco}).",
+   "¡Hola! Lo vi en el sitio y quiero el repuesto *{nome}*{cor} ({preco})."
+  ],
+  "na cor *{cor}*": [
+   "in *{cor}*",
+   "en color *{cor}*"
+  ],
+  "Pedir {nome} no WhatsApp": [
+   "Order {nome} on WhatsApp",
+   "Pedir {nome} por WhatsApp"
+  ],
+  "Pedir": [
+   "Order",
+   "Pedir"
+  ],
+  "Cor:": [
+   "Color:",
+   "Color:"
+  ],
+  "Altura": [
+   "Height",
+   "Altura"
+  ],
+  "Largura": [
+   "Width",
+   "Ancho"
+  ],
+  "Compr.": [
+   "Length",
+   "Largo"
+  ],
+  "Comprimento": [
+   "Length",
+   "Largo"
+  ],
+  "Preço": [
+   "Price",
+   "Precio"
+  ],
+  "Serve para:": [
+   "Fits:",
+   "Sirve para:"
+  ],
+  "a partir de": [
+   "from",
+   "desde"
+  ],
+  "(A × L × C)": [
+   "(H × W × L)",
+   "(Al × An × L)"
+  ],
+  "Máquina A2 com kit": [
+   "A2 machine with kit",
+   "Máquina A2 con kit"
+  ],
+  "Teste de afiação: máquina com controle de velocidade": [
+   "Sharpening test: machine with speed control",
+   "Prueba de afilado: máquina con control de velocidad"
+  ],
+  "Dica de como usar a máquina": [
+   "Tips on how to use the machine",
+   "Consejos para usar la máquina"
+  ],
+  "Máquina de afiar tesoura e faca": [
+   "Scissor and knife sharpening machine",
+   "Máquina para afilar tijeras y cuchillos"
+  ],
+  "Modelos das máquinas": [
+   "Machine models",
+   "Modelos de las máquinas"
+  ],
+  "Testes de afiação": [
+   "Sharpening tests",
+   "Pruebas de afilado"
+  ],
+  "Como usar e dicas": [
+   "How to use and tips",
+   "Cómo usar y consejos"
+  ],
+  "Kit completo": [
+   "Complete kit",
+   "Kit completo"
+  ],
+  "Modelo A3 compacta": [
+   "A3 compact model",
+   "Modelo A3 compacta"
+  ],
+  "Modelo novo compacto": [
+   "New compact model",
+   "Nuevo modelo compacto"
+  ],
+  "Máquina modelo simples (básico)": [
+   "Simple model machine (basic)",
+   "Máquina modelo simple (básico)"
+  ],
+  "Equipamento 3 em 1": [
+   "3-in-1 tool",
+   "Herramienta 3 en 1"
+  ],
+  "Modelo da máquina": [
+   "Machine model",
+   "Modelo de la máquina"
+  ],
+  "Teste de máquina vendida": [
+   "Test of a sold machine",
+   "Prueba de una máquina vendida"
+  ],
+  "Teste das máquinas e como usar (parte 1)": [
+   "Machine test and how to use (part 1)",
+   "Prueba de las máquinas y cómo usarlas (parte 1)"
+  ],
+  "Teste das máquinas e como usar (parte 2)": [
+   "Machine test and how to use (part 2)",
+   "Prueba de las máquinas y cómo usarlas (parte 2)"
+  ],
+  "Tirador: como usar": [
+   "Joint play remover: how to use",
+   "Eliminador de holgura: cómo usar"
+  ],
+  "Itens completos para as máquinas": [
+   "Complete items for the machines",
+   "Artículos completos para las máquinas"
+  ],
+  "Vídeos · Alemão® máquinas e equipamentos para afiação": [
+   "Videos · Alemão® sharpening machines and tools",
+   "Videos · Alemão® máquinas y herramientas de afilado"
+  ],
+  "Vídeos da Alemão®: modelos das máquinas, testes de afiação, como usar e kit completo.": [
+   "Alemão® videos: machine models, sharpening tests, how to use and complete kit.",
+   "Videos de Alemão®: modelos de las máquinas, pruebas de afilado, cómo usar y kit completo."
+  ],
+  "Veja as máquinas funcionando: modelos, testes de afiação, como usar e o kit completo. Gostou de alguma? Toque em": [
+   "See the machines working: models, sharpening tests, how to use and the complete kit (videos in Portuguese). Like one? Tap",
+   "Vea las máquinas funcionando: modelos, pruebas de afilado, cómo usar y el kit completo (videos en portugués). ¿Le gustó alguna? Toque en"
+  ],
+  "e fale com a gente no WhatsApp.": [
+   "and talk to us on WhatsApp.",
+   "y hable con nosotros por WhatsApp."
+  ],
+  "Mais vídeos no YouTube": [
+   "More videos on YouTube",
+   "Más videos en YouTube"
+  ],
+  "Fechar vídeo": [
+   "Close video",
+   "Cerrar video"
+  ],
+  "Vídeo anterior": [
+   "Previous video",
+   "Video anterior"
+  ],
+  "Próximo vídeo": [
+   "Next video",
+   "Siguiente video"
+  ],
+  "vídeos": [
+   "videos",
+   "videos"
+  ],
+  "vídeo": [
+   "video",
+   "video"
+  ],
+  "Estados Unidos": [
+   "United States",
+   "Estados Unidos"
+  ],
+  "Portugal": "=",
+  "Itália": [
+   "Italy",
+   "Italia"
+  ],
+  "Manaus": "=",
+  "Belém": "=",
+  "Macapá": "=",
+  "Boa Vista": "=",
+  "São Luís": "=",
+  "Fortaleza": "=",
+  "Natal": "=",
+  "Recife": "=",
+  "Salvador": "=",
+  "Teresina": "=",
+  "Palmas": "=",
+  "Porto Velho": "=",
+  "Rio Branco": "=",
+  "Cuiabá": "=",
+  "Brasília": "=",
+  "Campo Grande": "=",
+  "Belo Horizonte": "=",
+  "Vitória": "=",
+  "Rio de Janeiro": "=",
+  "São Paulo": "=",
+  "Curitiba": "=",
+  "Florianópolis": "=",
+  "Porto Alegre": "=",
+  "Votuporanga/SP": "=",
+  "TODO O BRASIL": [
+   "ALL OF BRAZIL",
+   "TODO BRASIL"
+  ],
+  "Modelo": [
+   "Model",
+   "Modelo"
+  ],
+  "itens": [
+   "items",
+   "artículos"
+  ],
+  "item": [
+   "item",
+   "artículo"
+  ],
+  "Olá! Vim pelo Instagram e quero saber sobre as máquinas de afiar alicate de cutícula.": [
+   "Hello! I came from Instagram and would like to know about the cuticle nipper sharpening machines.",
+   "¡Hola! Vengo de Instagram y quiero saber sobre las máquinas para afilar alicates de cutícula."
+  ],
+  "Olá! Vim pelo Instagram e quero saber sobre a Máquina Compacta A3.": [
+   "Hello! I came from Instagram and would like to know about the A3 Compact Machine.",
+   "¡Hola! Vengo de Instagram y quiero saber sobre la Máquina Compacta A3."
+  ],
+  "Olá! Vim pelo Instagram e quero saber sobre as máquinas de afiar tesouras e facas.": [
+   "Hello! I came from Instagram and would like to know about the scissor and knife sharpening machines.",
+   "¡Hola! Vengo de Instagram y quiero saber sobre las máquinas para afilar tijeras y cuchillos."
+  ],
+  "Olá! Vim pelo Instagram e quero saber sobre a Máquina A5 Basiquinha.": [
+   "Hello! I came from Instagram and would like to know about the A5 Basic Machine.",
+   "¡Hola! Vengo de Instagram y quiero saber sobre la Máquina A5 Básica."
+  ],
+  "Olá! Vim pelo Instagram e quero saber sobre os equipamentos.": [
+   "Hello! I came from Instagram and would like to know about the tools.",
+   "¡Hola! Vengo de Instagram y quiero saber sobre las herramientas."
+  ],
+  "Olá! Vim pelo Instagram e quero saber sobre as peças de reposição.": [
+   "Hello! I came from Instagram and would like to know about the spare parts.",
+   "¡Hola! Vengo de Instagram y quiero saber sobre los repuestos."
+  ],
+  "Alemão® · Máquinas e equipamentos para afiação": [
+   "Alemão® · Sharpening machines and tools",
+   "Alemão® · Máquinas y herramientas de afilado"
+  ],
+  "Máquinas e equipamentos para afiação de alicates de cutícula, tesouras e facas. {{c.cidade}}.": [
+   "Machines and tools to sharpen cuticle nippers, scissors and knives. {{c.cidade}}.",
+   "Máquinas y herramientas para afilar alicates de cutícula, tijeras y cuchillos. {{c.cidade}}."
+  ],
+  "Máquinas para afiar alicate de cutícula, tesouras e facas, peças e acessórios.": [
+   "Machines to sharpen cuticle nippers, scissors and knives, plus parts and accessories.",
+   "Máquinas para afilar alicates de cutícula, tijeras y cuchillos, repuestos y accesorios."
+  ],
+  "Alemão® · máquinas e equipamentos para afiação": [
+   "Alemão® · sharpening machines and tools",
+   "Alemão® · máquinas y herramientas de afilado"
+  ],
+  "Máquinas para afiar": [
+   "Machines to sharpen",
+   "Máquinas para afilar"
+  ],
+  "alicate de cutícula, tesouras e facas": [
+   "cuticle nippers, scissors and knives",
+   "alicates de cutícula, tijeras y cuchillos"
+  ],
+  ", equipamentos e peças.": [
+   ", plus tools and parts.",
+   ", herramientas y repuestos."
+  ],
+  "Links principais": [
+   "Main links",
+   "Enlaces principales"
+  ],
+  "Olá! Vim pelo Instagram e quero fazer um pedido.": [
+   "Hello! I came from Instagram and would like to place an order.",
+   "¡Hola! Vengo de Instagram y quiero hacer un pedido."
+  ],
+  "Fazer pedido no WhatsApp": [
+   "Order on WhatsApp",
+   "Hacer pedido por WhatsApp"
+  ],
+  "Ir para o site": [
+   "Go to the website",
+   "Ir al sitio web"
+  ],
+  "www.alemaoafiacao.com.br": "=",
+  "Catálogo: máquinas, equipamentos e peças": [
+   "Catalog: machines, tools and parts",
+   "Catálogo: máquinas, herramientas y repuestos"
+  ],
+  "Preços, modelos e PDF para baixar": [
+   "Prices, models and downloadable PDF",
+   "Precios, modelos y PDF para descargar"
+  ],
+  "Vídeos e tutoriais": [
+   "Videos and tutorials",
+   "Videos y tutoriales"
+  ],
+  "Testes, como usar e kit completo": [
+   "Tests, how to use and complete kit",
+   "Pruebas, cómo usar y kit completo"
+  ],
+  "Canal Alemão Afiação": [
+   "Alemão Afiação channel",
+   "Canal Alemão Afiação"
+  ],
+  "Escolha o que você procura": [
+   "Choose what you're looking for",
+   "Elija lo que busca"
+  ],
+  "Fora desse horário, responderemos assim que abrirmos.": [
+   "Outside these hours, we'll reply as soon as we open.",
+   "Fuera de este horario, responderemos en cuanto abramos."
+  ],
+  "ALEMÃO®": "=",
+  "{{c.razaoSocial}} · CNPJ {{c.cnpj}}": "=",
+  "Cor {cor}": [
+   "Color {cor}",
+   "Color {cor}"
+  ],
+  "Ver foto {n}": [
+   "See photo {n}",
+   "Ver foto {n}"
+  ],
+  "disponível em laranja e verde": [
+   "available in orange and green",
+   "disponible en naranja y verde"
+  ],
+  "Pedir no WhatsApp": [
+   "Order on WhatsApp",
+   "Pedir por WhatsApp"
+  ],
+  "Tudo": [
+   "All",
+   "Todo"
+  ],
+  "Olá! Vi no catálogo online e tenho interesse na *{nome}*{cor} ({preco}).": [
+   "Hello! I saw it in the online catalog and I'm interested in the *{nome}*{cor} ({preco}).",
+   "¡Hola! Lo vi en el catálogo en línea y me interesa la *{nome}*{cor} ({preco})."
+  ],
+  "Olá! Vi no catálogo online e quero o equipamento *{nome}*{cor} ({preco}).": [
+   "Hello! I saw it in the online catalog and I want the tool *{nome}*{cor} ({preco}).",
+   "¡Hola! Lo vi en el catálogo en línea y quiero la herramienta *{nome}*{cor} ({preco})."
+  ],
+  "Olá! Vi no catálogo online e quero a peça *{nome}*{cor} ({preco}).": [
+   "Hello! I saw it in the online catalog and I want the part *{nome}*{cor} ({preco}).",
+   "¡Hola! Lo vi en el catálogo en línea y quiero el repuesto *{nome}*{cor} ({preco})."
+  ],
+  "Olá! Vi o catálogo online e gostaria de mais informações.": [
+   "Hello! I saw the online catalog and would like more information.",
+   "¡Hola! Vi el catálogo en línea y me gustaría más información."
+  ],
+  "Diferença entre A1 e A2": [
+   "Difference between A1 and A2",
+   "Diferencia entre A1 y A2"
+  ],
+  "Controlador de velocidade": [
+   "Speed controller",
+   "Controlador de velocidad"
+  ],
+  "Não": [
+   "No",
+   "No"
+  ],
+  "Sim": [
+   "Yes",
+   "Sí"
+  ],
+  "Largura × comprimento": [
+   "Width × length",
+   "Ancho × largo"
+  ],
+  "Eixo mancal": [
+   "Spindle shaft",
+   "Eje con soporte"
+  ],
+  "Sem rebolo com balanceador": [
+   "Without wheel, with balancer",
+   "Sin muela, con balanceador"
+  ],
+  "Simples": [
+   "Basic",
+   "Simple"
+  ],
+  "Kit rampa": [
+   "Ramp kit",
+   "Kit de rampas"
+  ],
+  "Completo": [
+   "Complete",
+   "Completo"
+  ],
+  "Catálogo · Alemão® máquinas e equipamentos para afiação": [
+   "Catalog · Alemão® sharpening machines and tools",
+   "Catálogo · Alemão® máquinas y herramientas de afilado"
+  ],
+  "Catálogo da Alemão®: máquinas para afiar alicate de cutícula, tesouras e facas, equipamentos e peças. Peça pelo WhatsApp.": [
+   "Alemão® catalog: machines to sharpen cuticle nippers, scissors and knives, tools and parts. Order on WhatsApp.",
+   "Catálogo de Alemão®: máquinas para afilar alicates de cutícula, tijeras y cuchillos, herramientas y repuestos. Pida por WhatsApp."
+  ],
+  "Catálogo Alemão® · máquinas e equipamentos para afiação": [
+   "Alemão® Catalog · sharpening machines and tools",
+   "Catálogo Alemão® · máquinas y herramientas de afilado"
+  ],
+  "Voltar para os links": [
+   "Back to links",
+   "Volver a los enlaces"
+  ],
+  "Catálogo": [
+   "Catalog",
+   "Catálogo"
+  ],
+  "Máquinas para afiar alicate de cutícula, tesouras e facas, equipamentos e peças. Toque em": [
+   "Machines to sharpen cuticle nippers, scissors and knives, plus tools and parts. Prices in Brazilian reais (R$). Tap",
+   "Máquinas para afilar alicates de cutícula, tijeras y cuchillos, herramientas y repuestos. Precios en reales brasileños (R$). Toque en"
+  ],
+  "e a mensagem já vai pronta com o item escolhido.": [
+   "and the message is ready with the chosen item.",
+   "y el mensaje ya va listo con el artículo elegido."
+  ],
+  "Buscar máquina ou peça (ex.: A2, rampa, motor)": [
+   "Search machine or part (e.g. A2, ramp, motor)",
+   "Buscar máquina o repuesto (ej.: A2, rampa, motor)"
+  ],
+  "Nada encontrado. Tente outro nome ou fale com a gente no WhatsApp.": [
+   "Nothing found. Try another name or talk to us on WhatsApp.",
+   "No se encontró nada. Pruebe otro nombre o hable con nosotros por WhatsApp."
+  ],
+  "Dúvidas sobre qual peça serve na sua máquina?": [
+   "Not sure which part fits your machine?",
+   "¿Dudas sobre qué repuesto sirve para su máquina?"
+  ],
+  "Fale com a gente no WhatsApp antes de pedir. Atendimento de {{c.horario}}.": [
+   "Talk to us on WhatsApp before ordering. Business hours: {{c.horario}}.",
+   "Hable con nosotros por WhatsApp antes de pedir. Atención de {{c.horario}}."
+  ],
+  "Disponível em": [
+   "Available in",
+   "Disponible en"
+  ],
+  "Olá! Vi no catálogo em PDF e tenho interesse na *{nome}* ({preco}).": [
+   "Hello! I saw it in the PDF catalog and I'm interested in the *{nome}* ({preco}).",
+   "¡Hola! Lo vi en el catálogo en PDF y me interesa la *{nome}* ({preco})."
+  ],
+  "Olá! Vi no catálogo em PDF e quero o equipamento *{nome}* ({preco}).": [
+   "Hello! I saw it in the PDF catalog and I want the tool *{nome}* ({preco}).",
+   "¡Hola! Lo vi en el catálogo en PDF y quiero la herramienta *{nome}* ({preco})."
+  ],
+  "Olá! Vi no catálogo em PDF e quero a peça *{nome}* ({preco}).": [
+   "Hello! I saw it in the PDF catalog and I want the part *{nome}* ({preco}).",
+   "¡Hola! Lo vi en el catálogo en PDF y quiero el repuesto *{nome}* ({preco})."
+  ],
+  "CATÁLOGO": [
+   "CATALOG",
+   "CATÁLOGO"
+  ],
+  "Máquinas para afiar alicate de cutícula, tesouras e facas": [
+   "Machines to sharpen cuticle nippers, scissors and knives",
+   "Máquinas para afilar alicates de cutícula, tijeras y cuchillos"
+  ],
+  "Peças e acessórios": [
+   "Parts and accessories",
+   "Repuestos y accesorios"
+  ],
+  "Olá! Vi o catálogo em PDF e gostaria de mais informações.": [
+   "Hello! I saw the PDF catalog and would like more information.",
+   "¡Hola! Vi el catálogo en PDF y me gustaría más información."
+  ],
+  "Pedidos pelo WhatsApp": [
+   "Orders on WhatsApp",
+   "Pedidos por WhatsApp"
+  ],
+  "Toque em qualquer produto para pedir pelo WhatsApp": [
+   "Tap any product to order on WhatsApp · Prices in Brazilian reais (R$)",
+   "Toque cualquier producto para pedir por WhatsApp · Precios en reales brasileños (R$)"
+  ],
+  "Pedidos e dúvidas:": [
+   "Orders and questions:",
+   "Pedidos y dudas:"
+  ],
+  "Todas as máquinas e as peças pintadas em laranja e verde · {garantia} de garantia nas máquinas.": [
+   "All machines and painted parts available in orange and green · {garantia} warranty on machines.",
+   "Todas las máquinas y los repuestos pintados en naranja y verde · {garantia} de garantía en las máquinas."
+  ],
+  "Preços sujeitos a alteração. Consulte disponibilidade, frete e formas de pagamento pelo WhatsApp.": [
+   "Prices in Brazilian reais (R$), subject to change. Ask about availability, shipping to your country and payment methods on WhatsApp.",
+   "Precios en reales brasileños (R$), sujetos a cambios. Consulte disponibilidad, envío a su país y formas de pago por WhatsApp."
+  ]
+ }
+}
