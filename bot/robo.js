@@ -46,9 +46,9 @@ const primeiroNome = (n) => (n || '').split(' ')[0];
 // ---------- montadores de mensagem ----------
 const base = (to) => ({ messaging_product: 'whatsapp', recipient_type: 'individual', to });
 const texto = (to, body) => ({ ...base(to), type: 'text', text: { body, preview_url: true } });
-const botoes = (to, body, lista) => ({
+const botoes = (to, body, lista, fotoUrl) => ({
   ...base(to), type: 'interactive',
-  interactive: { type: 'button', body: { text: body },
+  interactive: { type: 'button', ...(fotoUrl ? { header: { type: 'image', image: { link: fotoUrl } } } : {}), body: { text: body },
     action: { buttons: lista.map(([id, title]) => ({ type: 'reply', reply: { id, title: corta(title, 20) } })) } },
 });
 const listaMsg = (to, body, botao, secoes, rodape) => ({
@@ -168,9 +168,10 @@ for (const entry of corpo.entry || []) {
           const p = (await carregaProdutos()).find((x) => x.id === id.slice(4));
           if (!p) { envia(phoneId, listaMaquinas(de, produtos)); continue; }
           c.escolha = p.id;
-          envia(phoneId, imagem(de, CFG.fotoWa(p.id), `✅ Você escolheu:\n*${p.nome}*\n${real(p.preco)}`));
-          envia(phoneId, botoes(de, 'Quer seguir com o pedido dessa máquina?',
-            [['vend_' + p.id, 'Quero essa'], ['menu_maquinas', 'Ver outras'], ['menu_catalogo', 'Catálogo PDF']]));
+          // foto + nome + preço + botões numa mensagem só (não tem como chegarem fora de ordem)
+          envia(phoneId, botoes(de, `✅ Você escolheu:\n*${p.nome}*\n${real(p.preco)}\n\nQuer seguir com o pedido dessa máquina?`,
+            [['vend_' + p.id, 'Quero essa'], ['menu_maquinas', 'Ver outras'], ['menu_catalogo', 'Catálogo PDF']],
+            CFG.fotoWa(p.id)));
         } else if (id === 'menu_vendedor' || id.startsWith('vend_') || id === 'midia') {
           const p = id.startsWith('vend_') ? (await carregaProdutos()).find((x) => x.id === id.slice(5)) : null;
           let msg = p ? `Perfeito! Vou passar seu pedido da *${p.nome}* para o vendedor. 🙌`
