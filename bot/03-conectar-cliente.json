@@ -1,0 +1,263 @@
+{
+  "name": "WhatsApp · Conectar cliente (Embedded Signup)",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "conectar",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "https://www.bhcomunicacao.com.br"
+        }
+      },
+      "name": "Página /conectar (POST)",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "b2908cd2-9793-4ddf-9c44-117d7f24abb1"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Lê o que a página /conectar mandou (vem como texto simples para evitar a pré-checagem do navegador)\nconst j = $input.first().json;\nlet b = j.body;\nif (typeof b === 'string') { try { b = JSON.parse(b); } catch (e) { b = {}; } }\nif (b && !b.code && Object.keys(b).length === 1) { try { b = JSON.parse(Object.keys(b)[0]); } catch (e) {} }\nb = b || {};\nconst ok = typeof b.code === 'string' && b.code.length > 10;\nreturn [{ json: {\n  temCodigo: ok, code: ok ? b.code : null, evento: b.evento || null,\n  waba_id: b.waba_id || null, phone_number_id: b.phone_number_id || null, business_id: b.business_id || null,\n  coex: b.evento === 'FINISH_WHATSAPP_BUSINESS_APP_ONBOARDING',\n  publico: { evento: b.evento || null },\n} }];"
+      },
+      "name": "Valida",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        220,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "loose"
+          },
+          "conditions": [
+            {
+              "id": "c1",
+              "leftValue": "={{ $json.temCodigo }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "name": "Tem código?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2,
+      "position": [
+        440,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "https://graph.facebook.com/v25.0/oauth/access_token",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpQueryAuth",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "client_id",
+              "value": "2228283811398780"
+            },
+            {
+              "name": "code",
+              "value": "={{ $json.code }}"
+            }
+          ]
+        },
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "name": "Troca o código",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        -100
+      ],
+      "credentials": {
+        "httpQueryAuth": {
+          "id": "TROCAR",
+          "name": "Meta · chave secreta do app"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// Nó \"Liga o cliente\" do fluxo \"WhatsApp · Conectar cliente (Embedded Signup)\".\n// Entrada: resposta da troca do código (nó \"Troca o código\", com o token de negócio do cliente).\n// Faz, servidor a servidor: assina o app na conta do cliente, sincroniza contatos e histórico (coexistência)\n// ou registra o número (número novo), lê o número e guarda tudo nos dados do fluxo.\n// O token NUNCA sai daqui: não vai na resposta para a página nem no aviso.\nconst G = 'https://graph.facebook.com/v25.0';\nconst d = $('Valida').first().json;\nconst tok = $json.access_token;\nif (!tok) {\n  return [{ json: { ok: false, etapa: 'troca do código', erro: ($json.error && $json.error.message) || 'sem token', ...d.publico } }];\n}\nconst chama = async (method, url, body) => {\n  try {\n    const r = await this.helpers.httpRequest({ method, url, headers: { Authorization: 'Bearer ' + tok }, body, json: true, timeout: 15000 });\n    return { ok: true, r };\n  } catch (e) {\n    const b = e.response && e.response.body;\n    return { ok: false, erro: (b && b.error && b.error.message) || e.message };\n  }\n};\n\nlet waba = d.waba_id;\nlet phone = d.phone_number_id;\nconst passos = {};\n\n// Se a página não recebeu os ids, descobre pelo token (o token só enxerga a conta autorizada)\nif (!waba) {\n  const dbg = await chama('GET', `${G}/debug_token?input_token=${tok}`);\n  const g = dbg.ok && (dbg.r.data.granular_scopes || []).find((s) => s.scope === 'whatsapp_business_management');\n  waba = g && g.target_ids && g.target_ids[0];\n}\nif (waba && !phone) {\n  const pn = await chama('GET', `${G}/${waba}/phone_numbers?fields=id,display_phone_number,verified_name`);\n  phone = pn.ok && pn.r.data && pn.r.data[0] && pn.r.data[0].id;\n}\n\npassos.assinatura = waba ? await chama('POST', `${G}/${waba}/subscribed_apps`) : { ok: false, erro: 'sem waba_id' };\n\nlet pin = null;\nif (d.coex && phone) {\n  // Coexistência: NÃO registrar o número. Sincronizar em até 24 h (cada um só pode ser pedido 1 vez).\n  passos.contatos = await chama('POST', `${G}/${phone}/smb_app_data`, { messaging_product: 'whatsapp', sync_type: 'smb_app_state_sync' });\n  passos.historico = await chama('POST', `${G}/${phone}/smb_app_data`, { messaging_product: 'whatsapp', sync_type: 'history' });\n} else if (phone) {\n  pin = String(Math.floor(100000 + Math.random() * 900000));\n  passos.registro = await chama('POST', `${G}/${phone}/register`, { messaging_product: 'whatsapp', pin });\n}\n\nconst info = phone ? await chama('GET', `${G}/${phone}?fields=display_phone_number,verified_name,quality_rating`) : { ok: false };\nconst numero = info.ok ? info.r.display_phone_number : null;\nconst nome = info.ok ? info.r.verified_name : null;\n\n// Guarda no servidor (dados estáticos deste fluxo, no banco do n8n). Não aparece na resposta nem no aviso.\nconst est = $getWorkflowStaticData('global');\nest.clientes = est.clientes || {};\nest.clientes[phone || waba || ('sem-id-' + Date.now())] = {\n  conectado_em: new Date().toISOString(), waba_id: waba, phone_number_id: phone, business_id: d.business_id,\n  numero, nome, coexistencia: d.coex, evento: d.evento, token: tok, pin,\n  passos: Object.fromEntries(Object.entries(passos).map(([k, v]) => [k, v.ok ? 'ok' : 'ERRO: ' + v.erro])),\n};\n\nconst ok = !!(waba && phone && passos.assinatura.ok);\nreturn [{ json: {\n  ok, numero, nome, coexistencia: d.coex, waba_id: waba, phone_number_id: phone,\n  passos: Object.fromEntries(Object.entries(passos).map(([k, v]) => [k, v.ok ? 'ok' : 'ERRO: ' + v.erro])),\n} }];\n"
+      },
+      "name": "Liga o cliente",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ JSON.stringify({ ok: $json.ok, numero: $json.numero || null }) }}",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "name": "Responde à página",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1100,
+        -100
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://graph.facebook.com/v25.0/1490805037445686/messages",
+        "authentication": "predefinedCredentialType",
+        "nodeCredentialType": "whatsAppApi",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ messaging_product: 'whatsapp', to: '5517981123841', type: 'text', text: { body: ($('Liga o cliente').first().json.ok ? '✅ Cliente conectado' : '⚠️ Conexão incompleta') + '\\nNúmero: ' + ($('Liga o cliente').first().json.numero || '?') + ' · ' + ($('Liga o cliente').first().json.nome || '') + '\\nCoexistência: ' + ($('Liga o cliente').first().json.coexistencia ? 'sim' : 'não') + '\\nPassos: ' + JSON.stringify($('Liga o cliente').first().json.passos || {}) + '\\nVeja no n8n: fluxo Conectar cliente.' } }) }}",
+        "options": {
+          "response": {
+            "response": {
+              "neverError": true
+            }
+          }
+        }
+      },
+      "name": "Avisa o Bruno",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        1320,
+        -100
+      ],
+      "credentials": {
+        "whatsAppApi": {
+          "id": "LHwx9b9DaBkdRv7w",
+          "name": "WhatsApp account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={\"ok\":false,\"erro\":\"sem código\"}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "name": "Recusa",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        660,
+        120
+      ]
+    }
+  ],
+  "connections": {
+    "Página /conectar (POST)": {
+      "main": [
+        [
+          {
+            "node": "Valida",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Valida": {
+      "main": [
+        [
+          {
+            "node": "Tem código?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Tem código?": {
+      "main": [
+        [
+          {
+            "node": "Troca o código",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Recusa",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Troca o código": {
+      "main": [
+        [
+          {
+            "node": "Liga o cliente",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Liga o cliente": {
+      "main": [
+        [
+          {
+            "node": "Responde à página",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Responde à página": {
+      "main": [
+        [
+          {
+            "node": "Avisa o Bruno",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "timezone": "America/Sao_Paulo",
+    "saveDataSuccessExecution": "all",
+    "saveDataErrorExecution": "all",
+    "executionOrder": "v1"
+  }
+}
