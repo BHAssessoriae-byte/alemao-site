@@ -14,7 +14,9 @@ const CFG = {
   videos: 'https://www.alemaoafiacao.com.br/videos/',
   fotoWa: (id) => `https://www.alemaoafiacao.com.br/catalogo/img/wa/${id}.jpg`,
   horarioTexto: 'segunda a sexta, das 8h às 20h',
-  abre: 8, fecha: 20, dias: [1, 2, 3, 4, 5], // sábado: A CONFIRMAR com o cliente (por enquanto fechado)
+  abre: 8, fecha: 20, dias: [1, 2, 3, 4, 5], // confirmado 24/11: não abre sábado, domingo nem feriado
+  // Equipe (confirmado 24/11): vendas e marketing = Letícia; financeiro = Alessandra; dúvidas técnicas das máquinas = Alemão (dono)
+  vendas: 'Letícia', financeiro: 'Alessandra', tecnico: 'Alemão',
   fuso: 'America/Sao_Paulo',
   pausaHoras: 12,       // depois de passar para o vendedor, o robô fica calado por este tempo
   avisoForaHoras: 6,    // aviso de "fora do horário" no máximo 1 vez a cada 6 h por cliente
@@ -145,7 +147,11 @@ for (const entry of corpo.entry || []) {
         else if (/catalog|pdf/.test(txt)) id = 'menu_catalogo';
         else if (/video|tutorial|youtube/.test(txt)) id = 'menu_videos';
         else if (/horario|abre|fecha|funciona|aberto/.test(txt)) id = 'menu_horario';
-        else if (/vendedor|atendente|humano|pessoa|comprar|pedido|fechar|orcamento|frete|prazo|garantia|pagamento|pix|parcel|manual/.test(txt)) id = 'menu_vendedor';
+        else if (/pagamento|pagar|pix|link de pag|boleto|cartao/.test(txt)) id = 'faq_pagamento';
+        else if (/frete|envio|entrega|transportadora/.test(txt)) id = 'faq_frete';
+        else if (/garantia/.test(txt)) id = 'faq_garantia';
+        else if (/manual/.test(txt)) id = 'faq_manual';
+        else if (/vendedor|atendente|humano|pessoa|comprar|pedido|fechar|orcamento|prazo|parcel/.test(txt)) id = 'menu_vendedor';
         else if (/maquina|modelo|preco|valor|quanto|a1|a2|a3|a4|a5|tf1|tf2/.test(txt)) id = 'menu_maquinas';
         else if (m.type !== 'text' && m.type !== 'interactive') id = 'midia';
         else id = 'naosei';                                  // TODO etapa IA: dúvidas simples vão para o Claude Haiku
@@ -158,6 +164,22 @@ for (const entry of corpo.entry || []) {
           envia(phoneId, documento(de, CFG.catalogoPdf, 'Catalogo Alemao Afiacao.pdf', 'Catálogo completo da Alemão Afiação 📘'));
           envia(phoneId, botoes(de, `Se preferir, veja o catálogo no site, com fotos e botão de pedido:\n${CFG.catalogoSite}`,
             [['menu_maquinas', 'Escolher máquina'], ['menu_vendedor', 'Falar c/ vendedor']]));
+        } else if (id === 'faq_pagamento') {
+          // confirmado 24/11: Pix ou link de pagamento, enviado por vendas/financeiro logo após o pedido
+          envia(phoneId, botoes(de, '💳 O pagamento é por *Pix* ou *link de pagamento*.\nAssim que você escolhe a máquina, nosso setor de vendas e financeiro te envia o pagamento por aqui.',
+            [['menu_maquinas', 'Escolher máquina'], ['menu_vendedor', 'Falar c/ vendedor']]));
+        } else if (id === 'faq_frete') {
+          // confirmado 24/11: frete calculado pelo financeiro (valor e prazo nunca pelo robô)
+          envia(phoneId, texto(de, `🚚 O frete é calculado pelo nosso financeiro (${CFG.financeiro}). Entregamos em todo o Brasil.` +
+            (fechado ? `\nVou deixar seu pedido de cálculo registrado; ela responde ${proximaAbertura()}.` : '\nVou chamar a equipe para calcular para você, aqui mesmo.')));
+          c.pausaAte = agora + CFG.pausaHoras * 3600e3; c.transferido = agora;
+        } else if (id === 'faq_garantia') {
+          // confirmado 05/11: todas as máquinas têm 90 dias de garantia
+          envia(phoneId, botoes(de, '🛡️ Todas as nossas máquinas têm *90 dias de garantia*.',
+            [['menu_maquinas', 'Ver máquinas'], ['menu_vendedor', 'Falar c/ vendedor']]));
+        } else if (id === 'faq_manual') {
+          // confirmado 24/11: o manual sempre vai junto com a máquina; há vídeos tutoriais
+          envia(phoneId, texto(de, `📘 O manual sempre vai junto com a máquina.\n🎬 Também temos vídeos tutoriais: ${CFG.videos}`));
         } else if (id === 'menu_videos') {
           envia(phoneId, texto(de, `🎬 Vídeos dos modelos, testes de afiação e dicas de uso:\n${CFG.videos}`));
         } else if (id === 'menu_horario') {
@@ -174,10 +196,10 @@ for (const entry of corpo.entry || []) {
             CFG.fotoWa(p.id)));
         } else if (id === 'menu_vendedor' || id.startsWith('vend_') || id === 'midia') {
           const p = id.startsWith('vend_') ? (await carregaProdutos()).find((x) => x.id === id.slice(5)) : null;
-          let msg = p ? `Perfeito! Vou passar seu pedido da *${p.nome}* para o vendedor. 🙌`
-            : id === 'midia' ? 'Recebi sua mensagem! Vou passar para o vendedor, que ouve/vê e te responde. 🙌'
-            : 'Certo! Vou chamar o vendedor. 🙌';
-          msg += fechado ? `\nEle continua por aqui mesmo, nesta conversa, ${proximaAbertura()}.` : '\nEle continua por aqui mesmo, nesta conversa, em instantes.';
+          let msg = p ? `Perfeito! 🙌 A ${CFG.vendas}, do nosso setor de vendas, vai continuar seu pedido da *${p.nome}* e te enviar o pagamento (Pix ou link de pagamento).`
+            : id === 'midia' ? 'Recebi sua mensagem! 🙌 Nossa equipe ouve/vê e te responde.'
+            : 'Certo! 🙌 Vou chamar nossa equipe.';
+          msg += fechado ? `\nO atendimento continua por aqui mesmo, nesta conversa, ${proximaAbertura()}.` : '\nO atendimento continua por aqui mesmo, nesta conversa, em instantes.';
           envia(phoneId, texto(de, msg));
           // pausa: o robô fica calado para este cliente (o vendedor assume)
           c.pausaAte = agora + CFG.pausaHoras * 3600e3;
