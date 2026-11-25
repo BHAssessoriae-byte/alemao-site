@@ -201,7 +201,8 @@ for (const entry of corpo.entry || []) {
         if (!e.to) continue;
         const c = est.c[e.to] = est.c[e.to] || {};
         c.pausaAte = Date.now() + CFG.pausaHoras * 3600e3;
-        c.vendedorEm = Date.now(); c.ultima = Date.now();
+        c.vendedorEm = Date.now(); c.phoneId = phoneId;   // conta para o tempo de finalização do atendimento
+        c.ativo = true; delete c.finalizado;
       }
       continue;
     }
@@ -215,7 +216,8 @@ for (const entry of corpo.entry || []) {
       const nome = primeiroNome(((v.contacts || []).find((c) => c.wa_id === de) || {}).profile?.name);
       const c = est.c[de] = est.c[de] || {};
       const agora = Date.now();
-      c.ultima = agora;
+      c.ultima = agora; c.phoneId = phoneId;
+      c.ativo = true; delete c.finalizado;            // conversa aberta (o nó "Finaliza atendimentos" fecha após 5 h sem resposta)
 
       // marca como lida (os dois risquinhos azuis)
       envia(phoneId, { messaging_product: 'whatsapp', status: 'read', message_id: m.id });
@@ -330,6 +332,6 @@ for (const entry of corpo.entry || []) {
 }
 
 // limpa clientes sem conversa há mais de 30 dias
-for (const [k, c] of Object.entries(est.c)) if (Date.now() - (c.ultima || 0) > 30 * 864e5) delete est.c[k];
+for (const [k, c] of Object.entries(est.c)) if (Date.now() - Math.max(c.ultima || 0, c.vendedorEm || 0) > 30 * 864e5) delete est.c[k];
 
 return saida;
