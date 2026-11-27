@@ -27,7 +27,7 @@ for (let i = 0; i < itens.length; i++) {
   } else if (tag) {
     c.hist = [];
     saida.push({ json: { url, payload: texto(tag[1] === 'TECNICO' ? o.transfTecnico : o.transfVendedor) } });
-    c.pausaAte = Date.now() + o.pausaMs; c.transferido = Date.now();
+    c.pausaAte = Date.now() + o.pausaMs; c.transferido = Date.now(); c.transfAberto = !!o.aberto;
   } else {
     const resp = corta(txt, 900);
     c.hist = (c.hist || []).concat([{ role: 'assistant', content: resp }]).slice(-6);

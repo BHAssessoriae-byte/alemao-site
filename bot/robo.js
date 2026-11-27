@@ -274,7 +274,7 @@ for (const entry of corpo.entry || []) {
           // confirmado 24/11: frete calculado pelo financeiro (valor e prazo nunca pelo robô)
           envia(phoneId, texto(de, `🚚 O frete é calculado pelo nosso financeiro (${CFG.financeiro}). Entregamos em todo o Brasil.` +
             (fechado ? `\nVou deixar seu pedido de cálculo registrado; ela responde ${proximaAbertura()}.` : '\nVou chamar a equipe para calcular para você, aqui mesmo.')));
-          c.pausaAte = agora + CFG.pausaHoras * 3600e3; c.transferido = agora;
+          c.pausaAte = agora + CFG.pausaHoras * 3600e3; c.transferido = agora; c.transfAberto = !fechado;
         } else if (id === 'faq_garantia') {
           // confirmado 05/11: todas as máquinas têm 90 dias de garantia
           envia(phoneId, botoes(de, '🛡️ Todas as nossas máquinas têm *90 dias de garantia*.',
@@ -305,7 +305,7 @@ for (const entry of corpo.entry || []) {
           envia(phoneId, texto(de, msg));
           // pausa: o robô fica calado para este cliente (o vendedor assume)
           c.pausaAte = agora + CFG.pausaHoras * 3600e3;
-          c.transferido = agora;
+          c.transferido = agora; c.transfAberto = !fechado;   // "Fila e finalização" avisa a fila após 5 min sem resposta do vendedor
           // coexistência: cada resposta do vendedor pelo app (smb_message_echoes) renova a pausa
         } else if (id === 'naosei' && m.type === 'text' && CFG.ia.ligada && iaPode(c)) {
           // a pergunta vai para o nó "Pergunta ao Claude"; a resposta volta pelo nó "Resposta da IA"
@@ -313,12 +313,12 @@ for (const entry of corpo.entry || []) {
           saida.push({ json: { ia: true, phoneId, de, nome, corpo: await pedidoIA(c, m.text.body, nome, fechado),
             transfVendedor: `Essa eu vou passar para a ${CFG.vendas}, do nosso setor de vendas, te responder certinho. 🙌\n` + volta,
             transfTecnico: `Boa pergunta! Vou passar para o ${CFG.tecnico}, que tira as dúvidas técnicas das máquinas. 🔧\n` + volta,
-            pausaMs: CFG.pausaHoras * 3600e3, graph: CFG.graph } });
+            pausaMs: CFG.pausaHoras * 3600e3, graph: CFG.graph, aberto: !fechado } });
         } else if (id === 'naosei' && m.type === 'text' && CFG.ia.ligada) {
           // passou do limite diário de IA para este cliente → vendedor
           envia(phoneId, texto(de, 'Vou chamar nossa equipe para te responder certinho. 🙌\n' +
             (fechado ? `O atendimento continua por aqui mesmo, ${proximaAbertura()}.` : 'O atendimento continua por aqui mesmo, em instantes.')));
-          c.pausaAte = agora + CFG.pausaHoras * 3600e3; c.transferido = agora;
+          c.pausaAte = agora + CFG.pausaHoras * 3600e3; c.transferido = agora; c.transfAberto = !fechado;
         } else {
           envia(phoneId, botoes(de, 'Ainda não sei responder isso por aqui 🙂\nPosso te mostrar as máquinas ou chamar o vendedor:',
             [['menu_maquinas', 'Ver máquinas'], ['menu_catalogo', 'Catálogo PDF'], ['menu_vendedor', 'Falar c/ vendedor']]));
